@@ -95,15 +95,38 @@ for t in body.text.splitlines():
     l.debug("line: %s", t.decode())
 
 assert_q = JAVA_LANGUAGE.query(f"""(assert_statement) @assert""")
+divide_q = JAVA_LANGUAGE.query(
+f"""(binary_expression
+       operator: "/"
+       right: (decimal_integer_literal) @rhs
+     ) @expr""")
 
-for node, t in assert_q.captures(body).items():
-    if t == "assert":
-        break
-else:
-    l.debug("Did not find any assertions")
-    print("assertion error;20%")
-    sys.exit(0)
 
+# for node, t in assert_q.captures(body).items():
+#     if t == "assert":
+#         print("assertion error;80%")
+#         break
+# else:
+#     l.debug("Did not find any assertions")
+#     print("assertion error;20%")
+#     sys.exit(0)
+
+pattern = r"(\/)"
+print(divide_q.captures)
+for nodes in divide_q.captures(tree.root_node)["expr"]:
+    print("node-0: ", nodes.text.decode())
+    hest = re.search(pattern, nodes.text.decode()).group(0)
+    if hest == "/":
+        for nodes in divide_q.captures(tree.root_node)["rhs"]:
+            print("node-1: ", nodes.text.decode())
+            hej = nodes.text.decode()
+            if hej == "0":
+                print("divide by zero;80%")
+        print("divide by zero;20%")
+    else:
+        l.debug("Did not find any divide by zero")
+        print("divide by zero;25%")
+        
 l.debug("Found assertion")
 print("assertion error;80%")
 sys.exit(0)
