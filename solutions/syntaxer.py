@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" A very stupid syntatic analysis, that only checks for assertion errors.
+""" A very stupid syntatic analysis, that only checks for assertion errors and now also some division by zero errors. 
 """
 
 import os
@@ -95,15 +95,40 @@ for t in body.text.splitlines():
     l.debug("line: %s", t.decode())
 
 assert_q = JAVA_LANGUAGE.query(f"""(assert_statement) @assert""")
+divide_q = JAVA_LANGUAGE.query(f"""(binary_expression operator: "/" right: (_) @rhs) @expr""")
 
-for node, t in assert_q.captures(body).items():
-    if node == "assert":
-        break
+"""
+python3 solutions/syntaxer.py "jpamb.cases.Simple.divideByN:(I)I"
+python3 solutions/syntaxer.py "jpamb.cases.Simple.divideByZero:()I"
+python3 solutions/syntaxer.py "jpamb.cases.Simple.assertFalse:()V"
+python3 solutions/syntaxer.py "jpamb.cases.Tricky.collatz:(I)V"
+
+
+-> vil altid fejler som koden er nu, da jeg ikke tjekker for evighedsløkker... hmm
+python3 solutions/syntaxer.py "jpamb.cases.Loops.neverAsserts:()V"
+python3 solutions/syntaxer.py 'jpamb.cases.Loops.neverDivides:()I'
+
+
+python3 ./bin/evaluate.py -vv syntaxer.yaml -o syntaxer.json 
+python3 ./bin/evaluate.py -vv --filter-methods=Simple syntaxer.yaml -o syntaxer.json 
+"""
+
+if 'rhs' in dict(divide_q.captures(body).items()):
+    for node in divide_q.captures(body)['rhs']:
+         n = node.text.decode()
+         if n == '0':
+             print("divide by zero;90%")
+         else:
+             print("divide by zero;40%")
 else:
-    l.debug("Did not find any assertions")
-    print("assertion error;20%")
-    sys.exit(0)
+    l.debug("Did not find any divide by zero")
+    print("divide by zero;10%")
 
-l.debug("Found assertion")
-print("assertion error;80%")
+if 'assert' in dict(assert_q.captures(body).items()):
+    print("assertion error;80%")
+else:
+    # l.debug("Did not find any assertions")
+    print("assertion error;20%")
+
+
 sys.exit(0)
