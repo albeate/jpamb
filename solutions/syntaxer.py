@@ -96,6 +96,28 @@ for t in body.text.splitlines():
 
 assert_q = JAVA_LANGUAGE.query(f"""(assert_statement) @assert""")
 divide_q = JAVA_LANGUAGE.query(f"""(binary_expression operator: "/" right: (_) @rhs) @expr""")
+while_q = JAVA_LANGUAGE.query(
+f"""
+(block
+  (local_variable_declaration
+    declarator: 
+      (variable_declarator
+        name: (identifier) @varname
+        value: (_) @varval
+      )
+   )
+  (while_statement
+    condition: 
+      (_
+        (binary_expression
+          left: (identifier) @lhs
+          operator: ">" 
+          right: (_) @rhs
+        ) @expr
+      )
+   ) @while
+ )
+""")
 
 """
 python3 solutions/syntaxer.py "jpamb.cases.Simple.divideByN:(I)I"
@@ -109,17 +131,31 @@ python3 solutions/syntaxer.py "jpamb.cases.Loops.neverAsserts:()V"
 python3 solutions/syntaxer.py 'jpamb.cases.Loops.neverDivides:()I'
 
 
-python3 ./bin/evaluate.py -vv syntaxer.yaml -o syntaxer.json 
+python3 ./bin/evaluate.py -vv experiment.yaml -o experiment.json 
 python3 ./bin/evaluate.py -vv --filter-methods=Simple syntaxer.yaml -o syntaxer.json 
 """
 
+######################
+## to-do :: get them all together ##
+def tjekWhileLoop(while_q):
+    if 'while' in dict(while_q.captures(body).items()):
+        varname = while_q.captures(body)['varname'][0].text.decode()
+        varval = while_q.captures(body)['varval'][0].text.decode()
+        lhs = while_q.captures(body)['lhs'][0].text.decode()
+        rhs = while_q.captures(body)['rhs'][0].text.decode()
+        if varname == lhs and varval == rhs:
+            return True
+    return False
+
+######################
+
 if 'rhs' in dict(divide_q.captures(body).items()):
     for node in divide_q.captures(body)['rhs']:
-         n = node.text.decode()
-         if n == '0':
-             print("divide by zero;90%")
-         else:
-             print("divide by zero;40%")
+        n = node.text.decode()
+        if n == '0':
+            print("divide by zero;90%")
+        else:
+            print("divide by zero;80%")
 else:
     l.debug("Did not find any divide by zero")
     print("divide by zero;10%")
@@ -127,7 +163,7 @@ else:
 if 'assert' in dict(assert_q.captures(body).items()):
     print("assertion error;80%")
 else:
-    # l.debug("Did not find any assertions")
+    l.debug("Did not find any assertions")
     print("assertion error;20%")
 
 
