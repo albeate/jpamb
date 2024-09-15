@@ -96,14 +96,56 @@ for t in body.text.splitlines():
 
 assert_q = JAVA_LANGUAGE.query(f"""(assert_statement) @assert""")
 
-for node, t in assert_q.captures(body).items():
-    if t == "assert":
-        break
+## recursiveness, nestedness? 
+## to-do: tilføj (method_name)
+##name: (identifier) @method-name (#eq? @method-name "{method_name}")
+divide_q = JAVA_LANGUAGE.query(
+f"""
+(method_declaration
+  name: (identifier) @method-name (#eq? @method-name "{method_name}")
+  body: (block 
+        (return_statement 
+        (binary_expression 
+           operator: "/"
+           right: (_) @rhs
+           ) @expr
+)))
+ """)
+
+"""
+python3 solutions/syntaxer.py "jpamb.cases.Simple.divideByN:(I)I"
+python3 solutions/syntaxer.py "jpamb.cases.Simple.divideByZero:()I"
+python3 solutions/syntaxer.py "jpamb.cases.Simple.assertFalse:()V"
+python3 ./bin/evaluate.py sample.yaml -o sample.json 
+"""
+
+# dict_ = dict(divide_q.captures(tree.root_node).items())
+# print("dict_: ", dict_)
+# print("bool(dict_): ", bool(dict_))
+# print('rhs' in dict_)
+if 'rhs' in dict(divide_q.captures(tree.root_node).items()):
+    print("divide by zero;80%")
+else:
+    l.debug("Did not find any divide by zero")
+    print("divide by zero;20%")
+
+if 'assert' in dict(assert_q.captures(body).items()):
+    print("assertion error;80%")
 else:
     l.debug("Did not find any assertions")
     print("assertion error;20%")
-    sys.exit(0)
 
-l.debug("Found assertion")
-print("assertion error;80%")
+# for node, t in assert_q.captures(body).items():
+#     print("node: ", node)
+#     if node == "assert":
+#         print("assertion error;80%")
+#         break
+#     else:
+#         l.debug("Did not find any assertions")
+#         print("assertion error;20%")
+#         break
+
+# l.debug("Found assertion")
+# print("assertion error;80%")
+
 sys.exit(0)
