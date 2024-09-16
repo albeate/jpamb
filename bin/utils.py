@@ -9,7 +9,7 @@ import sys
 import csv
 import json
 
-from loguru import logger
+import loguru
 
 W = TypeVar("W", bound=TextIO)
 
@@ -26,7 +26,14 @@ QUERIES = [
 prim = bool | int
 
 
-def build_c(input_file):
+def re_parser(ctx_, parms_, expr):
+    import re
+
+    if expr:
+        return re.compile(expr)
+
+
+def build_c(input_file, logger):
     """Build a C file (hopefully platform independent)"""
     from os import environ
     import platform
@@ -49,12 +56,25 @@ def build_c(input_file):
 
 def setup_logger(verbose):
     LEVELS = ["SUCCESS", "INFO", "DEBUG", "TRACE"]
-    logger.remove()
-    logger.add(
-        sys.stderr,
-        format="<green>{elapsed}</green> | <level>{level: <8}</level> | <red>{extra[process]:<8}</red> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
-        level=LEVELS[verbose],
-    )
+    from loguru import logger
+
+    lvl = LEVELS[verbose]
+
+    if lvl == "TRACE":
+        logger.remove()
+        logger.add(
+            sys.stderr,
+            format="<green>{elapsed}</green> | <level>{level: <8}</level> | <red>{extra[process]:<8}</red> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
+            level=LEVELS[verbose],
+        )
+    else:
+        logger.remove()
+        logger.add(
+            sys.stderr,
+            format="<red>{extra[process]:<8}</red>: <level>{message}</level>",
+            level=LEVELS[verbose],
+        )
+
     return logger.bind(process="main")
 
 
@@ -69,7 +89,7 @@ def print_prim(i: prim, file: W = sys.stdout) -> W:
     return file
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, order=True)
 class Input:
     val: tuple[prim, ...]
 
@@ -119,6 +139,8 @@ def run_cmd(cmd: list[str], /, timeout, logger, **kwargs):
 
     logger = logger.bind(process=summary64(cmd))
     cp = None
+    stdout = []
+    tout = None
     try:
         start = monotonic()
         start_ns = perf_counter_ns()
@@ -134,8 +156,6 @@ def run_cmd(cmd: list[str], /, timeout, logger, **kwargs):
             cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True, **kwargs
         )
         assert cp and cp.stdout and cp.stderr
-
-        stdout = []
 
         def log_lines(cp):
             assert cp.stderr
@@ -163,8 +183,11 @@ def run_cmd(cmd: list[str], /, timeout, logger, **kwargs):
 
         logger.debug("done")
         return (stdout[0].strip(), end_ns - start_ns)
-    except subprocess.CalledProcessError:
-        raise
+    except subprocess.CalledProcessError as e:
+        if tout:
+            tout.join()
+        e.stdout = stdout[0].strip()
+        raise e
     except subprocess.TimeoutExpired:
         logger.debug("process timed out, terminating")
         if cp:
@@ -188,7 +211,7 @@ def runtime(*args, enable_assertions=False, **kwargs):
     return subprocess.check_output(pargs, text=True, **kwargs)
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, order=True)
 class Case:
     methodid: str
     input: Input
@@ -265,6 +288,7 @@ class Prediction:
 class Suite:
     workfolder: Path
     queries: list[str]
+    logger: loguru._logger.Logger
 
     @property
     def classfiles(self) -> Path:
@@ -283,18 +307,18 @@ class Suite:
         return stats_folder
 
     def build(self):
-        logger.info("Building the benchmark suite")
+        self.logger.info("Building the benchmark suite")
         subprocess.call(["mvn", "compile"], cwd=self.workfolder)
-        logger.info("Done")
+        self.logger.info("Done")
 
     def update_cases(self):
         stats = self.stats_folder()
-        logger.info("Writing the cases to file")
+        self.logger.info("Writing the cases to file")
         with open(stats / "cases.txt", "w") as f:
             lines = runtime(cwd=self.workfolder).splitlines(keepends=True)
             f.write("".join(sorted(lines)))
 
-        logger.info("Updating the distribution")
+        self.logger.info("Updating the distribution")
 
         with open(stats / "distribution.csv", "w") as f:
             w = csv.writer(f, dialect="unix")
@@ -317,7 +341,7 @@ class Suite:
 
             w.writerow(["-"] + [f"{sums[t] / total:0.4%}" for t in self.queries])
 
-        logger.info("Done")
+        self.logger.info("Done")
 
     def cases(self):
         with open(self.stats_folder() / "cases.txt", "r") as f:
@@ -325,11 +349,11 @@ class Suite:
                 yield Case.from_spec(r[:-1])
 
     def check(self):
-        logger.info("Checking cases")
+        self.logger.info("Checking cases")
         failed = []
 
         for case in self.cases():
-            logger.debug(f"Testing {case!s:<74}")
+            self.logger.debug(f"Testing {case!s:<74}")
             cmd = ["java", "-cp", self.classfiles, "-ea"]
             cmd += ["jpamb.Runtime", case.methodid, str(case.input)]
             timeout = 0.5
@@ -337,45 +361,45 @@ class Suite:
                 result, time = run_cmd(
                     cmd,
                     timeout=timeout,
-                    logger=logger,
+                    logger=self.logger,
                 )
-                logger.debug(f"Got {result!r} in {time}")
+                self.logger.debug(f"Got {result!r} in {time}")
             except subprocess.CalledProcessError:
                 result = None
-                logger.debug(f"Process failed.")
+                self.logger.debug(f"Process failed.")
             except subprocess.TimeoutExpired:
                 result = "*"
-                logger.debug(f"Timed out after {timeout}.")
+                self.logger.debug(f"Timed out after {timeout}.")
 
             outcome = "SUCCESS"
             if case.result != result:
                 outcome = "FAILED"
                 failed.append(case)
 
-            logger.info(f"Testing {case!s:<74}: {outcome}")
+            self.logger.info(f"Testing {case!s:<74}: {outcome}")
 
         if failed:
-            logger.error("Failed checks:")
+            self.logger.error("Failed checks:")
             for f in failed:
-                logger.error(f)
+                self.logger.error(f)
             return False
         else:
-            logger.info("Successfully verified all cases.")
+            self.logger.success("Successfully verified all cases.")
             return True
 
     def decompile(self):
-        logger.info("Decompiling classfiles")
+        self.logger.info("Decompiling classfiles")
         decompiled = self.decompiled()
         for clazz in self.classfiles.glob("**/*.class"):
             jsonclazz = decompiled / clazz.relative_to(self.classfiles).with_suffix(
                 ".json"
             )
-            logger.info(
+            self.logger.info(
                 f"Converting {clazz.relative_to(self.workfolder)} to {jsonclazz.relative_to(self.workfolder)}"
             )
             jsonclazz.parent.mkdir(parents=True, exist_ok=True)
             cmd = ["jvm2json", f"-s{clazz}"]
-            encoding = json.loads(run_cmd(cmd, timeout=None, logger=logger)[0])
+            encoding = json.loads(run_cmd(cmd, timeout=None, logger=self.logger)[0])
             with open(jsonclazz, "w") as f:
                 json.dump(encoding, f, indent=2, sort_keys=True)
-        logger.info("Done")
+        self.logger.success("Done decompiling classfiles")

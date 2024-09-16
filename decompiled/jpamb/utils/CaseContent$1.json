@@ -59,6 +59,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "access": "static",
@@ -530,6 +531,12 @@
             "end": 44,
             "handler": 45,
             "start": 39
+          }
+        ],
+        "lines": [
+          {
+            "line": 90,
+            "offset": 0
           }
         ],
         "max_locals": 1,

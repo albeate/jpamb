@@ -28,6 +28,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "index": 0,
@@ -57,6 +58,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 6,
+            "offset": 0
+          }
+        ],
         "max_locals": 1,
         "max_stack": 1,
         "stack_map": null
@@ -110,6 +117,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "index": 0,
@@ -240,6 +248,28 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          },
+          {
+            "line": 12,
+            "offset": 3
+          },
+          {
+            "line": 13,
+            "offset": 7
+          },
+          {
+            "line": 15,
+            "offset": 12
+          },
+          {
+            "line": 18,
+            "offset": 19
+          }
+        ],
         "max_locals": 1,
         "max_stack": 2,
         "stack_map": [

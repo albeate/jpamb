@@ -95,7 +95,7 @@ public record CaseContent(
         case OUT_OF_BOUNDS:
           return "out of bounds";
         case NULL_POINTER:
-          return "null_pointer";
+          return "null pointer";
         case NON_TERMINATION:
           return "*";
         case SUCCESS:

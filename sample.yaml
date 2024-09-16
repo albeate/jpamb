@@ -6,28 +6,40 @@ for_science: true
 
 # Underneath here add the tools which you want to run
 tools:
-  apriori: 
+  conservative: 
     # The technologies used, all lowercase:
-    # choose between "syntactic", "dynamic" and "static"
+    # choose between "cheater", "syntactic", "dynamic" and "static"
     # you can add extra tags if you need like "concolic"
     technologies:
-      - statistical
       - python
-
+    
     # Here you can either use the path to an executable 
     # Remember to make it executable (use `chmod`) 
     # Or, you can provide a list of arguments, like here:
     executable: 
+      - python
+      - solutions/conservative.py
+  
+  apriori: 
+    technologies:
+      - statistical
+      - cheater
+      - python
+
+    executable: 
       - python 
       - solutions/apriori.py
   
-  conservative: 
+  cheater: 
     technologies:
+      - statistical
+      - cheater
       - python
-    
+
     executable: 
-      - python
-      - solutions/conservative.py
+      - python 
+      - solutions/cheater.py
+  
 
   bytecoder: 
     technologies:

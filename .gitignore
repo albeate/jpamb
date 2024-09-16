@@ -6,9 +6,20 @@ target
 .settings
 __pycache__
 
+test_output
+
 timer/sieve
 timer/sieve.exe
 
 result.json
 progress.html
 .venv
+
+.DS_Store
+syntaxer.json
+sample.json
+results.json
+experiment.json
+activities/
+solutions/guess.py
+guess.yaml
