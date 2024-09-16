@@ -220,6 +220,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "field": {
@@ -275,6 +276,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          }
+        ],
         "max_locals": 0,
         "max_stack": 1,
         "stack_map": null
@@ -310,6 +317,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -370,6 +378,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          }
+        ],
         "max_locals": 1,
         "max_stack": 2,
         "stack_map": null
@@ -412,6 +426,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "index": 0,
@@ -459,6 +474,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          }
+        ],
         "max_locals": 3,
         "max_stack": 3,
         "stack_map": null
@@ -501,6 +522,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -743,6 +765,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          }
+        ],
         "max_locals": 0,
         "max_stack": 4,
         "stack_map": null
@@ -777,6 +805,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "class": "jpamb/utils/Tag$TagType",
@@ -1242,6 +1271,40 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 12,
+            "offset": 0
+          },
+          {
+            "line": 13,
+            "offset": 6
+          },
+          {
+            "line": 14,
+            "offset": 12
+          },
+          {
+            "line": 15,
+            "offset": 18
+          },
+          {
+            "line": 16,
+            "offset": 24
+          },
+          {
+            "line": 17,
+            "offset": 30
+          },
+          {
+            "line": 18,
+            "offset": 36
+          },
+          {
+            "line": 11,
+            "offset": 42
+          }
+        ],
         "max_locals": 0,
         "max_stack": 4,
         "stack_map": null

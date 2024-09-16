@@ -83,13 +83,6 @@ def experiment_parser(ctx_, parms_, experiment):
     return experiment
 
 
-def re_parser(ctx_, parms_, expr):
-    import re
-
-    if expr:
-        return re.compile(expr)
-
-
 def calibrate(sieve_exe, log_calibration):
     calibrators = [100_000, 100_000]
     calibration = 0
@@ -139,14 +132,14 @@ def evaluate(
     import random, itertools
 
     logger = setup_logger(verbose)
-    suite = Suite(WORKFOLDER, QUERIES)
+    suite = Suite(WORKFOLDER, QUERIES, logger)
     tools = experiment["tools"]
     by_tool = defaultdict(list)
 
     sieve = WORKFOLDER / "timer" / "sieve.c"
 
     logger.info(f"Building timer from {sieve}")
-    sieve_exe = build_c(sieve)
+    sieve_exe = build_c(sieve, logger)
 
     for i in range(iterations):
         calibration = calibrate(sieve_exe, lambda **kwargs: ())
@@ -175,7 +168,7 @@ def evaluate(
                 logger.warning(f"Tool {tool_name!r} failed with {e}")
                 fpred, time_ns = "", float("NaN")
             except subprocess.TimeoutExpired:
-                logger.warning(f"Tool {tool_name!r} timedout")
+                logger.warning(f"Tool {tool_name!r} timed out")
                 fpred, time_ns = "", float("NaN")
 
             total = 0
@@ -193,11 +186,11 @@ def evaluate(
                     query, pred = line.split(";")
                     logger.debug(f"response: {line}")
                 except ValueError:
-                    logger.warning("Tool produced bad output")
+                    logger.warning(f"Tool {tool_name!r} produced bad output")
                     logger.warning(line)
                     continue
                 if not query in QUERIES:
-                    logger.warning("{q!r} not a known query: {QUERIES}")
+                    logger.warning(f"{query!r} not a known query")
                     continue
                 prediction = Prediction.parse(pred)
                 predictions[query] = prediction

@@ -27,7 +27,7 @@ Imma gonna need to work on that.. 🫠
 
 To run code: python3 ./bin/evaluate.py experiment.yaml -o experiment.json
 
-============ remove when working for <null poiner> ============
+============ remove when working ============
 python3 ./bin/evaluate.py -vv --filter-methods=Arrays experiment.yaml -o experiment.json
 
 python3 ./bin/evaluate.py -vvv --filter-methods='jpamb.cases.Arrays.arrayIsNullLength' experiment.yaml -o experiment.json
@@ -37,7 +37,7 @@ python3 ./bin/evaluate.py -vvv --filter-methods='jpamb.cases.Arrays.arraySometim
 python3 solutions/vogue.py 'jpamb.cases.Arrays.arrayIsNullLength:()V' 
 python3 solutions/vogue.py ''jpamb.cases.Arrays.arrayIsNull:()V'
 python3 solutions/vogue.py 'jpamb.cases.Arrays.arraySometimesNull:(I)V'
-==============================================================
+==============================================
 """
 
 import sys

@@ -12,10 +12,12 @@ WORKFOLDER = Path(os.path.abspath(__file__)).parent.parent
 @click.command()
 @click.option("--check/--no-check", default=True)
 @click.option("--decompile/--no-decompile", default=True)
-def build(check, decompile):
+@click.option("-v", "--verbose", count=True)
+def build(check, decompile, verbose):
     """Rebuild the benchmark-suite."""
 
-    suite = Suite(WORKFOLDER, QUERIES)
+    logger = setup_logger(verbose)
+    suite = Suite(WORKFOLDER, QUERIES, logger)
 
     suite.build()
     suite.update_cases()

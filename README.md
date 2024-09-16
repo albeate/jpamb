@@ -24,6 +24,7 @@ And the query is one of:
 | `*`                | an execution runs forever                 | 
 | `divide by zero`   | an execution divides by zero              | 
 | `out of bounds`    | an execution index an array out of bounds | 
+| `null pointer`     | an execution throws an null pointer exeception | 
 
 And the prediction is either a wager (`-3`, `inf`) (the number of points you 
 want to bet on you being right) or a probability (`30%`, `72%`)

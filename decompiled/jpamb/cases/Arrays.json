@@ -43,6 +43,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "index": 0,
@@ -72,6 +73,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 6,
+            "offset": 0
+          }
+        ],
         "max_locals": 1,
         "max_stack": 1,
         "stack_map": null
@@ -125,6 +132,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -232,6 +240,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          },
+          {
+            "line": 12,
+            "offset": 11
+          },
+          {
+            "line": 13,
+            "offset": 15
+          }
+        ],
         "max_locals": 1,
         "max_stack": 4,
         "stack_map": null
@@ -285,6 +307,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -392,6 +415,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 18,
+            "offset": 0
+          },
+          {
+            "line": 19,
+            "offset": 11
+          },
+          {
+            "line": 20,
+            "offset": 15
+          }
+        ],
         "max_locals": 1,
         "max_stack": 4,
         "stack_map": null
@@ -445,6 +482,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -594,6 +632,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 25,
+            "offset": 0
+          },
+          {
+            "line": 26,
+            "offset": 11
+          },
+          {
+            "line": 27,
+            "offset": 21
+          }
+        ],
         "max_locals": 1,
         "max_stack": 4,
         "stack_map": [
@@ -661,6 +713,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -707,6 +760,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 32,
+            "offset": 0
+          },
+          {
+            "line": 33,
+            "offset": 2
+          },
+          {
+            "line": 34,
+            "offset": 6
+          }
+        ],
         "max_locals": 1,
         "max_stack": 3,
         "stack_map": null
@@ -760,6 +827,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -840,6 +908,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 39,
+            "offset": 0
+          },
+          {
+            "line": 40,
+            "offset": 2
+          },
+          {
+            "line": 41,
+            "offset": 11
+          }
+        ],
         "max_locals": 1,
         "max_stack": 2,
         "stack_map": [
@@ -932,6 +1014,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -1042,6 +1125,28 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 47,
+            "offset": 0
+          },
+          {
+            "line": 48,
+            "offset": 2
+          },
+          {
+            "line": 49,
+            "offset": 5
+          },
+          {
+            "line": 51,
+            "offset": 12
+          },
+          {
+            "line": 52,
+            "offset": 16
+          }
+        ],
         "max_locals": 2,
         "max_stack": 4,
         "stack_map": [
@@ -1118,6 +1223,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -1380,6 +1486,28 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 57,
+            "offset": 0
+          },
+          {
+            "line": 58,
+            "offset": 23
+          },
+          {
+            "line": 59,
+            "offset": 29
+          },
+          {
+            "line": 58,
+            "offset": 37
+          },
+          {
+            "line": 61,
+            "offset": 39
+          }
+        ],
         "max_locals": 2,
         "max_stack": 4,
         "stack_map": [
@@ -1484,6 +1612,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -1924,6 +2053,56 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 67,
+            "offset": 0
+          },
+          {
+            "line": 68,
+            "offset": 23
+          },
+          {
+            "line": 69,
+            "offset": 30
+          },
+          {
+            "line": 70,
+            "offset": 33
+          },
+          {
+            "line": 71,
+            "offset": 41
+          },
+          {
+            "line": 72,
+            "offset": 46
+          },
+          {
+            "line": 73,
+            "offset": 47
+          },
+          {
+            "line": 74,
+            "offset": 52
+          },
+          {
+            "line": 76,
+            "offset": 57
+          },
+          {
+            "line": 77,
+            "offset": 61
+          },
+          {
+            "line": 78,
+            "offset": 62
+          },
+          {
+            "line": 79,
+            "offset": 68
+          }
+        ],
         "max_locals": 5,
         "max_stack": 4,
         "stack_map": [
@@ -1999,6 +2178,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -2069,6 +2249,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 6,
+            "offset": 0
+          }
+        ],
         "max_locals": 0,
         "max_stack": 1,
         "stack_map": [

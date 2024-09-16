@@ -43,6 +43,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "index": 0,
@@ -72,6 +73,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 6,
+            "offset": 0
+          }
+        ],
         "max_locals": 1,
         "max_stack": 1,
         "stack_map": null
@@ -125,6 +132,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -133,6 +141,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 11,
+            "offset": 0
+          }
+        ],
         "max_locals": 0,
         "max_stack": 0,
         "stack_map": [
@@ -191,6 +205,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -275,6 +290,24 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 18,
+            "offset": 0
+          },
+          {
+            "line": 19,
+            "offset": 2
+          },
+          {
+            "line": 21,
+            "offset": 5
+          },
+          {
+            "line": 22,
+            "offset": 11
+          }
+        ],
         "max_locals": 1,
         "max_stack": 2,
         "stack_map": [
@@ -346,6 +379,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -407,6 +441,20 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 27,
+            "offset": 0
+          },
+          {
+            "line": 28,
+            "offset": 2
+          },
+          {
+            "line": 30,
+            "offset": 5
+          }
+        ],
         "max_locals": 1,
         "max_stack": 2,
         "stack_map": [
@@ -486,6 +534,7 @@
         }
       ],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -602,6 +651,24 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 36,
+            "offset": 0
+          },
+          {
+            "line": 37,
+            "offset": 2
+          },
+          {
+            "line": 39,
+            "offset": 10
+          },
+          {
+            "line": 40,
+            "offset": 16
+          }
+        ],
         "max_locals": 1,
         "max_stack": 3,
         "stack_map": [
@@ -640,6 +707,7 @@
       ],
       "annotations": [],
       "code": {
+        "annotations": [],
         "bytecode": [
           {
             "offset": 0,
@@ -710,6 +778,12 @@
           }
         ],
         "exceptions": [],
+        "lines": [
+          {
+            "line": 6,
+            "offset": 0
+          }
+        ],
         "max_locals": 0,
         "max_stack": 1,
         "stack_map": [
