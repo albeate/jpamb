@@ -111,7 +111,7 @@ f"""
       (_
         (binary_expression
           left: (identifier) @lhs
-          operator: "{opr}" 
+          operator: ">" 
           right: (_) @rhs
         ) @expr
       )

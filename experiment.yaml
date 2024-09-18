@@ -11,7 +11,7 @@ tools:
     technologies:
       - python
 
-    executable: solutions/./vogue.py
+    executable: solutions/./syntaxer_week2.py
 
 # Describe your machine here (for research purposes) 
 machine:
