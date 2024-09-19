@@ -131,7 +131,7 @@ python3 solutions/syntaxer.py "jpamb.cases.Loops.neverAsserts:()V"
 python3 solutions/syntaxer.py 'jpamb.cases.Loops.neverDivides:()I'
 
 
-python3 ./bin/evaluate.py -vv syntaxer.yaml -o syntaxer.json 
+python3 ./bin/evaluate.py  syntaxer.yaml -o syntaxer.json 
 python3 ./bin/evaluate.py -vv --filter-methods=Simple syntaxer.yaml -o syntaxer.json 
 """
 
