@@ -610,7 +610,7 @@ GL> STEP 2:
 GL>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
 GL>   LOCALS: [0]
 GL>   STACK: [0, 1]
-GL> DONE err
+GL> DONE 0%
 GL>   LOCALS: [0]
 GL>   STACK: [0]
 GL> done
@@ -688,7 +688,7 @@ fR> STEP 4:
 fR>   PC: 4 {'offset': 5, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
 fR>   LOCALS: [10054203]
 fR>   STACK: [0, 1]
-fR> DONE err
+fR> DONE 0%
 fR>   LOCALS: [10054203]
 fR>   STACK: [0]
 fR> done
@@ -706,7 +706,7 @@ ce> STEP 2:
 ce>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
 ce>   LOCALS: []
 ce>   STACK: [0, 1]
-ce> DONE err
+ce> DONE 0%
 ce>   LOCALS: []
 ce>   STACK: [0]
 ce> done
@@ -724,7 +724,7 @@ sd> STEP 2:
 sd>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
 sd>   LOCALS: [0, 0]
 sd>   STACK: [0, 0]
-sd> DONE err
+sd> DONE 0%
 sd>   LOCALS: [0, 0]
 sd>   STACK: [0]
 sd> done
@@ -841,7 +841,7 @@ I5> STEP 6:
 I5>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
 I5>   LOCALS: [True]
 I5>   STACK: [0, 1]
-I5> DONE err
+I5> DONE 0%
 I5>   LOCALS: [True]
 I5>   STACK: [0]
 I5> done
