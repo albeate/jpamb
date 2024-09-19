@@ -1,0 +1,36 @@
+Ct> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayContent:()V' '()'
+Ct> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+Ct> STEP 0:
+Ct>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
+Ct>   LOCALS: []
+Ct>   STACK: []
+Ct> STEP 1:
+Ct>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+Ct>   LOCALS: []
+Ct>   STACK: [5]
+Ct> done
+mC> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayInBounds:()V' '()'
+mC> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+mC> STEP 0:
+mC>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+mC>   LOCALS: []
+mC>   STACK: []
+mC> STEP 1:
+mC>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+mC>   LOCALS: []
+mC>   STACK: [2]
+mC> done
+Ol> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNull:()V' '()'
+Ol> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+Ol> STEP 0:
+Ol>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
+Ol>   LOCALS: []
+Ol>   STACK: []
+Ol> Traceback (most recent call last):
+Ol>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 195, in <module>
+Ol>     print(methodid.create_interpreter(inputs).interpet())
+Ol>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 94, in interpet
+Ol>     fn(next)
+Ol>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 110, in step_push
+Ol>     self.stack.insert(0, bc["value"]["value"])
+Ol> TypeError: 'NoneType' object is not subscriptable
