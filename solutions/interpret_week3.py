@@ -107,7 +107,7 @@ class SimpleInterpreter:
         return self.done
 
     def step_push(self, bc):
-        self.stack.append(bc["value"]["value"])
+        self.stack.insert(0, bc["value"]["value"])
         self.pc += 1
 
     def step_return(self, bc):
@@ -129,7 +129,7 @@ class SimpleInterpreter:
         condition = bc["condition"]
 
         comparison = self.stack.pop(0)
-        
+
         match condition:
             case "ne":
                 result = comparison != 0
@@ -147,21 +147,21 @@ class SimpleInterpreter:
                 raise Exception("step_ifz not implemented")
 
         if result == True:
-            self.pc += 1
+            self.pc = bc["target"]
         else:
-            self.pc += bc["target"]
+            self.pc += 1
 
     def step_dup(self, bc): # Missing formal rules:
-        self.stack.append(self.stack[-1])
+        self.stack.insert(0, self.stack[0])
         self.pc += 1
 
     def step_load(self, bc): # Missing formal rules
-        self.stack.append(self.locals.pop(bc["index"]))
+        self.stack.insert(0, self.locals.pop(bc["index"]))
         self.pc += 1
 
     def step_binary(self, bc): # Missing formal rules 
-        left = self.stack.pop(0)
         right = self.stack.pop(0)
+        left = self.stack.pop(0)
 
         result = 0
         match bc["operant"]:
@@ -179,7 +179,7 @@ class SimpleInterpreter:
             case "rem":
                 result = left % right
         
-        self.stack.append(result)
+        self.stack.insert(0, result)
         self.pc += 1
 
 if __name__ == "__main__":
