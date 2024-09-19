@@ -131,6 +131,22 @@ class SimpleInterpreter:
         comparison = self.stack.pop(0)
         result = comparison != 0 if condition == "ne" else comparison == 0
 
+        match condition:
+            case "ne":
+                result = comparison != 0
+            case "eq":
+                result = comparison == 0
+            case "lt":
+                result = comparison < 0
+            case "le":
+                result = comparison <= 0
+            case "gt":
+                result = comparison > 0
+            case "ge":
+                result = comparison >= 0
+            case _:
+                raise Exception("step_ifz not implemented")
+
         if result == True:
             self.pc += 1
         else:
