@@ -5,6 +5,8 @@ from pathlib import Path
 import sys, logging
 from typing import Literal, TypeAlias, Optional
 
+import numpy as np
+
 l = logging
 l.basicConfig(level=logging.DEBUG, format="%(message)s")
 
@@ -42,7 +44,7 @@ class MethodId:
         )
 
     def classfile(self):
-        return Path("decompiled", *self.class_name.split(".")).with_suffix(".json")
+        return Path("../decompiled", *self.class_name.split(".")).with_suffix(".json")
 
     def load(self):
         import json
@@ -70,6 +72,8 @@ class MethodId:
             bytecode=method["code"]["bytecode"],
             locals=inputs,
             stack=[],
+            # invokevirtual = [],
+            callstack = [],
             pc=0,
         )
 
@@ -83,10 +87,12 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
+    # invokevirtual: list
+    callstack: list
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=10):
+    def interpet(self, limit=20):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -155,9 +161,91 @@ class SimpleInterpreter:
         self.stack.insert(0, self.stack[0])
         self.pc += 1
 
-    def step_load(self, bc): # Missing formal rules
-        self.stack.insert(0, self.locals[bc["index"]])
+    # Missing formal rules
+    def step_load(self, bc):
+        """
+        + * opr : "load"
+          * type : <LocalType>
+          * index : <number>
+          -- load a local variable $index of $type
+          -- {*} [] -> ["value"]
+        """
+        try:
+            self.stack.insert(0, self.locals[bc["index"]])
+        except:
+            None
+        else:
+            self.stack.insert(0, self.locals)
         self.pc += 1
+
+    def step_store(self, bc):
+        """
+        + * opr : "store"
+          * type : <LocalType>
+          * index : <number>
+          -- store a local variable $index of $type
+          -- {*} ["value"] -> []
+        """
+        if bc["type"] is not None:
+            self.locals.insert(bc["index"],bc["type"])
+            try:
+                self.stack.pop(bc["index"])
+            except:
+                None
+        self.pc += 1
+        
+    def step_invoke(self, bc): # not sure if on stack
+        cls = bc["method"]["ref"]["name"]
+        name = bc["method"]["name"]
+        args = bc["method"]["args"].pop()
+        match args:
+          case "int":
+            typ = 'I'
+          case "boolean":
+            typ = 'B'
+          case "":
+            typ = ''
+        # if typ != '': typ = typ*len(args)
+        
+        mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
+        result = MethodId.parse(mthId).create_interpreter(self.stack.pop(0)).interpet()
+        self.locals.insert(self.stack.pop(0))
+        self.stack.insert(0,result)
+        self.pc += 1
+        
+    def step_newarray(self, bc):
+        """
+        + * opr : "newarray"
+          * * dim : <number>
+            * type : <SimpleType>
+            -- create a $dim - dimentional array of size $count and $type
+            -- \{newarray\} ["count1","count2","..."] -> ["objectref"]
+        """
+        match bc["opr"]:
+          case "newarray":
+            dim = bc["dim"]
+            typ = bc["type"]
+            cnt = self.stack.pop(0)[0]
+        newArr = np.zeros_like(np.arange(cnt),dtype=typ,shape=dim)
+        self.stack.insert(0,newArr)
+        self.pc += 1
+    
+    def step_array_store(self, bc):
+        """
+        + * opr : "array_store"
+              * type : <JArrayType>
+              -- load a $value of $type from an $arrayref array at index $index
+              -- \{aastore\} ["arrayref","index"] -> ["value"]
+        """
+        if bc["opr"] == "array_store":
+            arr = [x for x in self.stack if hasattr(x, "__len__")][0]
+            val = self.stack.pop(0)
+            idx = self.stack.pop(0)
+            arr[idx] = val
+            self.locals.insert(0,arr)
+            self.stack.pop(0)
+        self.pc += 1
+        
 
     def step_binary(self, bc): # Missing formal rules 
         right = self.stack.pop(0)
@@ -181,6 +269,7 @@ class SimpleInterpreter:
         
         self.stack.insert(0, result)
         self.pc += 1
+    
 
     # HELPER METHODS
     def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
