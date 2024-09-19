@@ -129,8 +129,7 @@ class SimpleInterpreter:
         condition = bc["condition"]
 
         comparison = self.stack.pop(0)
-        result = comparison != 0 if condition == "ne" else comparison == 0
-
+        
         match condition:
             case "ne":
                 result = comparison != 0
