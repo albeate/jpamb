@@ -115,16 +115,38 @@ class SimpleInterpreter:
             self.stack.pop(0)
         self.done = "ok"
 
-    def step_load(self, bc):
+    def step_get(self, bc): # Missing formal rules
+        match bc["field"]["name"]:
+            case "$assertionsDisabled":
+                result = False # Hardcoded for now
+            case _:
+                raise Exception("step_get not implemented")
+            
+        self.stack.append(result)
+        self.pc += 1
+
+    def step_ifz(self, bc): # Missing formal rules
+        condition = bc["condition"]
+
+        comparison = self.stack.pop(0)
+        result = comparison != 0 if condition == "ne" else comparison == 0
+
+        if result == False:
+            self.pc = bc["target"]
+        else:
+            self.pc += 1
+
+    def step_dup(self, bc): # Missing formal rules:
+        self.stack.append(self.stack[-1])
+        self.pc += 1
+
+    def step_load(self, bc): # Missing formal rules
         self.stack.append(self.locals.pop(bc["index"]))
         self.pc += 1
 
-    def step_binary(self, bc):
+    def step_binary(self, bc): # Missing formal rules 
         left = self.stack.pop(0)
         right = self.stack.pop(0)
-
-        # l.debug(f"left: {left}")
-        # l.debug(f"right: {right}")
 
         result = 0
         match bc["operant"]:
@@ -135,7 +157,10 @@ class SimpleInterpreter:
             case "mul":
                 result = left * right
             case "div":
-                result = left / right
+                try:
+                    result = left / right
+                except ZeroDivisionError:
+                    self.done = "err"
             case "rem":
                 result = left % right
         
