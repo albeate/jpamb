@@ -73,6 +73,10 @@ class MethodId:
             pc=0,
         )
 
+# Some useful CLI copy pasta. Golden log can be useful to look at when trying to debug
+# Test all cases: python bin/test.py -o golden.log -- python solutions/interpret_week3.py
+# Test cases but filter by methods: python bin/test.py --filter-methods=divideByN\: -o golden.log -- python solutions/interpret_week3.py
+# Test one method: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(2)'
 
 @dataclass
 class SimpleInterpreter:
