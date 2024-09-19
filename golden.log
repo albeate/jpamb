@@ -493,6 +493,17 @@ Jo> STEP 6:
 Jo>   PC: 10 {'condition': 'gt', 'offset': 17, 'opr': 'if', 'target': 15}
 Jo>   LOCALS: [0]
 Jo>   STACK: [0, 10]
+Jo> STEP 7:
+Jo>   PC: 15 {'offset': 28, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Jo>   LOCALS: [0]
+Jo>   STACK: []
+Jo> STEP 8:
+Jo>   PC: 16 {'offset': 29, 'opr': 'return', 'type': 'int'}
+Jo>   LOCALS: [0]
+Jo>   STACK: [0]
+Jo> DONE ok
+Jo>   LOCALS: [0]
+Jo>   STACK: []
 Jo> done
 a9> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN2:(I)I' '(1)'
 a9> read decompiled classfile decompiled/jpamb/cases/Simple.json
@@ -848,4 +859,35 @@ zQ> STEP 2:
 zQ>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
 zQ>   LOCALS: [24]
 zQ>   STACK: [1, 24]
+zQ> STEP 3:
+zQ>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+zQ>   LOCALS: [24]
+zQ>   STACK: []
+zQ> STEP 4:
+zQ>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+zQ>   LOCALS: [24]
+zQ>   STACK: [24]
+zQ> STEP 5:
+zQ>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+zQ>   LOCALS: [24]
+zQ>   STACK: [2, 24]
+zQ> STEP 6:
+zQ>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+zQ>   LOCALS: [24]
+zQ>   STACK: [0]
+zQ> STEP 7:
+zQ>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+zQ>   LOCALS: [24]
+zQ>   STACK: []
+zQ> STEP 8:
+zQ>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+zQ>   LOCALS: [24]
+zQ>   STACK: [24]
+zQ> STEP 9:
+zQ>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+zQ>   LOCALS: [24]
+zQ>   STACK: [2, 24]
+zQ> DONE out of time
+zQ>   LOCALS: [24]
+zQ>   STACK: [12.0]
 zQ> done

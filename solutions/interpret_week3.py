@@ -130,29 +130,21 @@ class SimpleInterpreter:
 
     def step_ifz(self, bc): # Missing formal rules
         condition = bc["condition"]
+        right = 0
+        left = self.stack.pop(0)
 
-        comparison = self.stack.pop(0)
+        result = self.if_match_result(condition, left, right, "ifz")
 
-        match condition:
-            case "ne":
-                result = comparison != 0
-            case "eq":
-                result = comparison == 0
-            case "lt":
-                result = comparison < 0
-            case "le":
-                result = comparison <= 0
-            case "gt":
-                result = comparison > 0
-            case "ge":
-                result = comparison >= 0
-            case _:
-                raise Exception("step_ifz not implemented")
+        self.pc = bc["target"] if result else self.pc + 1
 
-        if result == True:
-            self.pc = bc["target"]
-        else:
-            self.pc += 1
+    def step_if(self, bc): # Missing formal rules
+        condition = bc["condition"]
+        right = self.stack.pop(0)
+        left = self.stack.pop(0)
+
+        result = self.if_match_result(condition, left, right, "if")
+
+        self.pc = bc["target"] if result else self.pc + 1
 
     def step_dup(self, bc): # Missing formal rules:
         self.stack.insert(0, self.stack[0])
@@ -184,6 +176,27 @@ class SimpleInterpreter:
         
         self.stack.insert(0, result)
         self.pc += 1
+
+    # HELPER METHODS
+    def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
+        match condition:
+            case "ne":
+                result = value1 != value2
+            case "eq":
+                result = value1 == value2
+            case "lt":
+                result = value1 < value2
+            case "le":
+                result = value1 <= value2
+            case "gt":
+                result = value1 > value2
+            case "ge":
+                result = value1 >= value2
+            case _:
+                raise ValueError(f"Condition '{condition}' is not implemented for step_'{operant}'")
+            
+        return result
+
 
 if __name__ == "__main__":
     methodid = MethodId.parse(sys.argv[1])
