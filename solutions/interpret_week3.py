@@ -106,6 +106,7 @@ class SimpleInterpreter:
 
         return self.done
 
+    # OPERATOR METHODS
     def step_push(self, bc):
         if bc["value"] is None:
             self.stack.insert(0, None)
