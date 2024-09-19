@@ -92,7 +92,7 @@ class SimpleInterpreter:
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=20):
+    def interpet(self, limit=4):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -197,16 +197,18 @@ class SimpleInterpreter:
     def step_invoke(self, bc): # not sure if on stack
         cls = bc["method"]["ref"]["name"]
         name = bc["method"]["name"]
-        args = bc["method"]["args"].pop()
+        try:
+            args = bc["method"]["args"].pop()
+        except:
+            args = ""
         match args:
           case "int":
             typ = 'I'
           case "boolean":
-            typ = 'B'
+            typ = 'Z'
           case "":
             typ = ''
         # if typ != '': typ = typ*len(args)
-        
         mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
         result = MethodId.parse(mthId).create_interpreter(self.stack.pop(0)).interpet()
         self.locals.insert(self.stack.pop(0))
