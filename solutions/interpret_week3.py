@@ -131,10 +131,10 @@ class SimpleInterpreter:
         comparison = self.stack.pop(0)
         result = comparison != 0 if condition == "ne" else comparison == 0
 
-        if result == False:
-            self.pc = bc["target"]
-        else:
+        if result == True:
             self.pc += 1
+        else:
+            self.pc += bc["target"]
 
     def step_dup(self, bc): # Missing formal rules:
         self.stack.append(self.stack[-1])
