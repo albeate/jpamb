@@ -107,7 +107,10 @@ class SimpleInterpreter:
         return self.done
 
     def step_push(self, bc):
-        self.stack.insert(0, bc["value"]["value"])
+        if bc["value"] is None:
+            self.stack.insert(0, None)
+        else:
+            self.stack.insert(0, bc["value"]["value"])
         self.pc += 1
 
     def step_return(self, bc):
@@ -156,7 +159,7 @@ class SimpleInterpreter:
         self.pc += 1
 
     def step_load(self, bc): # Missing formal rules
-        self.stack.insert(0, self.locals.pop(bc["index"]))
+        self.stack.insert(0, self.locals[bc["index"]])
         self.pc += 1
 
     def step_binary(self, bc): # Missing formal rules 
