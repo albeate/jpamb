@@ -208,7 +208,7 @@ class SimpleInterpreter:
             print("args: ", args)
         except:
             argType = ""
-        match argType:
+        match argType: # burde bare kopier det der allerede er lavet tidligere i koden -.-
           case "int":
             typ = 'I'
           case "boolean":
@@ -264,8 +264,12 @@ class SimpleInterpreter:
         
     def step_arraylength(self, bc):
         if bc["opr"] == "arraylength":
-            arrLen = len(self.stack[0])
-            self.stack.insert(0,arrLen)
+            if any(isinstance(s,list) for s in self.stack):
+                uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
+                arrLen = len(uddata)
+                self.stack.insert(0,arrLen)
+            else:
+                self.stack.insert(0,1)
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
