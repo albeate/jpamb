@@ -92,7 +92,7 @@ class SimpleInterpreter:
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=4):
+    def interpet(self, limit=20):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -150,8 +150,8 @@ class SimpleInterpreter:
 
     def step_if(self, bc): # Missing formal rules
         condition = bc["condition"]
-        right = self.stack.pop(0)
-        left = self.stack.pop(0)
+        right = self.locals.pop(0)
+        left = self.locals .pop(0)
 
         result = self.if_match_result(condition, left, right, "if")
 
@@ -170,12 +170,13 @@ class SimpleInterpreter:
           -- load a local variable $index of $type
           -- {*} [] -> ["value"]
         """
+        # print("hejhest: ",self.locals[bc["index"]])
+        # print(bc["index"] in self.locals)
+        # if bc["index"] in self.locals:
         try:
-            self.stack.insert(0, self.locals[bc["index"]])
+            self.stack.insert(0,self.locals[bc["index"]])
         except:
-            None
-        else:
-            self.stack.insert(0, self.locals)
+            None 
         self.pc += 1
 
     def step_store(self, bc):
@@ -186,33 +187,43 @@ class SimpleInterpreter:
           -- store a local variable $index of $type
           -- {*} ["value"] -> []
         """
-        if bc["type"] is not None:
-            self.locals.insert(bc["index"],bc["type"])
-            try:
-                self.stack.pop(bc["index"])
-            except:
-                None
+        try:
+            idx = bc["index"]
+            if len(self.stack) > 0:
+                val = self.stack.pop(0)
+                # self.locals.insert(idx) = val
+                # self.locals[idx] = val
+                self.locals.insert(0,val)
+        except:
+            None            
         self.pc += 1
         
     def step_invoke(self, bc): # not sure if on stack
         cls = bc["method"]["ref"]["name"]
         name = bc["method"]["name"]
         try:
-            args = bc["method"]["args"].pop()
+            print(self.locals[0])
+            argType = bc["method"]["args"][0]
+            args = self.locals[0]
+            print("args: ", args)
         except:
-            args = ""
-        match args:
+            argType = ""
+        match argType:
           case "int":
             typ = 'I'
           case "boolean":
             typ = 'Z'
           case "":
             typ = ''
-        # if typ != '': typ = typ*len(args)
         mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
-        result = MethodId.parse(mthId).create_interpreter(self.stack.pop(0)).interpet()
-        self.locals.insert(self.stack.pop(0))
-        self.stack.insert(0,result)
+        if typ == '':
+            if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
+                if len(self.stack) > 0:
+                    self.stack.pop()
+        else:
+            if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
+                if len(self.stack) > 0:
+                    self.stack.pop()
         self.pc += 1
         
     def step_newarray(self, bc):
@@ -223,13 +234,16 @@ class SimpleInterpreter:
             -- create a $dim - dimentional array of size $count and $type
             -- \{newarray\} ["count1","count2","..."] -> ["objectref"]
         """
-        match bc["opr"]:
-          case "newarray":
+        # print("hejhest:", bc["opr"] )
+        if bc["opr"] == "newarray":
             dim = bc["dim"]
-            typ = bc["type"]
-            cnt = self.stack.pop(0)[0]
-        newArr = np.zeros_like(np.arange(cnt),dtype=typ,shape=dim)
-        self.stack.insert(0,newArr)
+            arrType = bc["type"]
+            size = self.locals[0]
+            if size >= 2:
+                # newArr = np.zeros_like(np.arange(size),dtype=arrType,shape=dim)
+                self.stack.insert(0, [0 for _ in range(size)])
+            else:
+                self.stack.insert(0, [None]*1)
         self.pc += 1
     
     def step_array_store(self, bc):
@@ -240,15 +254,20 @@ class SimpleInterpreter:
               -- \{aastore\} ["arrayref","index"] -> ["value"]
         """
         if bc["opr"] == "array_store":
-            arr = [x for x in self.stack if hasattr(x, "__len__")][0]
+            arr = self.locals[0]
             val = self.stack.pop(0)
             idx = self.stack.pop(0)
             arr[idx] = val
-            self.locals.insert(0,arr)
-            self.stack.pop(0)
+            self.stack.insert(0,arr)
+            
         self.pc += 1
         
-
+    def step_arraylength(self, bc):
+        if bc["opr"] == "arraylength":
+            arrLen = len(self.stack[0])
+            self.stack.insert(0,arrLen)
+        self.pc += 1
+        
     def step_binary(self, bc): # Missing formal rules 
         right = self.stack.pop(0)
         left = self.stack.pop(0)
@@ -304,4 +323,5 @@ if __name__ == "__main__":
                 inputs.append(i == "true")
             else:
                 inputs.append(int(i))
+    print("yoyo:",inputs)
     print(methodid.create_interpreter(inputs).interpet())

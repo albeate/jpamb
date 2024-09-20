@@ -117,30 +117,6 @@ class SimpleInterpreter:
         if bc["type"] is not None:
             self.stack.pop(0)
         self.done = "ok"
-    
-    def step_load(self, bc):
-        self.stack.insert(bc["index"],bc["type"])
-        self.pc += 1
-        
-    def step_binary(self, bc):
-        v1 = self.locals.pop(0)
-        v2 = self.stack.pop(0)[1]
-        print(v2)
-        match bc["operant"]:
-          case "add":
-            self.stack.insert(bc["operant"],bc[int(v1)+int(v2)])
-          case "sub":
-            self.stack.insert(bc["operant"],bc[v1-v2])
-          case "mul":
-            self.stack.insert(bc["operant"],bc[v1*v2])
-          case "div":
-            if v2 != 0:
-                self.stack.insert(bc["operant"],bc[int(v1)/int(v2)])
-            else:
-                self.done  = "err"
-          case "rem":
-            self.stack.insert(bc["operant"],bc[v1%v2])
-        self.pc += 1
           
 
 if __name__ == "__main__":
