@@ -72,7 +72,7 @@ class MethodId:
             bytecode=method["code"]["bytecode"],
             locals=inputs,
             stack=[],
-            # invokevirtual = [],
+            store_in_array = [],
             callstack = [],
             pc=0,
         )
@@ -87,12 +87,12 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
-    # invokevirtual: list
+    store_in_array: list
     callstack: list
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=20):
+    def interpet(self, limit=32):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -199,6 +199,9 @@ class SimpleInterpreter:
         self.pc += 1
         
     def step_invoke(self, bc): # not sure if on stack
+        """
+        alt her, kunne laves pænere. Men tør ikke at røre noget pt
+        """
         cls = bc["method"]["ref"]["name"]
         name = bc["method"]["name"]
         try:
@@ -208,7 +211,7 @@ class SimpleInterpreter:
             print("args: ", args)
         except:
             argType = ""
-        match argType: # burde bare kopier det der allerede er lavet tidligere i koden -.-
+        match argType: # burde bare kopier det der allerede er lavet af forelæser
           case "int":
             typ = 'I'
           case "boolean":
@@ -216,6 +219,8 @@ class SimpleInterpreter:
           case "":
             typ = ''
         mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
+        
+        # kunne laves pænere...
         if typ == '':
             if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
                 if len(self.stack) > 0:
@@ -254,20 +259,19 @@ class SimpleInterpreter:
               -- \{aastore\} ["arrayref","index"] -> ["value"]
         """
         if bc["opr"] == "array_store":
-            arr = self.locals[0]
-            val = self.stack.pop(0)
-            idx = self.stack.pop(0)
-            arr[idx] = val
-            self.stack.insert(0,arr)
-            
+            idx = self.stack.pop()
+            ref = self.stack.pop()
+            val = self.stack.pop()
+            self.store_in_array.insert(0, ((ref,idx),val))
+            print("idx:",idx,"| ref:",ref, "| val:",val)
+            print("array_store-0:", self.store_in_array)
         self.pc += 1
         
     def step_arraylength(self, bc):
         if bc["opr"] == "arraylength":
             if any(isinstance(s,list) for s in self.stack):
                 uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
-                arrLen = len(uddata)
-                self.stack.insert(0,arrLen)
+                self.stack.insert(0,len(uddata))
             else:
                 self.stack.insert(0,1)
         self.pc += 1
