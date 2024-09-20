@@ -136,7 +136,7 @@ class SimpleInterpreter:
             case _:
                 raise Exception("step_get not implemented")
             
-        self.stack.append(result)
+        self.stack.insert(0, result)
         self.pc += 1
 
     def step_ifz(self, bc): # Missing formal rules
