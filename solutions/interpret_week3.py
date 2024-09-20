@@ -86,7 +86,7 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
-    callstack: list
+    callstack: list # bruges den overhoved? .-.
     pc: int
     done: Optional[str] = None
 
@@ -120,7 +120,9 @@ class SimpleInterpreter:
             self.stack.insert(0, None)
         else:
             self.stack.insert(0, bc["value"]["value"])
+        # self.update_target(bc)
         self.pc += 1
+
 
     def step_return(self, bc):
         """
@@ -140,7 +142,6 @@ class SimpleInterpreter:
                 result = False # Hardcoded for now
             case _:
                 raise Exception("step_get not implemented")
-            
         self.stack.insert(0, result)
         self.pc += 1
 
@@ -150,8 +151,10 @@ class SimpleInterpreter:
         target : <number>
         {goto*} [] -> []
         """
-        if bc["opr"] == "target":
-            print("do something. ha ha")
+        if bc["opr"] == "goto":
+            self.bytecode[bc["target"]]
+            # target[]
+            # self.pc[bc["target"]]
         self.pc += 1
         
     def step_ifz(self, bc): # Missing formal rules
@@ -208,7 +211,7 @@ class SimpleInterpreter:
                 val = self.stack.pop(0)
                 self.locals.insert(0,val)
         except:
-            None            
+            None
         self.pc += 1
         
     def step_invoke(self, bc): # not sure if on stack
@@ -242,6 +245,7 @@ class SimpleInterpreter:
             if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
                 if len(self.stack) > 0:
                     self.stack.pop()
+
         self.pc += 1
         
     def step_newarray(self, bc):
@@ -267,7 +271,7 @@ class SimpleInterpreter:
             size = [self.stack.pop() for _ in range(dim)]
             arrnew = self.create_array(arrtype,size)
             self.stack.insert(0,arrnew)
-                
+
         self.pc += 1
             
     def step_array_store(self, bc):
@@ -283,6 +287,7 @@ class SimpleInterpreter:
             ref = self.stack.pop(0)
             # print("idx:",idx,"| ref:",ref, "| val:",val)
             self.store_in_array(ref,idx,val)
+
         self.pc += 1
         
     def step_arraylength(self, bc):
@@ -292,6 +297,7 @@ class SimpleInterpreter:
                 self.stack.insert(0,len(uddata))
             else:
                 self.stack.insert(0,1)
+
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
@@ -315,6 +321,7 @@ class SimpleInterpreter:
                 result = left % right
         
         self.stack.insert(0, result)
+
         self.pc += 1
     
 
@@ -355,6 +362,10 @@ class SimpleInterpreter:
                 x = sizes[0]
                 xs = sizes[1:]
                 return [self.create_array(arrtype, xs) for _ in range(x)]
+        
+        # def update_target(self, bc):
+        #     key = len(target.keys())
+        #     target[key+1] = bc
 
 if __name__ == "__main__":
     methodid = MethodId.parse(sys.argv[1])
