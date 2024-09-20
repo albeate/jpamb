@@ -72,7 +72,6 @@ class MethodId:
             bytecode=method["code"]["bytecode"],
             locals=inputs,
             stack=[],
-            store_in_array = [],
             callstack = [],
             pc=0,
         )
@@ -87,7 +86,6 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
-    store_in_array: list
     callstack: list
     pc: int
     done: Optional[str] = None
@@ -125,6 +123,13 @@ class SimpleInterpreter:
         self.pc += 1
 
     def step_return(self, bc):
+        """
+        opr : return
+        type : nullable <LocalType>
+        -- return a optional $value of $type
+        -- {*return} ["value"] -> []
+        -- \{return\} [] -> []
+        """
         if bc["type"] is not None:
             self.stack.pop(0)
         self.done = "ok"
@@ -139,6 +144,16 @@ class SimpleInterpreter:
         self.stack.insert(0, result)
         self.pc += 1
 
+    def step_goto(self, bc):
+        """
+        opr : goto
+        target : <number>
+        {goto*} [] -> []
+        """
+        if bc["opr"] == "target":
+            print("do something. ha ha")
+        self.pc += 1
+        
     def step_ifz(self, bc): # Missing formal rules
         condition = bc["condition"]
         right = 0
@@ -150,8 +165,8 @@ class SimpleInterpreter:
 
     def step_if(self, bc): # Missing formal rules
         condition = bc["condition"]
-        right = self.locals.pop(0)
-        left = self.locals .pop(0)
+        right = self.stack.pop(0)
+        left = self.stack.pop(0)
 
         result = self.if_match_result(condition, left, right, "if")
 
@@ -191,8 +206,6 @@ class SimpleInterpreter:
             idx = bc["index"]
             if len(self.stack) > 0:
                 val = self.stack.pop(0)
-                # self.locals.insert(idx) = val
-                # self.locals[idx] = val
                 self.locals.insert(0,val)
         except:
             None            
@@ -241,16 +254,22 @@ class SimpleInterpreter:
         """
         # print("hejhest:", bc["opr"] )
         if bc["opr"] == "newarray":
+            # size = self.stack.pop()
+            # if size == 1:
+            #     self.stack.insert(0, [None]*1)
+            # else:
+            #     dim = bc["dim"]
+            #     arrType = bc["type"]
+            #     # newArr = np.zeros_like(np.arange(size),dtype=arrType,shape=dim)
+            #     self.stack.insert(0, [size for _ in range(dim)])
             dim = bc["dim"]
-            arrType = bc["type"]
-            size = self.locals[0]
-            if size >= 2:
-                # newArr = np.zeros_like(np.arange(size),dtype=arrType,shape=dim)
-                self.stack.insert(0, [0 for _ in range(size)])
-            else:
-                self.stack.insert(0, [None]*1)
+            arrtype = bc["type"]
+            size = [self.stack.pop() for _ in range(dim)]
+            arrnew = self.create_array(arrtype,size)
+            self.stack.insert(0,arrnew)
+                
         self.pc += 1
-    
+            
     def step_array_store(self, bc):
         """
         + * opr : "array_store"
@@ -259,12 +278,11 @@ class SimpleInterpreter:
               -- \{aastore\} ["arrayref","index"] -> ["value"]
         """
         if bc["opr"] == "array_store":
-            idx = self.stack.pop()
-            ref = self.stack.pop()
-            val = self.stack.pop()
-            self.store_in_array.insert(0, ((ref,idx),val))
-            print("idx:",idx,"| ref:",ref, "| val:",val)
-            print("array_store-0:", self.store_in_array)
+            val = self.stack.pop(0)
+            idx = self.stack.pop(0)
+            ref = self.stack.pop(0)
+            # print("idx:",idx,"| ref:",ref, "| val:",val)
+            self.store_in_array(ref,idx,val)
         self.pc += 1
         
     def step_arraylength(self, bc):
@@ -300,7 +318,7 @@ class SimpleInterpreter:
         self.pc += 1
     
 
-    # HELPER METHODS
+    # HELPER METHODS/FUNCTIONS
     def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
         match condition:
             case "ne":
@@ -319,7 +337,24 @@ class SimpleInterpreter:
                 raise ValueError(f"Condition '{condition}' is not implemented for step_'{operant}'")
             
         return result
-
+        
+        def store_in_array(self, ref, idx, val):
+            if isinstance(ref, list):
+                if 0 <= idx < len(ref):
+                    ref[idx] = val
+                else:
+                    raise ValueError(f"Index '{idx}' is out of bounds'")
+            else:
+                # raise ValueError(f"Invalid reference")  
+                None
+        
+        def create_array(self, arrtype, sizes):
+            if len(sizes) == 1:
+                return [None] * sizes[0]
+            else:
+                x = sizes[0]
+                xs = sizes[1:]
+                return [self.create_array(arrtype, xs) for _ in range(x)]
 
 if __name__ == "__main__":
     methodid = MethodId.parse(sys.argv[1])
