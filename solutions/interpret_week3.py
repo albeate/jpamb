@@ -344,28 +344,38 @@ class SimpleInterpreter:
                 raise ValueError(f"Condition '{condition}' is not implemented for step_'{operant}'")
             
         return result
-        
-        def store_in_array(self, ref, idx, val):
-            if isinstance(ref, list):
-                if 0 <= idx < len(ref):
-                    ref[idx] = val
-                else:
-                    raise ValueError(f"Index '{idx}' is out of bounds'")
+    
+    def store_in_array(self, ref, idx, val):
+        if isinstance(ref, list):
+            if 0 <= idx < len(ref):
+                ref[idx] = val
             else:
-                # raise ValueError(f"Invalid reference")  
-                None
+                raise ValueError(f"Index '{idx}' is out of bounds'")
+        else:
+            # raise ValueError(f"Invalid reference")  
+            None
         
-        def create_array(self, arrtype, sizes):
-            if len(sizes) == 1:
-                return [None] * sizes[0]
-            else:
-                x = sizes[0]
-                xs = sizes[1:]
-                return [self.create_array(arrtype, xs) for _ in range(x)]
-        
-        # def update_target(self, bc):
-        #     key = len(target.keys())
-        #     target[key+1] = bc
+    def create_array(self, arrtype, sizes):
+        if len(sizes) == 1:
+            return [None] * sizes[0]
+        else:
+            x = sizes[0]
+            xs = sizes[1:]
+            return [self.create_array(arrtype, xs) for _ in range(x)]
+    
+    # def update_target(self, bc):
+    #     key = len(target.keys())
+    #     target[key+1] = bc
+    
+    def step_new(self, bc):
+        # "class": "java/lang/AssertionError"
+        class_name = bc["class"]
+
+        # Simulate the creation of a new object (here, an AssertionError object)
+        new_object = f"new {class_name}()"
+        self.stack.insert(0, new_object)
+        self.pc += 1
+
 
 if __name__ == "__main__":
     methodid = MethodId.parse(sys.argv[1])
