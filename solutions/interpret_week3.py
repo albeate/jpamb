@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
+import sys, logging
+import json
+import numpy as np
 from dataclasses import dataclass
 from pathlib import Path
-import sys, logging
 from typing import Literal, TypeAlias, Optional
 
-import numpy as np
 
 l = logging
 l.basicConfig(level=logging.DEBUG, format="%(message)s")
@@ -47,8 +48,6 @@ class MethodId:
         return Path("../decompiled", *self.class_name.split(".")).with_suffix(".json")
 
     def load(self):
-        import json
-
         classfile = self.classfile()
         with open(classfile) as f:
             l.debug(f"read decompiled classfile {classfile}")
@@ -90,7 +89,7 @@ class SimpleInterpreter:
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=32):
+    def interpet(self, limit=60):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -205,13 +204,9 @@ class SimpleInterpreter:
           -- store a local variable $index of $type
           -- {*} ["value"] -> []
         """
-        try:
-            idx = bc["index"]
-            if len(self.stack) > 0:
-                val = self.stack.pop(0)
-                self.locals.insert(0,val)
-        except:
-            None
+        variable_to_store = self.stack.pop(0)
+        self.locals.insert(bc["index"], variable_to_store)
+        
         self.pc += 1
         
     def step_invoke(self, bc): # not sure if on stack
@@ -221,10 +216,10 @@ class SimpleInterpreter:
         cls = bc["method"]["ref"]["name"]
         name = bc["method"]["name"]
         try:
-            print(self.locals[0])
+            l.debug(f"local: {self.locals[0]}")
             argType = bc["method"]["args"][0]
             args = self.locals[0]
-            print("args: ", args)
+            l.debug(f"args: {args}")
         except:
             argType = ""
         match argType: # burde bare kopier det der allerede er lavet af forelæser
@@ -245,7 +240,6 @@ class SimpleInterpreter:
             if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
                 if len(self.stack) > 0:
                     self.stack.pop()
-
         self.pc += 1
         
     def step_newarray(self, bc):
@@ -281,22 +275,25 @@ class SimpleInterpreter:
               -- load a $value of $type from an $arrayref array at index $index
               -- \{aastore\} ["arrayref","index"] -> ["value"]
         """
-        if bc["opr"] == "array_store":
-            val = self.stack.pop(0)
-            idx = self.stack.pop(0)
-            ref = self.stack.pop(0)
-            # print("idx:",idx,"| ref:",ref, "| val:",val)
-            self.store_in_array(ref,idx,val)
+        value = self.stack.pop(0)
+        index = self.stack.pop(0)
+        arrayef = self.stack.pop(0)
+
+        if arrayef is None:
+            self.done = "null pointer"
+        elif 0 <= index < len(arrayef):
+            arrayef[index] = value
+        elif index > len(arrayef):
+            self.done = "out of bounds"
 
         self.pc += 1
         
     def step_arraylength(self, bc):
-        if bc["opr"] == "arraylength":
-            if any(isinstance(s,list) for s in self.stack):
-                uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
-                self.stack.insert(0,len(uddata))
-            else:
-                self.stack.insert(0,1)
+        if any(isinstance(s,list) for s in self.stack):
+            uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
+            self.stack.insert(0,len(uddata))
+        else:
+            self.stack.insert(0,1)
 
         self.pc += 1
         
@@ -316,17 +313,30 @@ class SimpleInterpreter:
                 try:
                     result = left / right
                 except ZeroDivisionError:
-                    self.done = "err"
+                    self.done = "divide by zero"
             case "rem":
                 result = left % right
         
         self.stack.insert(0, result)
 
         self.pc += 1
-    
+
+    def step_incr(self, bc): # Missing formal rules 
+        amount = bc["amount"]
+        index = bc["index"]
+
+        value_to_be_incremented = self.stack.pop(index)
+        value_to_be_incremented += amount
+
+        self.stack.insert(0, value_to_be_incremented)
 
     # HELPER METHODS/FUNCTIONS
     def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
+        if isinstance(value1, list):
+            value1 = len(value1)
+        if isinstance(value2, list):
+            value2 = len(value2)
+
         match condition:
             case "ne":
                 result = value1 != value2
@@ -344,16 +354,6 @@ class SimpleInterpreter:
                 raise ValueError(f"Condition '{condition}' is not implemented for step_'{operant}'")
             
         return result
-    
-    def store_in_array(self, ref, idx, val):
-        if isinstance(ref, list):
-            if 0 <= idx < len(ref):
-                ref[idx] = val
-            else:
-                raise ValueError(f"Index '{idx}' is out of bounds'")
-        else:
-            # raise ValueError(f"Invalid reference")  
-            None
         
     def create_array(self, arrtype, sizes):
         if len(sizes) == 1:
