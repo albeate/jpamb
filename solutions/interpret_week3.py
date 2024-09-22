@@ -130,6 +130,9 @@ class SimpleInterpreter:
         -- return a optional $value of $type
         -- {*return} ["value"] -> []
         -- \{return\} [] -> []
+        
+        Mangler at kunne returnerer fra en metode der er blevet kaldt
+        via invoke. (tror jeg)
         """
         if bc["type"] is not None:
             self.stack.pop(0)
