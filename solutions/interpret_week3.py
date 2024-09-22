@@ -45,7 +45,7 @@ class MethodId:
         )
 
     def classfile(self):
-        return Path("../decompiled", *self.class_name.split(".")).with_suffix(".json")
+        return Path("decompiled", *self.class_name.split(".")).with_suffix(".json")
 
     def load(self):
         classfile = self.classfile()
@@ -71,6 +71,7 @@ class MethodId:
             bytecode=method["code"]["bytecode"],
             locals=inputs,
             stack=[],
+            heap={},
             callstack = [],
             pc=0,
         )
@@ -85,6 +86,7 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
+    heap: dict
     callstack: list # bruges den overhoved? .-.
     pc: int
     done: Optional[str] = None
@@ -119,7 +121,6 @@ class SimpleInterpreter:
             self.stack.insert(0, None)
         else:
             self.stack.insert(0, bc["value"]["value"])
-        # self.update_target(bc)
         self.pc += 1
 
 
@@ -210,12 +211,67 @@ class SimpleInterpreter:
         
         self.pc += 1
         
+    # def execute_bytecode(self, bytecode):
+    #     for instruction in bytecode:
+    #         next = bytecode[self.pc]
+    #         if fn := getattr(instruction, "step_" + next["opr"], None):
+    #             fn(next)
+    #
+    # def step_invoke(self, bc):
+    #     name = bc["method"]["name"]
+    #     cls = bc["method"]["ref"]["name"]
+    #     args = bc["method"]["args"]
+    #     # self.locals = {i: arg for i, arg in enumerate(args)}
+    #     if 'int' in args:
+    #         args_type = 'I'
+    #     elif  'boolean' in args:
+    #         args_type = 'Z'
+    #     else:
+    #         args_type = ''
+    #     return_type = "V" # stadig fastkodet
+    #     method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
+    #
+    #     print("invoke_self.locals  := ", self.locals)
+    #     print("invoke_class := ", cls)
+    #     print("invoke_name := ", name)
+    #     print("invoke_argv := ", args)
+    #     print("invoke_args_type := ", args_type)
+    #     print("invoke_method_name := ", method_name)
+    #
+    #     # bbs: pænt fastkodet, hvis du spørger mig -.-
+    #     if name == "java/lang/AssertionError":
+    #         self.stack.insert(0,"assertion error")
+    #     else:
+    #         bytecode = MethodId.parse(method_name).load()
+    #         print("invoke_bytecode:= ", bytecode)
+    #         execute_bytecode(bytecode) # arbejder på det
+    #         if bytecode is not None:
+    #             self.stack.pop()
+    #     self.pc += 1
+    
+    def step_new(self, bc):
+        """
+        + * opr : "new"
+          * class : <ClassName>
+          -- create a new $object of $class
+          -- \{new\} [] -> ["objectref"]
+        """
+        # "class": "java/lang/AssertionError"
+        class_name = bc["class"]
+        # ref = bc["method"]["ref"]
+
+        # Simulate the creation of a new object (here, an AssertionError object)
+        new_object = f"new {class_name}()"
+        self.stack.insert(0, new_object)
+        # self.heap[bc["opr"]] = new_object
+        self.pc += 1
+        
     def step_invoke(self, bc): # not sure if on stack
         """
         alt her, kunne laves pænere. Men tør ikke at røre noget pt
         """
         cls = bc["method"]["ref"]["name"]
-        name = bc["method"]["name"]
+
         try:
             l.debug(f"local: {self.locals[0]}")
             argType = bc["method"]["args"][0]
@@ -231,7 +287,7 @@ class SimpleInterpreter:
           case "":
             typ = ''
         mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
-        
+
         # kunne laves pænere...
         if typ == '':
             if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
@@ -251,22 +307,14 @@ class SimpleInterpreter:
             -- create a $dim - dimentional array of size $count and $type
             -- \{newarray\} ["count1","count2","..."] -> ["objectref"]
         """
-        # print("hejhest:", bc["opr"] )
         if bc["opr"] == "newarray":
-            # size = self.stack.pop()
-            # if size == 1:
-            #     self.stack.insert(0, [None]*1)
-            # else:
-            #     dim = bc["dim"]
-            #     arrType = bc["type"]
-            #     # newArr = np.zeros_like(np.arange(size),dtype=arrType,shape=dim)
-            #     self.stack.insert(0, [size for _ in range(dim)])
             dim = bc["dim"]
             arrtype = bc["type"]
-            size = [self.stack.pop() for _ in range(dim)]
+            # size = [self.stack.pop() for _ in range(dim)]
+            size = [self.stack[0] for _ in range(dim)]
             arrnew = self.create_array(arrtype,size)
-            self.stack.insert(0,arrnew)
-
+            # self.stack.insert(0,arrnew)
+            self.heap[bc["type"]] = arrnew 
         self.pc += 1
             
     def step_array_store(self, bc):
@@ -279,6 +327,10 @@ class SimpleInterpreter:
         value = self.stack.pop(0)
         index = self.stack.pop(0)
         arrayef = self.stack.pop(0)
+        # if bc["type"] in self.heap:
+        #     arrayef = self.heap[bc["type"]]
+        # else:
+        #     arrayef = self.stack.pop(0)
 
         if arrayef is None:
             self.done = "null pointer"
@@ -290,12 +342,24 @@ class SimpleInterpreter:
         self.pc += 1
         
     def step_arraylength(self, bc):
+        """
+        + * opr : "arraylength"
+          * <empty>
+            -- finds the length of an array
+            -- \{arraylength\} ["array"] -> ["length"]
+        """
         if any(isinstance(s,list) for s in self.stack):
             uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
             self.stack.insert(0,len(uddata))
         else:
-            self.stack.insert(0,1)
-
+             self.stack.insert(0,1)
+        # if bc["type"] in self.heap:
+        #     if isinstance(self.heap[bc["type"]],list):
+        #         self.stack.insert(0,len(self.heap[bc["type"]]))
+        #     else:
+        #         self.stack.insert(0,1)
+        # else:
+        #     self.stack.insert(0,None)
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
@@ -364,18 +428,7 @@ class SimpleInterpreter:
             xs = sizes[1:]
             return [self.create_array(arrtype, xs) for _ in range(x)]
     
-    # def update_target(self, bc):
-    #     key = len(target.keys())
-    #     target[key+1] = bc
-    
-    def step_new(self, bc):
-        # "class": "java/lang/AssertionError"
-        class_name = bc["class"]
 
-        # Simulate the creation of a new object (here, an AssertionError object)
-        new_object = f"new {class_name}()"
-        self.stack.insert(0, new_object)
-        self.pc += 1
 
 
 if __name__ == "__main__":
