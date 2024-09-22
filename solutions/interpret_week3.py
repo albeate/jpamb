@@ -152,8 +152,6 @@ class SimpleInterpreter:
         """
         if bc["opr"] == "goto":
             self.bytecode[bc["target"]]
-            # target[]
-            # self.pc[bc["target"]]
         self.pc += 1
         
     def step_ifz(self, bc): # Missing formal rules
