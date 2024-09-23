@@ -136,6 +136,13 @@ def evaluate(
     tools = experiment["tools"]
     by_tool = defaultdict(list)
 
+    with open(WORKFOLDER / "CITATION.cff") as f:
+        import yaml
+
+        version = yaml.safe_load(f)["version"]
+
+    logger.info(f"Version {version}")
+
     sieve = WORKFOLDER / "timer" / "sieve.c"
 
     logger.info(f"Building timer from {sieve}")
@@ -146,7 +153,7 @@ def evaluate(
         logger.info(f"Base calibrated {i}: {calibration/1_000_000:0.0f}ms")
 
     for m, cases in Case.by_methodid(suite.cases()):
-        if filter_methods and not filter_methods.search(m):
+        if filter_methods and not filter_methods.search(str(m)):
             logger.trace(f"{m} did not match {filter_methods}")
             continue
 
@@ -160,7 +167,7 @@ def evaluate(
             logger.debug(f"Testing {tool_name!r}")
             try:
                 fpred, time_ns = run_cmd(
-                    tool["executable"] + [m],
+                    tool["executable"] + [str(m)],
                     timeout=timeout,
                     logger=logger,
                 )
@@ -211,7 +218,7 @@ def evaluate(
 
             by_tool[tool_name].append(
                 {
-                    "method": m,
+                    "method": str(m),
                     "iteration": n,
                     "wagers": {k: p.wager for k, p in predictions.items()},
                     "time": time_ns,
@@ -241,6 +248,7 @@ def evaluate(
         )
 
     experiment["timestamp"] = int(datetime.now().timestamp() * 1000)
+    experiment["version"] = version
 
     with open(output, "w", encoding="utf-8") as fp:
         json.dump(experiment, fp)

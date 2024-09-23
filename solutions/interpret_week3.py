@@ -211,6 +211,8 @@ class SimpleInterpreter:
         cls = bc["method"]["ref"]["name"]
         if cls == 'java/lang/AssertionError':
             self.stack.pop(0)
+            # self.stack.insert(0,False)
+            self.stack.insert(0,"assertion error")
         else:
             name = bc["method"]["name"]
             args = bc["method"]["args"]
@@ -223,7 +225,6 @@ class SimpleInterpreter:
                 args_type = ''
                 return_type = "V" # mangler stadig at få den lavet dynamisk. Kig på original koden 
                 method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
-                
                 # print("invoke_self.locals  := ", self.locals)
                 # print("invoke_class := ", cls)
                 # print("invoke_name := ", name)
