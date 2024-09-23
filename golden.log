@@ -1,2088 +1,346 @@
-Ct> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayContent:()V' '()'
-Ct> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-Ct> STEP 0:
-Ct>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
-Ct>   LOCALS: []
-Ct>   STACK: []
-Ct> STEP 1:
-Ct>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [5]
-Ct> STEP 2:
-Ct>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-Ct>   LOCALS: []
-Ct>   STACK: [[None, None, None, None, None], 5]
-Ct> STEP 3:
-Ct>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Ct>   LOCALS: []
-Ct>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
-Ct> STEP 4:
-Ct>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Ct>   LOCALS: []
-Ct>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
-Ct> STEP 5:
-Ct>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [1, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
-Ct> STEP 6:
-Ct>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, None, None, None, None], 5]
-Ct> STEP 7:
-Ct>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, None, None, None, None], [1, None, None, None, None], 5]
-Ct> STEP 8:
-Ct>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Ct>   LOCALS: []
-Ct>   STACK: [1, [1, None, None, None, None], [1, None, None, None, None], 5]
-Ct> STEP 9:
-Ct>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [2, 1, [1, None, None, None, None], [1, None, None, None, None], 5]
-Ct> STEP 10:
-Ct>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, None, None, None], 5]
-Ct> STEP 11:
-Ct>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, None, None, None], [1, 2, None, None, None], 5]
-Ct> STEP 12:
-Ct>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 100}}
-Ct>   LOCALS: []
-Ct>   STACK: [2, [1, 2, None, None, None], [1, 2, None, None, None], 5]
-Ct> STEP 13:
-Ct>   PC: 13 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [100, 2, [1, 2, None, None, None], [1, 2, None, None, None], 5]
-Ct> STEP 14:
-Ct>   PC: 14 {'offset': 16, 'opr': 'dup', 'words': 1}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, 100, None, None], 5]
-Ct> STEP 15:
-Ct>   PC: 15 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, 100, None, None], [1, 2, 100, None, None], 5]
-Ct> STEP 16:
-Ct>   PC: 16 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': -13}}
-Ct>   LOCALS: []
-Ct>   STACK: [3, [1, 2, 100, None, None], [1, 2, 100, None, None], 5]
-Ct> STEP 17:
-Ct>   PC: 17 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [-13, 3, [1, 2, 100, None, None], [1, 2, 100, None, None], 5]
-Ct> STEP 18:
-Ct>   PC: 18 {'offset': 21, 'opr': 'dup', 'words': 1}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, 100, -13, None], 5]
-Ct> STEP 19:
-Ct>   PC: 19 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
-Ct> STEP 20:
-Ct>   PC: 20 {'offset': 23, 'opr': 'push', 'value': {'type': 'integer', 'value': 23}}
-Ct>   LOCALS: []
-Ct>   STACK: [4, [1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
-Ct> STEP 21:
-Ct>   PC: 21 {'offset': 25, 'opr': 'array_store', 'type': 'int'}
-Ct>   LOCALS: []
-Ct>   STACK: [23, 4, [1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
-Ct> STEP 22:
-Ct>   PC: 22 {'index': 0, 'offset': 26, 'opr': 'store', 'type': 'ref'}
-Ct>   LOCALS: []
-Ct>   STACK: [[1, 2, 100, -13, 23], 5]
-Ct> STEP 23:
-Ct>   PC: 23 {'offset': 27, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Ct>   LOCALS: [[1, 2, 100, -13, 23]]
-Ct>   STACK: [5]
-Ct> STEP 24:
-Ct>   PC: 24 {'index': 1, 'offset': 28, 'opr': 'store', 'type': 'int'}
-Ct>   LOCALS: [[1, 2, 100, -13, 23]]
-Ct>   STACK: [0, 5]
-Ct> STEP 25:
-Ct>   PC: 25 {'index': 1, 'offset': 29, 'opr': 'load', 'type': 'int'}
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [5]
-Ct> STEP 26:
-Ct>   PC: 26 {'index': 0, 'offset': 30, 'opr': 'load', 'type': 'ref'}
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [0, 5]
-Ct> STEP 27:
-Ct>   PC: 27 {'offset': 31, 'opr': 'arraylength'}
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [[1, 2, 100, -13, 23], 0, 5]
-Ct> STEP 28:
-Ct>   PC: 28 {'condition': 'ge', 'offset': 32, 'opr': 'if', 'target': 39}
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [5, [1, 2, 100, -13, 23], 0, 5]
-Ct> STEP 29:
-Ct>   PC: 39 {'offset': 59, 'opr': 'return', 'type': None}
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [0, 5]
-Ct> DONE ok
-Ct>   LOCALS: [[1, 2, 100, -13, 23], 0]
-Ct>   STACK: [0, 5]
-Ct> done
-mC> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayInBounds:()V' '()'
-mC> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-mC> STEP 0:
-mC>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-mC>   LOCALS: []
-mC>   STACK: []
-mC> STEP 1:
-mC>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-mC>   LOCALS: []
-mC>   STACK: [2]
-mC> STEP 2:
-mC>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-mC>   LOCALS: []
-mC>   STACK: [[None, None], 2]
-mC> STEP 3:
-mC>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-mC>   LOCALS: []
-mC>   STACK: [[None, None], [None, None], 2]
-mC> STEP 4:
-mC>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-mC>   LOCALS: []
-mC>   STACK: [0, [None, None], [None, None], 2]
-mC> STEP 5:
-mC>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-mC>   LOCALS: []
-mC>   STACK: [0, 0, [None, None], [None, None], 2]
-mC> STEP 6:
-mC>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-mC>   LOCALS: []
-mC>   STACK: [[0, None], 2]
-mC> STEP 7:
-mC>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-mC>   LOCALS: []
-mC>   STACK: [[0, None], [0, None], 2]
-mC> STEP 8:
-mC>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-mC>   LOCALS: []
-mC>   STACK: [1, [0, None], [0, None], 2]
-mC> STEP 9:
-mC>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-mC>   LOCALS: []
-mC>   STACK: [0, 1, [0, None], [0, None], 2]
-mC> STEP 10:
-mC>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
-mC>   LOCALS: []
-mC>   STACK: [[0, 0], 2]
-mC> STEP 11:
-mC>   PC: 11 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'ref'}
-mC>   LOCALS: [[0, 0]]
-mC>   STACK: [2]
-mC> STEP 12:
-mC>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-mC>   LOCALS: [[0, 0]]
-mC>   STACK: [[0, 0], 2]
-mC> STEP 13:
-mC>   PC: 13 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-mC>   LOCALS: [[0, 0]]
-mC>   STACK: [1, [0, 0], 2]
-mC> STEP 14:
-mC>   PC: 14 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
-mC>   LOCALS: [[0, 0]]
-mC>   STACK: [1, 1, [0, 0], 2]
-mC> STEP 15:
-mC>   PC: 15 {'offset': 16, 'opr': 'return', 'type': None}
-mC>   LOCALS: [[0, 1]]
-mC>   STACK: [2]
-mC> DONE ok
-mC>   LOCALS: [[0, 1]]
-mC>   STACK: [2]
-mC> done
-Ol> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNull:()V' '()'
-Ol> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-Ol> STEP 0:
-Ol>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
-Ol>   LOCALS: []
-Ol>   STACK: []
-Ol> STEP 1:
-Ol>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'ref'}
-Ol>   LOCALS: []
-Ol>   STACK: [None]
-Ol> STEP 2:
-Ol>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'ref'}
-Ol>   LOCALS: [None]
-Ol>   STACK: []
-Ol> STEP 3:
-Ol>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Ol>   LOCALS: [None]
-Ol>   STACK: [None]
-Ol> STEP 4:
-Ol>   PC: 4 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-Ol>   LOCALS: [None]
-Ol>   STACK: [1, None]
-Ol> STEP 5:
-Ol>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-Ol>   LOCALS: [None]
-Ol>   STACK: [10, 1, None]
-Ol> DONE null pointer
-Ol>   LOCALS: [None]
-Ol>   STACK: []
-Ol> done
-5u> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNullLength:()V' '()'
-5u> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-5u> STEP 0:
-5u>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
-5u>   LOCALS: []
-5u>   STACK: []
-5u> STEP 1:
-5u>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'ref'}
-5u>   LOCALS: []
-5u>   STACK: [None]
-5u> STEP 2:
-5u>   PC: 2 {'field': {'class': 'jpamb/cases/Arrays', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 2, 'opr': 'get', 'static': True}
-5u>   LOCALS: [None]
-5u>   STACK: []
-5u> STEP 3:
-5u>   PC: 3 {'condition': 'ne', 'offset': 5, 'opr': 'ifz', 'target': 11}
-5u>   LOCALS: [None]
-5u>   STACK: [False]
-5u> STEP 4:
-5u>   PC: 4 {'index': 0, 'offset': 8, 'opr': 'load', 'type': 'ref'}
-5u>   LOCALS: [None]
-5u>   STACK: []
-5u> STEP 5:
-5u>   PC: 5 {'offset': 9, 'opr': 'arraylength'}
-5u>   LOCALS: [None]
-5u>   STACK: [None]
-5u> DONE null pointer
-5u>   LOCALS: [None]
-5u>   STACK: [None]
-5u> done
-sC> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayLength:()V' '()'
-sC> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-sC> STEP 0:
-sC>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-sC>   LOCALS: []
-sC>   STACK: []
-sC> STEP 1:
-sC>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-sC>   LOCALS: []
-sC>   STACK: [2]
-sC> STEP 2:
-sC>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-sC>   LOCALS: []
-sC>   STACK: [[None, None], 2]
-sC> STEP 3:
-sC>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-sC>   LOCALS: []
-sC>   STACK: [[None, None], [None, None], 2]
-sC> STEP 4:
-sC>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-sC>   LOCALS: []
-sC>   STACK: [0, [None, None], [None, None], 2]
-sC> STEP 5:
-sC>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-sC>   LOCALS: []
-sC>   STACK: [0, 0, [None, None], [None, None], 2]
-sC> STEP 6:
-sC>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-sC>   LOCALS: []
-sC>   STACK: [[0, None], 2]
-sC> STEP 7:
-sC>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-sC>   LOCALS: []
-sC>   STACK: [[0, None], [0, None], 2]
-sC> STEP 8:
-sC>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-sC>   LOCALS: []
-sC>   STACK: [1, [0, None], [0, None], 2]
-sC> STEP 9:
-sC>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-sC>   LOCALS: []
-sC>   STACK: [0, 1, [0, None], [0, None], 2]
-sC> STEP 10:
-sC>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
-sC>   LOCALS: []
-sC>   STACK: [[0, 0], 2]
-sC> STEP 11:
-sC>   PC: 11 {'field': {'class': 'jpamb/cases/Arrays', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 12, 'opr': 'get', 'static': True}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [2]
-sC> STEP 12:
-sC>   PC: 12 {'condition': 'ne', 'offset': 15, 'opr': 'ifz', 'target': 21}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [False, 2]
-sC> STEP 13:
-sC>   PC: 13 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'ref'}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [2]
-sC> STEP 14:
-sC>   PC: 14 {'offset': 19, 'opr': 'arraylength'}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [[0, 0], 2]
-sC> STEP 15:
-sC>   PC: 15 {'offset': 20, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [2, [0, 0], 2]
-sC> STEP 16:
-sC>   PC: 16 {'condition': 'eq', 'offset': 21, 'opr': 'if', 'target': 21}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [2, 2, [0, 0], 2]
-sC> STEP 17:
-sC>   PC: 21 {'offset': 32, 'opr': 'return', 'type': None}
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [[0, 0], 2]
-sC> DONE ok
-sC>   LOCALS: [[0, 0]]
-sC>   STACK: [[0, 0], 2]
-sC> done
-Gc> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayOutOfBounds:()V' '()'
-Gc> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-Gc> STEP 0:
-Gc>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Gc>   LOCALS: []
-Gc>   STACK: []
-Gc> STEP 1:
-Gc>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-Gc>   LOCALS: []
-Gc>   STACK: [2]
-Gc> STEP 2:
-Gc>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-Gc>   LOCALS: []
-Gc>   STACK: [[None, None], 2]
-Gc> STEP 3:
-Gc>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Gc>   LOCALS: []
-Gc>   STACK: [[None, None], [None, None], 2]
-Gc> STEP 4:
-Gc>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Gc>   LOCALS: []
-Gc>   STACK: [0, [None, None], [None, None], 2]
-Gc> STEP 5:
-Gc>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-Gc>   LOCALS: []
-Gc>   STACK: [0, 0, [None, None], [None, None], 2]
-Gc> STEP 6:
-Gc>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-Gc>   LOCALS: []
-Gc>   STACK: [[0, None], 2]
-Gc> STEP 7:
-Gc>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Gc>   LOCALS: []
-Gc>   STACK: [[0, None], [0, None], 2]
-Gc> STEP 8:
-Gc>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Gc>   LOCALS: []
-Gc>   STACK: [1, [0, None], [0, None], 2]
-Gc> STEP 9:
-Gc>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-Gc>   LOCALS: []
-Gc>   STACK: [0, 1, [0, None], [0, None], 2]
-Gc> STEP 10:
-Gc>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
-Gc>   LOCALS: []
-Gc>   STACK: [[0, 0], 2]
-Gc> STEP 11:
-Gc>   PC: 11 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'ref'}
-Gc>   LOCALS: [[0, 0]]
-Gc>   STACK: [2]
-Gc> STEP 12:
-Gc>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-Gc>   LOCALS: [[0, 0]]
-Gc>   STACK: [[0, 0], 2]
-Gc> STEP 13:
-Gc>   PC: 13 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Gc>   LOCALS: [[0, 0]]
-Gc>   STACK: [3, [0, 0], 2]
-Gc> STEP 14:
-Gc>   PC: 14 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
-Gc>   LOCALS: [[0, 0]]
-Gc>   STACK: [0, 3, [0, 0], 2]
-Gc> DONE out of bounds
-Gc>   LOCALS: [[0, 0]]
-Gc>   STACK: [2]
-Gc> done
-b+> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySometimesNull:(I)V' '(0)'
-b+> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-b+> STEP 0:
-b+>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
-b+>   LOCALS: [0]
-b+>   STACK: []
-b+> STEP 1:
-b+>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'store', 'type': 'ref'}
-b+>   LOCALS: [0]
-b+>   STACK: [None]
-b+> STEP 2:
-b+>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
-b+>   LOCALS: [0, None]
-b+>   STACK: []
-b+> STEP 3:
-b+>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-b+>   LOCALS: [0, None]
-b+>   STACK: [0]
-b+> STEP 4:
-b+>   PC: 4 {'condition': 'ge', 'offset': 5, 'opr': 'if', 'target': 12}
-b+>   LOCALS: [0, None]
-b+>   STACK: [10, 0]
-b+> STEP 5:
-b+>   PC: 5 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-b+>   LOCALS: [0, None]
-b+>   STACK: []
-b+> STEP 6:
-b+>   PC: 6 {'dim': 1, 'offset': 9, 'opr': 'newarray', 'type': 'int'}
-b+>   LOCALS: [0, None]
-b+>   STACK: [1]
-b+> STEP 7:
-b+>   PC: 7 {'offset': 11, 'opr': 'dup', 'words': 1}
-b+>   LOCALS: [0, None]
-b+>   STACK: [[None], 1]
-b+> STEP 8:
-b+>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-b+>   LOCALS: [0, None]
-b+>   STACK: [[None], [None], 1]
-b+> STEP 9:
-b+>   PC: 9 {'index': 0, 'offset': 13, 'opr': 'load', 'type': 'int'}
-b+>   LOCALS: [0, None]
-b+>   STACK: [0, [None], [None], 1]
-b+> STEP 10:
-b+>   PC: 10 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
-b+>   LOCALS: [0, None]
-b+>   STACK: [0, 0, [None], [None], 1]
-b+> STEP 11:
-b+>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'store', 'type': 'ref'}
-b+>   LOCALS: [0, None]
-b+>   STACK: [[0], 1]
-b+> STEP 12:
-b+>   PC: 12 {'index': 1, 'offset': 16, 'opr': 'load', 'type': 'ref'}
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [1]
-b+> STEP 13:
-b+>   PC: 13 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [[0], 1]
-b+> STEP 14:
-b+>   PC: 14 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [1, [0], 1]
-b+> STEP 15:
-b+>   PC: 15 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [10, 1, [0], 1]
-b+> STEP 16:
-b+>   PC: 16 {'offset': 21, 'opr': 'return', 'type': None}
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [1]
-b+> DONE ok
-b+>   LOCALS: [0, [0], None]
-b+>   STACK: [1]
-b+> done
-JT> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySometimesNull:(I)V' '(11)'
-JT> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-JT> STEP 0:
-JT>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
-JT>   LOCALS: [11]
-JT>   STACK: []
-JT> STEP 1:
-JT>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'store', 'type': 'ref'}
-JT>   LOCALS: [11]
-JT>   STACK: [None]
-JT> STEP 2:
-JT>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
-JT>   LOCALS: [11, None]
-JT>   STACK: []
-JT> STEP 3:
-JT>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-JT>   LOCALS: [11, None]
-JT>   STACK: [11]
-JT> STEP 4:
-JT>   PC: 4 {'condition': 'ge', 'offset': 5, 'opr': 'if', 'target': 12}
-JT>   LOCALS: [11, None]
-JT>   STACK: [10, 11]
-JT> STEP 5:
-JT>   PC: 12 {'index': 1, 'offset': 16, 'opr': 'load', 'type': 'ref'}
-JT>   LOCALS: [11, None]
-JT>   STACK: []
-JT> STEP 6:
-JT>   PC: 13 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-JT>   LOCALS: [11, None]
-JT>   STACK: [None]
-JT> STEP 7:
-JT>   PC: 14 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-JT>   LOCALS: [11, None]
-JT>   STACK: [1, None]
-JT> STEP 8:
-JT>   PC: 15 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
-JT>   LOCALS: [11, None]
-JT>   STACK: [10, 1, None]
-JT> DONE null pointer
-JT>   LOCALS: [11, None]
-JT>   STACK: []
-JT> done
-pZ> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.binarySearch:(I)V' '(3)'
-pZ> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-pZ> STEP 0:
-pZ>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
-pZ>   LOCALS: [3]
-pZ>   STACK: []
-pZ> STEP 1:
-pZ>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [5]
-pZ> STEP 2:
-pZ>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[None, None, None, None, None], 5]
-pZ> STEP 3:
-pZ>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
-pZ> STEP 4:
-pZ>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
-pZ> STEP 5:
-pZ>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [2, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
-pZ> STEP 6:
-pZ>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, None, None, None, None], 5]
-pZ> STEP 7:
-pZ>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, None, None, None, None], [2, None, None, None, None], 5]
-pZ> STEP 8:
-pZ>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [1, [2, None, None, None, None], [2, None, None, None, None], 5]
-pZ> STEP 9:
-pZ>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [3, 1, [2, None, None, None, None], [2, None, None, None, None], 5]
-pZ> STEP 10:
-pZ>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, None, None, None], 5]
-pZ> STEP 11:
-pZ>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, None, None, None], [2, 3, None, None, None], 5]
-pZ> STEP 12:
-pZ>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
-pZ> STEP 13:
-pZ>   PC: 13 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [4, 2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
-pZ> STEP 14:
-pZ>   PC: 14 {'offset': 15, 'opr': 'dup', 'words': 1}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, 4, None, None], 5]
-pZ> STEP 15:
-pZ>   PC: 15 {'offset': 16, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-pZ> STEP 16:
-pZ>   PC: 16 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-pZ> STEP 17:
-pZ>   PC: 17 {'offset': 19, 'opr': 'array_store', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [10, 3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-pZ> STEP 18:
-pZ>   PC: 18 {'offset': 20, 'opr': 'dup', 'words': 1}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, 4, 10, None], 5]
-pZ> STEP 19:
-pZ>   PC: 19 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-pZ> STEP 20:
-pZ>   PC: 20 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 40}}
-pZ>   LOCALS: [3]
-pZ>   STACK: [4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-pZ> STEP 21:
-pZ>   PC: 21 {'offset': 24, 'opr': 'array_store', 'type': 'int'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [40, 4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-pZ> STEP 22:
-pZ>   PC: 22 {'index': 1, 'offset': 25, 'opr': 'store', 'type': 'ref'}
-pZ>   LOCALS: [3]
-pZ>   STACK: [[2, 3, 4, 10, 40], 5]
-pZ> STEP 23:
-pZ>   PC: 23 {'offset': 26, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40]]
-pZ>   STACK: [5]
-pZ> STEP 24:
-pZ>   PC: 24 {'index': 2, 'offset': 27, 'opr': 'store', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40]]
-pZ>   STACK: [0, 5]
-pZ> STEP 25:
-pZ>   PC: 25 {'index': 1, 'offset': 28, 'opr': 'load', 'type': 'ref'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0]
-pZ>   STACK: [5]
-pZ> STEP 26:
-pZ>   PC: 26 {'offset': 29, 'opr': 'arraylength'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0]
-pZ>   STACK: [[2, 3, 4, 10, 40], 5]
-pZ> STEP 27:
-pZ>   PC: 27 {'offset': 30, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0]
-pZ>   STACK: [5, [2, 3, 4, 10, 40], 5]
-pZ> STEP 28:
-pZ>   PC: 28 {'offset': 31, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0]
-pZ>   STACK: [1, 5, [2, 3, 4, 10, 40], 5]
-pZ> STEP 29:
-pZ>   PC: 29 {'index': 3, 'offset': 32, 'opr': 'store', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0]
-pZ>   STACK: [4, [2, 3, 4, 10, 40], 5]
-pZ> STEP 30:
-pZ>   PC: 30 {'index': 2, 'offset': 33, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [[2, 3, 4, 10, 40], 5]
-pZ> STEP 31:
-pZ>   PC: 31 {'index': 3, 'offset': 34, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 32:
-pZ>   PC: 32 {'condition': 'gt', 'offset': 35, 'opr': 'if', 'target': 62}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 33:
-pZ>   PC: 33 {'index': 2, 'offset': 38, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [[2, 3, 4, 10, 40], 5]
-pZ> STEP 34:
-pZ>   PC: 34 {'index': 3, 'offset': 39, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 35:
-pZ>   PC: 35 {'index': 2, 'offset': 40, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 36:
-pZ>   PC: 36 {'offset': 41, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [0, 4, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 37:
-pZ>   PC: 37 {'offset': 42, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 38:
-pZ>   PC: 38 {'offset': 43, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [2, 4, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 39:
-pZ>   PC: 39 {'offset': 44, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [2.0, 0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 40:
-pZ>   PC: 40 {'index': 4, 'offset': 45, 'opr': 'store', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4]
-pZ>   STACK: [2.0, [2, 3, 4, 10, 40], 5]
-pZ> STEP 41:
-pZ>   PC: 41 {'index': 1, 'offset': 47, 'opr': 'load', 'type': 'ref'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4, 2.0]
-pZ>   STACK: [[2, 3, 4, 10, 40], 5]
-pZ> STEP 42:
-pZ>   PC: 42 {'index': 4, 'offset': 48, 'opr': 'load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4, 2.0]
-pZ>   STACK: [[2, 3, 4, 10, 40], [2, 3, 4, 10, 40], 5]
-pZ> STEP 43:
-pZ>   PC: 43 {'offset': 50, 'opr': 'array_load', 'type': 'int'}
-pZ>   LOCALS: [3, [2, 3, 4, 10, 40], 0, 4, 2.0]
-pZ>   STACK: [2.0, [2, 3, 4, 10, 40], [2, 3, 4, 10, 40], 5]
-pZ> done
-Y5> starting: python solutions/interpret_week3.py 'jpamb.cases.Arrays.binarySearch:(I)V' '(6)'
-Y5> read decompiled classfile decompiled/jpamb/cases/Arrays.json
-Y5> STEP 0:
-Y5>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
-Y5>   LOCALS: [6]
-Y5>   STACK: []
-Y5> STEP 1:
-Y5>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [5]
-Y5> STEP 2:
-Y5>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[None, None, None, None, None], 5]
-Y5> STEP 3:
-Y5>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
-Y5> STEP 4:
-Y5>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
-Y5> STEP 5:
-Y5>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [2, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
-Y5> STEP 6:
-Y5>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, None, None, None, None], 5]
-Y5> STEP 7:
-Y5>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, None, None, None, None], [2, None, None, None, None], 5]
-Y5> STEP 8:
-Y5>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [1, [2, None, None, None, None], [2, None, None, None, None], 5]
-Y5> STEP 9:
-Y5>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [3, 1, [2, None, None, None, None], [2, None, None, None, None], 5]
-Y5> STEP 10:
-Y5>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, None, None, None], 5]
-Y5> STEP 11:
-Y5>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, None, None, None], [2, 3, None, None, None], 5]
-Y5> STEP 12:
-Y5>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
-Y5> STEP 13:
-Y5>   PC: 13 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [4, 2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
-Y5> STEP 14:
-Y5>   PC: 14 {'offset': 15, 'opr': 'dup', 'words': 1}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, 4, None, None], 5]
-Y5> STEP 15:
-Y5>   PC: 15 {'offset': 16, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-Y5> STEP 16:
-Y5>   PC: 16 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-Y5> STEP 17:
-Y5>   PC: 17 {'offset': 19, 'opr': 'array_store', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [10, 3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
-Y5> STEP 18:
-Y5>   PC: 18 {'offset': 20, 'opr': 'dup', 'words': 1}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, 4, 10, None], 5]
-Y5> STEP 19:
-Y5>   PC: 19 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-Y5> STEP 20:
-Y5>   PC: 20 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 40}}
-Y5>   LOCALS: [6]
-Y5>   STACK: [4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-Y5> STEP 21:
-Y5>   PC: 21 {'offset': 24, 'opr': 'array_store', 'type': 'int'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [40, 4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
-Y5> STEP 22:
-Y5>   PC: 22 {'index': 1, 'offset': 25, 'opr': 'store', 'type': 'ref'}
-Y5>   LOCALS: [6]
-Y5>   STACK: [[2, 3, 4, 10, 40], 5]
-Y5> STEP 23:
-Y5>   PC: 23 {'offset': 26, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40]]
-Y5>   STACK: [5]
-Y5> STEP 24:
-Y5>   PC: 24 {'index': 2, 'offset': 27, 'opr': 'store', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40]]
-Y5>   STACK: [0, 5]
-Y5> STEP 25:
-Y5>   PC: 25 {'index': 1, 'offset': 28, 'opr': 'load', 'type': 'ref'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0]
-Y5>   STACK: [5]
-Y5> STEP 26:
-Y5>   PC: 26 {'offset': 29, 'opr': 'arraylength'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0]
-Y5>   STACK: [[2, 3, 4, 10, 40], 5]
-Y5> STEP 27:
-Y5>   PC: 27 {'offset': 30, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0]
-Y5>   STACK: [5, [2, 3, 4, 10, 40], 5]
-Y5> STEP 28:
-Y5>   PC: 28 {'offset': 31, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0]
-Y5>   STACK: [1, 5, [2, 3, 4, 10, 40], 5]
-Y5> STEP 29:
-Y5>   PC: 29 {'index': 3, 'offset': 32, 'opr': 'store', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0]
-Y5>   STACK: [4, [2, 3, 4, 10, 40], 5]
-Y5> STEP 30:
-Y5>   PC: 30 {'index': 2, 'offset': 33, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [[2, 3, 4, 10, 40], 5]
-Y5> STEP 31:
-Y5>   PC: 31 {'index': 3, 'offset': 34, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 32:
-Y5>   PC: 32 {'condition': 'gt', 'offset': 35, 'opr': 'if', 'target': 62}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 33:
-Y5>   PC: 33 {'index': 2, 'offset': 38, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [[2, 3, 4, 10, 40], 5]
-Y5> STEP 34:
-Y5>   PC: 34 {'index': 3, 'offset': 39, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 35:
-Y5>   PC: 35 {'index': 2, 'offset': 40, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 36:
-Y5>   PC: 36 {'offset': 41, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [0, 4, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 37:
-Y5>   PC: 37 {'offset': 42, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [4, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 38:
-Y5>   PC: 38 {'offset': 43, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [2, 4, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 39:
-Y5>   PC: 39 {'offset': 44, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [2.0, 0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 40:
-Y5>   PC: 40 {'index': 4, 'offset': 45, 'opr': 'store', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4]
-Y5>   STACK: [2.0, [2, 3, 4, 10, 40], 5]
-Y5> STEP 41:
-Y5>   PC: 41 {'index': 1, 'offset': 47, 'opr': 'load', 'type': 'ref'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4, 2.0]
-Y5>   STACK: [[2, 3, 4, 10, 40], 5]
-Y5> STEP 42:
-Y5>   PC: 42 {'index': 4, 'offset': 48, 'opr': 'load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4, 2.0]
-Y5>   STACK: [[2, 3, 4, 10, 40], [2, 3, 4, 10, 40], 5]
-Y5> STEP 43:
-Y5>   PC: 43 {'offset': 50, 'opr': 'array_load', 'type': 'int'}
-Y5>   LOCALS: [6, [2, 3, 4, 10, 40], 0, 4, 2.0]
-Y5>   STACK: [2.0, [2, 3, 4, 10, 40], [2, 3, 4, 10, 40], 5]
-Y5> done
-vU> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.allPrimesArePositive:(I)V' '(100)'
-vU> read decompiled classfile decompiled/jpamb/cases/Calls.json
-vU> STEP 0:
-vU>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-vU>   LOCALS: [100]
-vU>   STACK: []
-vU> STEP 1:
-vU>   PC: 1 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'generatePrimeArray', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': {'kind': 'array', 'type': 'int'}}, 'offset': 1, 'opr': 'invoke'}
-vU>   LOCALS: [100]
-vU>   STACK: [100]
-vU> STEP 2:
-vU>   PC: 2 {'index': 1, 'offset': 4, 'opr': 'store', 'type': 'ref'}
-vU>   LOCALS: [100]
-vU>   STACK: [100]
-vU> STEP 3:
-vU>   PC: 3 {'index': 1, 'offset': 5, 'opr': 'load', 'type': 'ref'}
-vU>   LOCALS: [100, 100]
-vU>   STACK: []
-vU> STEP 4:
-vU>   PC: 4 {'offset': 6, 'opr': 'arraylength'}
-vU>   LOCALS: [100, 100]
-vU>   STACK: [100]
-vU> STEP 5:
-vU>   PC: 5 {'index': 2, 'offset': 7, 'opr': 'store', 'type': 'int'}
-vU>   LOCALS: [100, 100]
-vU>   STACK: [1, 100]
-vU> STEP 6:
-vU>   PC: 6 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-vU>   LOCALS: [100, 100, 1]
-vU>   STACK: [100]
-vU> STEP 7:
-vU>   PC: 7 {'index': 3, 'offset': 9, 'opr': 'store', 'type': 'int'}
-vU>   LOCALS: [100, 100, 1]
-vU>   STACK: [0, 100]
-vU> STEP 8:
-vU>   PC: 8 {'index': 3, 'offset': 10, 'opr': 'load', 'type': 'int'}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [100]
-vU> STEP 9:
-vU>   PC: 9 {'index': 2, 'offset': 11, 'opr': 'load', 'type': 'int'}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [0, 100]
-vU> STEP 10:
-vU>   PC: 10 {'condition': 'ge', 'offset': 12, 'opr': 'if', 'target': 25}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [1, 0, 100]
-vU> STEP 11:
-vU>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'load', 'type': 'ref'}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [100]
-vU> STEP 12:
-vU>   PC: 12 {'index': 3, 'offset': 16, 'opr': 'load', 'type': 'int'}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [100, 100]
-vU> STEP 13:
-vU>   PC: 13 {'offset': 17, 'opr': 'array_load', 'type': 'int'}
-vU>   LOCALS: [100, 100, 1, 0]
-vU>   STACK: [0, 100, 100]
-vU> done
-i2> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFalse:()V' '()'
-i2> read decompiled classfile decompiled/jpamb/cases/Calls.json
-i2> STEP 0:
-i2>   PC: 0 {'access': 'static', 'method': {'args': [], 'is_interface': False, 'name': 'assertFalse', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 0, 'opr': 'invoke'}
-i2>   LOCALS: []
-i2>   STACK: []
-i2> read decompiled classfile decompiled/jpamb/cases/Calls.json
-i2> Traceback (most recent call last):
-i2>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 421, in <module>
-i2>     print(methodid.create_interpreter(inputs).interpet())
-i2>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 101, in interpet
-i2>     fn(next)
-i2>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 235, in step_invoke
-i2>     execute_bytecode(bytecode) # arbejder på det
-i2> NameError: name 'execute_bytecode' is not defined
-0b> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFib:(I)V' '(0)'
-0b> read decompiled classfile decompiled/jpamb/cases/Calls.json
-0b> STEP 0:
-0b>   PC: 0 {'field': {'class': 'jpamb/cases/Calls', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-0b>   LOCALS: [0]
-0b>   STACK: []
-0b> STEP 1:
-0b>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 10}
-0b>   LOCALS: [0]
-0b>   STACK: [False]
-0b> STEP 2:
-0b>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-0b>   LOCALS: [0]
-0b>   STACK: []
-0b> STEP 3:
-0b>   PC: 3 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'fib', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': 'int'}, 'offset': 7, 'opr': 'invoke'}
-0b>   LOCALS: [0]
-0b>   STACK: [0]
-0b> STEP 4:
-0b>   PC: 4 {'offset': 10, 'opr': 'push', 'value': {'type': 'integer', 'value': 21}}
-0b>   LOCALS: [0]
-0b>   STACK: [0]
-0b> STEP 5:
-0b>   PC: 5 {'condition': 'eq', 'offset': 12, 'opr': 'if', 'target': 10}
-0b>   LOCALS: [0]
-0b>   STACK: [21, 0]
-0b> STEP 6:
-0b>   PC: 6 {'class': 'java/lang/AssertionError', 'offset': 15, 'opr': 'new'}
-0b>   LOCALS: [0]
-0b>   STACK: []
-0b> STEP 7:
-0b>   PC: 7 {'offset': 18, 'opr': 'dup', 'words': 1}
-0b>   LOCALS: [0]
-0b>   STACK: ['new java/lang/AssertionError()']
-0b> STEP 8:
-0b>   PC: 8 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 19, 'opr': 'invoke'}
-0b>   LOCALS: [0]
-0b>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-0b> STEP 9:
-0b>   PC: 9 {'offset': 22, 'opr': 'throw'}
-0b>   LOCALS: [0]
-0b>   STACK: ['new java/lang/AssertionError()']
-0b> STEP 10:
-0b>   PC: 10 {'offset': 23, 'opr': 'return', 'type': None}
-0b>   LOCALS: [0]
-0b>   STACK: ['new java/lang/AssertionError()']
-0b> DONE ok
-0b>   LOCALS: [0]
-0b>   STACK: ['new java/lang/AssertionError()']
-0b> done
-NQ> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFib:(I)V' '(8)'
-NQ> read decompiled classfile decompiled/jpamb/cases/Calls.json
-NQ> STEP 0:
-NQ>   PC: 0 {'field': {'class': 'jpamb/cases/Calls', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-NQ>   LOCALS: [8]
-NQ>   STACK: []
-NQ> STEP 1:
-NQ>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 10}
-NQ>   LOCALS: [8]
-NQ>   STACK: [False]
-NQ> STEP 2:
-NQ>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-NQ>   LOCALS: [8]
-NQ>   STACK: []
-NQ> STEP 3:
-NQ>   PC: 3 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'fib', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': 'int'}, 'offset': 7, 'opr': 'invoke'}
-NQ>   LOCALS: [8]
-NQ>   STACK: [8]
-NQ> STEP 4:
-NQ>   PC: 4 {'offset': 10, 'opr': 'push', 'value': {'type': 'integer', 'value': 21}}
-NQ>   LOCALS: [8]
-NQ>   STACK: [8]
-NQ> STEP 5:
-NQ>   PC: 5 {'condition': 'eq', 'offset': 12, 'opr': 'if', 'target': 10}
-NQ>   LOCALS: [8]
-NQ>   STACK: [21, 8]
-NQ> STEP 6:
-NQ>   PC: 6 {'class': 'java/lang/AssertionError', 'offset': 15, 'opr': 'new'}
-NQ>   LOCALS: [8]
-NQ>   STACK: []
-NQ> STEP 7:
-NQ>   PC: 7 {'offset': 18, 'opr': 'dup', 'words': 1}
-NQ>   LOCALS: [8]
-NQ>   STACK: ['new java/lang/AssertionError()']
-NQ> STEP 8:
-NQ>   PC: 8 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 19, 'opr': 'invoke'}
-NQ>   LOCALS: [8]
-NQ>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-NQ> STEP 9:
-NQ>   PC: 9 {'offset': 22, 'opr': 'throw'}
-NQ>   LOCALS: [8]
-NQ>   STACK: ['new java/lang/AssertionError()']
-NQ> STEP 10:
-NQ>   PC: 10 {'offset': 23, 'opr': 'return', 'type': None}
-NQ>   LOCALS: [8]
-NQ>   STACK: ['new java/lang/AssertionError()']
-NQ> DONE ok
-NQ>   LOCALS: [8]
-NQ>   STACK: ['new java/lang/AssertionError()']
-NQ> done
-z1> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIf:(Z)V' '(false)'
-z1> read decompiled classfile decompiled/jpamb/cases/Calls.json
-z1> STEP 0:
-z1>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-z1>   LOCALS: [False]
-z1>   STACK: []
-z1> STEP 1:
-z1>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
-z1>   LOCALS: [False]
-z1>   STACK: [False]
-z1> STEP 2:
-z1>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
-z1>   LOCALS: [False]
-z1>   STACK: [False]
-z1> DONE ok
-z1>   LOCALS: [False]
-z1>   STACK: [False]
-z1> done
-b2> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIf:(Z)V' '(true)'
-b2> read decompiled classfile decompiled/jpamb/cases/Calls.json
-b2> STEP 0:
-b2>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-b2>   LOCALS: [True]
-b2>   STACK: []
-b2> STEP 1:
-b2>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
-b2>   LOCALS: [True]
-b2>   STACK: [True]
-b2> STEP 2:
-b2>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
-b2>   LOCALS: [True]
-b2>   STACK: [True]
-b2> DONE ok
-b2>   LOCALS: [True]
-b2>   STACK: [True]
-b2> done
-yJ> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIfWithTrue:()V' '()'
-yJ> read decompiled classfile decompiled/jpamb/cases/Calls.json
-yJ> STEP 0:
-yJ>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-yJ>   LOCALS: []
-yJ>   STACK: []
-yJ> STEP 1:
-yJ>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
-yJ>   LOCALS: []
-yJ>   STACK: [1]
-yJ> STEP 2:
-yJ>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
-yJ>   LOCALS: []
-yJ>   STACK: [1]
-yJ> DONE ok
-yJ>   LOCALS: []
-yJ>   STACK: [1]
-yJ> done
-c3> starting: python solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertTrue:()V' '()'
-c3> read decompiled classfile decompiled/jpamb/cases/Calls.json
-c3> STEP 0:
-c3>   PC: 0 {'access': 'static', 'method': {'args': [], 'is_interface': False, 'name': 'assertTrue', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 0, 'opr': 'invoke'}
-c3>   LOCALS: []
-c3>   STACK: []
-c3> read decompiled classfile decompiled/jpamb/cases/Calls.json
-c3> Traceback (most recent call last):
-c3>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 421, in <module>
-c3>     print(methodid.create_interpreter(inputs).interpet())
-c3>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 101, in interpet
-c3>     fn(next)
-c3>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 235, in step_invoke
-c3>     execute_bytecode(bytecode) # arbejder på det
-c3> NameError: name 'execute_bytecode' is not defined
-CQ> starting: python solutions/interpret_week3.py 'jpamb.cases.Loops.forever:()V' '()'
-CQ> read decompiled classfile decompiled/jpamb/cases/Loops.json
-CQ> STEP 0:
-CQ>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
-CQ>   LOCALS: []
-CQ>   STACK: []
-CQ> Traceback (most recent call last):
-CQ>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 421, in <module>
-CQ>     print(methodid.create_interpreter(inputs).interpet())
-CQ>   File "/home/jvd/DTU/ProgramAnalysis/jpamb/solutions/interpret_week3.py", line 94, in interpet
-CQ>     next = self.bytecode[self.pc]
-CQ> IndexError: list index out of range
-/n> starting: python solutions/interpret_week3.py 'jpamb.cases.Loops.neverAsserts:()V' '()'
-/n> read decompiled classfile decompiled/jpamb/cases/Loops.json
-/n> STEP 0:
-/n>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-/n>   LOCALS: []
-/n>   STACK: []
-/n> STEP 1:
-/n>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
-/n>   LOCALS: []
-/n>   STACK: [1]
-/n> STEP 2:
-/n>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
-/n>   LOCALS: [1]
-/n>   STACK: []
-/n> STEP 3:
-/n>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
-/n>   LOCALS: [1]
-/n>   STACK: [1]
-/n> STEP 4:
-/n>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
-/n>   LOCALS: [1]
-/n>   STACK: []
-/n> STEP 5:
-/n>   PC: 5 {'field': {'class': 'jpamb/cases/Loops', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 9, 'opr': 'get', 'static': True}
-/n>   LOCALS: [1]
-/n>   STACK: []
-/n> STEP 6:
-/n>   PC: 6 {'condition': 'ne', 'offset': 12, 'opr': 'ifz', 'target': 11}
-/n>   LOCALS: [1]
-/n>   STACK: [False]
-/n> STEP 7:
-/n>   PC: 7 {'class': 'java/lang/AssertionError', 'offset': 15, 'opr': 'new'}
-/n>   LOCALS: [1]
-/n>   STACK: []
-/n> STEP 8:
-/n>   PC: 8 {'offset': 18, 'opr': 'dup', 'words': 1}
-/n>   LOCALS: [1]
-/n>   STACK: ['new java/lang/AssertionError()']
-/n> STEP 9:
-/n>   PC: 9 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 19, 'opr': 'invoke'}
-/n>   LOCALS: [1]
-/n>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-/n> STEP 10:
-/n>   PC: 10 {'offset': 22, 'opr': 'throw'}
-/n>   LOCALS: [1]
-/n>   STACK: ['new java/lang/AssertionError()']
-/n> STEP 11:
-/n>   PC: 11 {'offset': 23, 'opr': 'return', 'type': None}
-/n>   LOCALS: [1]
-/n>   STACK: ['new java/lang/AssertionError()']
-/n> DONE ok
-/n>   LOCALS: [1]
-/n>   STACK: ['new java/lang/AssertionError()']
-/n> done
-Ce> starting: python solutions/interpret_week3.py 'jpamb.cases.Loops.neverDivides:()I' '()'
-Ce> read decompiled classfile decompiled/jpamb/cases/Loops.json
-Ce> STEP 0:
-Ce>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Ce>   LOCALS: []
-Ce>   STACK: []
-Ce> STEP 1:
-Ce>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
-Ce>   LOCALS: []
-Ce>   STACK: [1]
-Ce> STEP 2:
-Ce>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
-Ce>   LOCALS: [1]
-Ce>   STACK: []
-Ce> STEP 3:
-Ce>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
-Ce>   LOCALS: [1]
-Ce>   STACK: [1]
-Ce> STEP 4:
-Ce>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
-Ce>   LOCALS: [1]
-Ce>   STACK: []
-Ce> STEP 5:
-Ce>   PC: 5 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Ce>   LOCALS: [1]
-Ce>   STACK: []
-Ce> STEP 6:
-Ce>   PC: 6 {'offset': 10, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Ce>   LOCALS: [1]
-Ce>   STACK: [0]
-Ce> STEP 7:
-Ce>   PC: 7 {'offset': 11, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-Ce>   LOCALS: [1]
-Ce>   STACK: [0, 0]
-Ce> DONE divide by zero
-Ce>   LOCALS: [1]
-Ce>   STACK: [0]
-Ce> done
-DV> starting: python solutions/interpret_week3.py 'jpamb.cases.Loops.terminates:()V' '()'
-DV> read decompiled classfile decompiled/jpamb/cases/Loops.json
-DV> STEP 0:
-DV>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-DV>   LOCALS: []
-DV>   STACK: []
-DV> STEP 1:
-DV>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
-DV>   LOCALS: []
-DV>   STACK: [0]
-DV> STEP 2:
-DV>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
-DV>   LOCALS: [0]
-DV>   STACK: []
-DV> STEP 3:
-DV>   PC: 3 {'index': 0, 'offset': 3, 'opr': 'load', 'type': 'int'}
-DV>   LOCALS: [0]
-DV>   STACK: [0]
-DV> STEP 4:
-DV>   PC: 4 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-DV>   LOCALS: [0]
-DV>   STACK: [0, 0]
-DV> STEP 5:
-DV>   PC: 5 {'offset': 5, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
-DV>   LOCALS: [0]
-DV>   STACK: [1, 0, 0]
-DV> STEP 6:
-DV>   PC: 6 {'from': 'int', 'offset': 6, 'opr': 'cast', 'to': 'short'}
-DV>   LOCALS: [0]
-DV>   STACK: [1, 0]
-DV> done
-Ii> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertBoolean:(Z)V' '(false)'
-Ii> read decompiled classfile decompiled/jpamb/cases/Simple.json
-Ii> STEP 0:
-Ii>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-Ii>   LOCALS: [False]
-Ii>   STACK: []
-Ii> STEP 1:
-Ii>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-Ii>   LOCALS: [False]
-Ii>   STACK: [False]
-Ii> STEP 2:
-Ii>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-Ii>   LOCALS: [False]
-Ii>   STACK: []
-Ii> STEP 3:
-Ii>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-Ii>   LOCALS: [False]
-Ii>   STACK: [False]
-Ii> STEP 4:
-Ii>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
-Ii>   LOCALS: [False]
-Ii>   STACK: []
-Ii> STEP 5:
-Ii>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
-Ii>   LOCALS: [False]
-Ii>   STACK: ['new java/lang/AssertionError()']
-Ii> STEP 6:
-Ii>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-Ii>   LOCALS: [False]
-Ii>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-Ii> STEP 7:
-Ii>   PC: 7 {'offset': 17, 'opr': 'throw'}
-Ii>   LOCALS: [False]
-Ii>   STACK: ['new java/lang/AssertionError()']
-Ii> STEP 8:
-Ii>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-Ii>   LOCALS: [False]
-Ii>   STACK: ['new java/lang/AssertionError()']
-Ii> DONE ok
-Ii>   LOCALS: [False]
-Ii>   STACK: ['new java/lang/AssertionError()']
-Ii> done
-NF> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertBoolean:(Z)V' '(true)'
-NF> read decompiled classfile decompiled/jpamb/cases/Simple.json
-NF> STEP 0:
-NF>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-NF>   LOCALS: [True]
-NF>   STACK: []
-NF> STEP 1:
-NF>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-NF>   LOCALS: [True]
-NF>   STACK: [False]
-NF> STEP 2:
-NF>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-NF>   LOCALS: [True]
-NF>   STACK: []
-NF> STEP 3:
-NF>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-NF>   LOCALS: [True]
-NF>   STACK: [True]
-NF> STEP 4:
-NF>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-NF>   LOCALS: [True]
-NF>   STACK: []
-NF> DONE ok
-NF>   LOCALS: [True]
-NF>   STACK: []
-NF> done
-03> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertFalse:()V' '()'
-03> read decompiled classfile decompiled/jpamb/cases/Simple.json
-03> STEP 0:
-03>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-03>   LOCALS: []
-03>   STACK: []
-03> STEP 1:
-03>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 6}
-03>   LOCALS: []
-03>   STACK: [False]
-03> STEP 2:
-03>   PC: 2 {'class': 'java/lang/AssertionError', 'offset': 6, 'opr': 'new'}
-03>   LOCALS: []
-03>   STACK: []
-03> STEP 3:
-03>   PC: 3 {'offset': 9, 'opr': 'dup', 'words': 1}
-03>   LOCALS: []
-03>   STACK: ['new java/lang/AssertionError()']
-03> STEP 4:
-03>   PC: 4 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 10, 'opr': 'invoke'}
-03>   LOCALS: []
-03>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-03> STEP 5:
-03>   PC: 5 {'offset': 13, 'opr': 'throw'}
-03>   LOCALS: []
-03>   STACK: ['new java/lang/AssertionError()']
-03> STEP 6:
-03>   PC: 6 {'offset': 14, 'opr': 'return', 'type': None}
-03>   LOCALS: []
-03>   STACK: ['new java/lang/AssertionError()']
-03> DONE ok
-03>   LOCALS: []
-03>   STACK: ['new java/lang/AssertionError()']
-03> done
-b0> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertInteger:(I)V' '(0)'
-b0> read decompiled classfile decompiled/jpamb/cases/Simple.json
-b0> STEP 0:
-b0>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-b0>   LOCALS: [0]
-b0>   STACK: []
-b0> STEP 1:
-b0>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-b0>   LOCALS: [0]
-b0>   STACK: [False]
-b0> STEP 2:
-b0>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-b0>   LOCALS: [0]
-b0>   STACK: []
-b0> STEP 3:
-b0>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-b0>   LOCALS: [0]
-b0>   STACK: [0]
-b0> STEP 4:
-b0>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
-b0>   LOCALS: [0]
-b0>   STACK: []
-b0> STEP 5:
-b0>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
-b0>   LOCALS: [0]
-b0>   STACK: ['new java/lang/AssertionError()']
-b0> STEP 6:
-b0>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-b0>   LOCALS: [0]
-b0>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-b0> STEP 7:
-b0>   PC: 7 {'offset': 17, 'opr': 'throw'}
-b0>   LOCALS: [0]
-b0>   STACK: ['new java/lang/AssertionError()']
-b0> STEP 8:
-b0>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-b0>   LOCALS: [0]
-b0>   STACK: ['new java/lang/AssertionError()']
-b0> DONE ok
-b0>   LOCALS: [0]
-b0>   STACK: ['new java/lang/AssertionError()']
-b0> done
-TH> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertInteger:(I)V' '(1)'
-TH> read decompiled classfile decompiled/jpamb/cases/Simple.json
-TH> STEP 0:
-TH>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-TH>   LOCALS: [1]
-TH>   STACK: []
-TH> STEP 1:
-TH>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-TH>   LOCALS: [1]
-TH>   STACK: [False]
-TH> STEP 2:
-TH>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-TH>   LOCALS: [1]
-TH>   STACK: []
-TH> STEP 3:
-TH>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-TH>   LOCALS: [1]
-TH>   STACK: [1]
-TH> STEP 4:
-TH>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-TH>   LOCALS: [1]
-TH>   STACK: []
-TH> DONE ok
-TH>   LOCALS: [1]
-TH>   STACK: []
-TH> done
-F5> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertPositive:(I)V' '(-1)'
-F5> read decompiled classfile decompiled/jpamb/cases/Simple.json
-F5> STEP 0:
-F5>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-F5>   LOCALS: [-1]
-F5>   STACK: []
-F5> STEP 1:
-F5>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-F5>   LOCALS: [-1]
-F5>   STACK: [False]
-F5> STEP 2:
-F5>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-F5>   LOCALS: [-1]
-F5>   STACK: []
-F5> STEP 3:
-F5>   PC: 3 {'condition': 'gt', 'offset': 7, 'opr': 'ifz', 'target': 8}
-F5>   LOCALS: [-1]
-F5>   STACK: [-1]
-F5> STEP 4:
-F5>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
-F5>   LOCALS: [-1]
-F5>   STACK: []
-F5> STEP 5:
-F5>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
-F5>   LOCALS: [-1]
-F5>   STACK: ['new java/lang/AssertionError()']
-F5> STEP 6:
-F5>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-F5>   LOCALS: [-1]
-F5>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-F5> STEP 7:
-F5>   PC: 7 {'offset': 17, 'opr': 'throw'}
-F5>   LOCALS: [-1]
-F5>   STACK: ['new java/lang/AssertionError()']
-F5> STEP 8:
-F5>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-F5>   LOCALS: [-1]
-F5>   STACK: ['new java/lang/AssertionError()']
-F5> DONE ok
-F5>   LOCALS: [-1]
-F5>   STACK: ['new java/lang/AssertionError()']
-F5> done
-HZ> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.assertPositive:(I)V' '(1)'
-HZ> read decompiled classfile decompiled/jpamb/cases/Simple.json
-HZ> STEP 0:
-HZ>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-HZ>   LOCALS: [1]
-HZ>   STACK: []
-HZ> STEP 1:
-HZ>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-HZ>   LOCALS: [1]
-HZ>   STACK: [False]
-HZ> STEP 2:
-HZ>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-HZ>   LOCALS: [1]
-HZ>   STACK: []
-HZ> STEP 3:
-HZ>   PC: 3 {'condition': 'gt', 'offset': 7, 'opr': 'ifz', 'target': 8}
-HZ>   LOCALS: [1]
-HZ>   STACK: [1]
-HZ> STEP 4:
-HZ>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
-HZ>   LOCALS: [1]
-HZ>   STACK: []
-HZ> DONE ok
-HZ>   LOCALS: [1]
-HZ>   STACK: []
-HZ> done
-9j> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeAssert:(I)V' '(-1)'
-9j> read decompiled classfile decompiled/jpamb/cases/Simple.json
-9j> STEP 0:
-9j>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-9j>   LOCALS: [-1]
-9j>   STACK: []
-9j> STEP 1:
-9j>   PC: 1 {'condition': 'ne', 'offset': 1, 'opr': 'ifz', 'target': 3}
-9j>   LOCALS: [-1]
-9j>   STACK: [-1]
-9j> STEP 2:
-9j>   PC: 3 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 5, 'opr': 'get', 'static': True}
-9j>   LOCALS: [-1]
-9j>   STACK: []
-9j> STEP 3:
-9j>   PC: 4 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 13}
-9j>   LOCALS: [-1]
-9j>   STACK: [False]
-9j> STEP 4:
-9j>   PC: 5 {'offset': 11, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-9j>   LOCALS: [-1]
-9j>   STACK: []
-9j> STEP 5:
-9j>   PC: 6 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'int'}
-9j>   LOCALS: [-1]
-9j>   STACK: [1]
-9j> STEP 6:
-9j>   PC: 7 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-9j>   LOCALS: [-1]
-9j>   STACK: [-1, 1]
-9j> STEP 7:
-9j>   PC: 8 {'condition': 'gt', 'offset': 14, 'opr': 'ifz', 'target': 13}
-9j>   LOCALS: [-1]
-9j>   STACK: [-1.0]
-9j> STEP 8:
-9j>   PC: 9 {'class': 'java/lang/AssertionError', 'offset': 17, 'opr': 'new'}
-9j>   LOCALS: [-1]
-9j>   STACK: []
-9j> STEP 9:
-9j>   PC: 10 {'offset': 20, 'opr': 'dup', 'words': 1}
-9j>   LOCALS: [-1]
-9j>   STACK: ['new java/lang/AssertionError()']
-9j> STEP 10:
-9j>   PC: 11 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 21, 'opr': 'invoke'}
-9j>   LOCALS: [-1]
-9j>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-9j> STEP 11:
-9j>   PC: 12 {'offset': 24, 'opr': 'throw'}
-9j>   LOCALS: [-1]
-9j>   STACK: ['new java/lang/AssertionError()']
-9j> STEP 12:
-9j>   PC: 13 {'offset': 25, 'opr': 'return', 'type': None}
-9j>   LOCALS: [-1]
-9j>   STACK: ['new java/lang/AssertionError()']
-9j> DONE ok
-9j>   LOCALS: [-1]
-9j>   STACK: ['new java/lang/AssertionError()']
-9j> done
-M0> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeAssert:(I)V' '(0)'
-M0> read decompiled classfile decompiled/jpamb/cases/Simple.json
-M0> STEP 0:
-M0>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-M0>   LOCALS: [0]
-M0>   STACK: []
-M0> STEP 1:
-M0>   PC: 1 {'condition': 'ne', 'offset': 1, 'opr': 'ifz', 'target': 3}
-M0>   LOCALS: [0]
-M0>   STACK: [0]
-M0> STEP 2:
-M0>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
-M0>   LOCALS: [0]
-M0>   STACK: []
-M0> DONE ok
-M0>   LOCALS: [0]
-M0>   STACK: []
-M0> done
-Jo> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN2:(I)I' '(0)'
-Jo> read decompiled classfile decompiled/jpamb/cases/Simple.json
-Jo> STEP 0:
-Jo>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-Jo>   LOCALS: [0]
-Jo>   STACK: []
-Jo> STEP 1:
-Jo>   PC: 1 {'condition': 'eq', 'offset': 1, 'opr': 'ifz', 'target': 6}
-Jo>   LOCALS: [0]
-Jo>   STACK: [0]
-Jo> STEP 2:
-Jo>   PC: 6 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 8, 'opr': 'get', 'static': True}
-Jo>   LOCALS: [0]
-Jo>   STACK: []
-Jo> STEP 3:
-Jo>   PC: 7 {'condition': 'ne', 'offset': 11, 'opr': 'ifz', 'target': 15}
-Jo>   LOCALS: [0]
-Jo>   STACK: [False]
-Jo> STEP 4:
-Jo>   PC: 8 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
-Jo>   LOCALS: [0]
-Jo>   STACK: []
-Jo> STEP 5:
-Jo>   PC: 9 {'index': 0, 'offset': 16, 'opr': 'load', 'type': 'int'}
-Jo>   LOCALS: [0]
-Jo>   STACK: [10]
-Jo> STEP 6:
-Jo>   PC: 10 {'condition': 'gt', 'offset': 17, 'opr': 'if', 'target': 15}
-Jo>   LOCALS: [0]
-Jo>   STACK: [0, 10]
-Jo> STEP 7:
-Jo>   PC: 15 {'offset': 28, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-Jo>   LOCALS: [0]
-Jo>   STACK: []
-Jo> STEP 8:
-Jo>   PC: 16 {'offset': 29, 'opr': 'return', 'type': 'int'}
-Jo>   LOCALS: [0]
-Jo>   STACK: [0]
-Jo> DONE ok
-Jo>   LOCALS: [0]
-Jo>   STACK: []
-Jo> done
-a9> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN2:(I)I' '(1)'
-a9> read decompiled classfile decompiled/jpamb/cases/Simple.json
-a9> STEP 0:
-a9>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-a9>   LOCALS: [1]
-a9>   STACK: []
-a9> STEP 1:
-a9>   PC: 1 {'condition': 'eq', 'offset': 1, 'opr': 'ifz', 'target': 6}
-a9>   LOCALS: [1]
-a9>   STACK: [1]
-a9> STEP 2:
-a9>   PC: 2 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-a9>   LOCALS: [1]
-a9>   STACK: []
-a9> STEP 3:
-a9>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
-a9>   LOCALS: [1]
-a9>   STACK: [1]
-a9> STEP 4:
-a9>   PC: 4 {'offset': 6, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-a9>   LOCALS: [1]
-a9>   STACK: [1, 1]
-a9> STEP 5:
-a9>   PC: 5 {'offset': 7, 'opr': 'return', 'type': 'int'}
-a9>   LOCALS: [1]
-a9>   STACK: [1.0]
-a9> DONE ok
-a9>   LOCALS: [1]
-a9>   STACK: []
-a9> done
-hK> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN:(I)I' '(0)'
-hK> read decompiled classfile decompiled/jpamb/cases/Simple.json
-hK> STEP 0:
-hK>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-hK>   LOCALS: [0]
-hK>   STACK: []
-hK> STEP 1:
-hK>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-hK>   LOCALS: [0]
-hK>   STACK: [False]
-hK> STEP 2:
-hK>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-hK>   LOCALS: [0]
-hK>   STACK: []
-hK> STEP 3:
-hK>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-hK>   LOCALS: [0]
-hK>   STACK: [0]
-hK> STEP 4:
-hK>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
-hK>   LOCALS: [0]
-hK>   STACK: []
-hK> STEP 5:
-hK>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
-hK>   LOCALS: [0]
-hK>   STACK: ['new java/lang/AssertionError()']
-hK> STEP 6:
-hK>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-hK>   LOCALS: [0]
-hK>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-hK> STEP 7:
-hK>   PC: 7 {'offset': 17, 'opr': 'throw'}
-hK>   LOCALS: [0]
-hK>   STACK: ['new java/lang/AssertionError()']
-hK> STEP 8:
-hK>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-hK>   LOCALS: [0]
-hK>   STACK: ['new java/lang/AssertionError()']
-hK> STEP 9:
-hK>   PC: 9 {'index': 0, 'offset': 19, 'opr': 'load', 'type': 'int'}
-hK>   LOCALS: [0]
-hK>   STACK: [1, 'new java/lang/AssertionError()']
-hK> STEP 10:
-hK>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-hK>   LOCALS: [0]
-hK>   STACK: [0, 1, 'new java/lang/AssertionError()']
-hK> DONE divide by zero
-hK>   LOCALS: [0]
-hK>   STACK: [0, 'new java/lang/AssertionError()']
-hK> done
-3W> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN:(I)I' '(1)'
-3W> read decompiled classfile decompiled/jpamb/cases/Simple.json
-3W> STEP 0:
-3W>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-3W>   LOCALS: [1]
-3W>   STACK: []
-3W> STEP 1:
-3W>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-3W>   LOCALS: [1]
-3W>   STACK: [False]
-3W> STEP 2:
-3W>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-3W>   LOCALS: [1]
-3W>   STACK: []
-3W> STEP 3:
-3W>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-3W>   LOCALS: [1]
-3W>   STACK: [1]
-3W> STEP 4:
-3W>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-3W>   LOCALS: [1]
-3W>   STACK: []
-3W> STEP 5:
-3W>   PC: 9 {'index': 0, 'offset': 19, 'opr': 'load', 'type': 'int'}
-3W>   LOCALS: [1]
-3W>   STACK: [1]
-3W> STEP 6:
-3W>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-3W>   LOCALS: [1]
-3W>   STACK: [1, 1]
-3W> STEP 7:
-3W>   PC: 11 {'offset': 21, 'opr': 'return', 'type': 'int'}
-3W>   LOCALS: [1]
-3W>   STACK: [1.0]
-3W> DONE ok
-3W>   LOCALS: [1]
-3W>   STACK: []
-3W> done
-GL> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(0)'
-GL> read decompiled classfile decompiled/jpamb/cases/Simple.json
-GL> STEP 0:
-GL>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-GL>   LOCALS: [0]
-GL>   STACK: []
-GL> STEP 1:
-GL>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
-GL>   LOCALS: [0]
-GL>   STACK: [1]
-GL> STEP 2:
-GL>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-GL>   LOCALS: [0]
-GL>   STACK: [0, 1]
-GL> DONE divide by zero
-GL>   LOCALS: [0]
-GL>   STACK: [0]
-GL> done
-Pe> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(1)'
-Pe> read decompiled classfile decompiled/jpamb/cases/Simple.json
-Pe> STEP 0:
-Pe>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-Pe>   LOCALS: [1]
-Pe>   STACK: []
-Pe> STEP 1:
-Pe>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
-Pe>   LOCALS: [1]
-Pe>   STACK: [1]
-Pe> STEP 2:
-Pe>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-Pe>   LOCALS: [1]
-Pe>   STACK: [1, 1]
-Pe> STEP 3:
-Pe>   PC: 3 {'offset': 3, 'opr': 'return', 'type': 'int'}
-Pe>   LOCALS: [1]
-Pe>   STACK: [1.0]
-Pe> DONE ok
-Pe>   LOCALS: [1]
-Pe>   STACK: []
-Pe> done
-qi> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByNMinus10054203:(I)I' '(0)'
-qi> read decompiled classfile decompiled/jpamb/cases/Simple.json
-qi> STEP 0:
-qi>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-qi>   LOCALS: [0]
-qi>   STACK: []
-qi> STEP 1:
-qi>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
-qi>   LOCALS: [0]
-qi>   STACK: [1]
-qi> STEP 2:
-qi>   PC: 2 {'offset': 2, 'opr': 'push', 'value': {'type': 'integer', 'value': 10054203}}
-qi>   LOCALS: [0]
-qi>   STACK: [0, 1]
-qi> STEP 3:
-qi>   PC: 3 {'offset': 4, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-qi>   LOCALS: [0]
-qi>   STACK: [10054203, 0, 1]
-qi> STEP 4:
-qi>   PC: 4 {'offset': 5, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-qi>   LOCALS: [0]
-qi>   STACK: [-10054203, 1]
-qi> STEP 5:
-qi>   PC: 5 {'offset': 6, 'opr': 'return', 'type': 'int'}
-qi>   LOCALS: [0]
-qi>   STACK: [-9.946089212640724e-08]
-qi> DONE ok
-qi>   LOCALS: [0]
-qi>   STACK: []
-qi> done
-fR> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByNMinus10054203:(I)I' '(10054203)'
-fR> read decompiled classfile decompiled/jpamb/cases/Simple.json
-fR> STEP 0:
-fR>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-fR>   LOCALS: [10054203]
-fR>   STACK: []
-fR> STEP 1:
-fR>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
-fR>   LOCALS: [10054203]
-fR>   STACK: [1]
-fR> STEP 2:
-fR>   PC: 2 {'offset': 2, 'opr': 'push', 'value': {'type': 'integer', 'value': 10054203}}
-fR>   LOCALS: [10054203]
-fR>   STACK: [10054203, 1]
-fR> STEP 3:
-fR>   PC: 3 {'offset': 4, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
-fR>   LOCALS: [10054203]
-fR>   STACK: [10054203, 10054203, 1]
-fR> STEP 4:
-fR>   PC: 4 {'offset': 5, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-fR>   LOCALS: [10054203]
-fR>   STACK: [0, 1]
-fR> DONE divide by zero
-fR>   LOCALS: [10054203]
-fR>   STACK: [0]
-fR> done
-ce> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByZero:()I' '()'
-ce> read decompiled classfile decompiled/jpamb/cases/Simple.json
-ce> STEP 0:
-ce>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-ce>   LOCALS: []
-ce>   STACK: []
-ce> STEP 1:
-ce>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-ce>   LOCALS: []
-ce>   STACK: [1]
-ce> STEP 2:
-ce>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-ce>   LOCALS: []
-ce>   STACK: [0, 1]
-ce> DONE divide by zero
-ce>   LOCALS: []
-ce>   STACK: [0]
-ce> done
-sd> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideZeroByZero:(II)I' '(0, 0)'
-sd> read decompiled classfile decompiled/jpamb/cases/Simple.json
-sd> STEP 0:
-sd>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-sd>   LOCALS: [0, 0]
-sd>   STACK: []
-sd> STEP 1:
-sd>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'load', 'type': 'int'}
-sd>   LOCALS: [0, 0]
-sd>   STACK: [0]
-sd> STEP 2:
-sd>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-sd>   LOCALS: [0, 0]
-sd>   STACK: [0, 0]
-sd> DONE divide by zero
-sd>   LOCALS: [0, 0]
-sd>   STACK: [0]
-sd> done
-Mc> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideZeroByZero:(II)I' '(0, 1)'
-Mc> read decompiled classfile decompiled/jpamb/cases/Simple.json
-Mc> STEP 0:
-Mc>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-Mc>   LOCALS: [0, 1]
-Mc>   STACK: []
-Mc> STEP 1:
-Mc>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'load', 'type': 'int'}
-Mc>   LOCALS: [0, 1]
-Mc>   STACK: [0]
-Mc> STEP 2:
-Mc>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-Mc>   LOCALS: [0, 1]
-Mc>   STACK: [1, 0]
-Mc> STEP 3:
-Mc>   PC: 3 {'offset': 3, 'opr': 'return', 'type': 'int'}
-Mc>   LOCALS: [0, 1]
-Mc>   STACK: [0.0]
-Mc> DONE ok
-Mc>   LOCALS: [0, 1]
-Mc>   STACK: []
-Mc> done
-O9> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.earlyReturn:()I' '()'
-O9> read decompiled classfile decompiled/jpamb/cases/Simple.json
-O9> STEP 0:
-O9>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-O9>   LOCALS: []
-O9>   STACK: []
-O9> STEP 1:
-O9>   PC: 1 {'offset': 1, 'opr': 'return', 'type': 'int'}
-O9>   LOCALS: []
-O9>   STACK: [0]
-O9> DONE ok
-O9>   LOCALS: []
-O9>   STACK: []
-O9> done
-LI> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.justReturn:()I' '()'
-LI> read decompiled classfile decompiled/jpamb/cases/Simple.json
-LI> STEP 0:
-LI>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-LI>   LOCALS: []
-LI>   STACK: []
-LI> STEP 1:
-LI>   PC: 1 {'offset': 1, 'opr': 'return', 'type': 'int'}
-LI>   LOCALS: []
-LI>   STACK: [0]
-LI> DONE ok
-LI>   LOCALS: []
-LI>   STACK: []
-LI> done
-4Q> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.justReturnNothing:()V' '()'
-4Q> read decompiled classfile decompiled/jpamb/cases/Simple.json
-4Q> STEP 0:
-4Q>   PC: 0 {'offset': 0, 'opr': 'return', 'type': None}
-4Q>   LOCALS: []
-4Q>   STACK: []
-4Q> DONE ok
-4Q>   LOCALS: []
-4Q>   STACK: []
-4Q> done
-OZ> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.multiError:(Z)I' '(false)'
-OZ> read decompiled classfile decompiled/jpamb/cases/Simple.json
-OZ> STEP 0:
-OZ>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-OZ>   LOCALS: [False]
-OZ>   STACK: []
-OZ> STEP 1:
-OZ>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-OZ>   LOCALS: [False]
-OZ>   STACK: [False]
-OZ> STEP 2:
-OZ>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-OZ>   LOCALS: [False]
-OZ>   STACK: []
-OZ> STEP 3:
-OZ>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-OZ>   LOCALS: [False]
-OZ>   STACK: [False]
-OZ> STEP 4:
-OZ>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
-OZ>   LOCALS: [False]
-OZ>   STACK: []
-OZ> STEP 5:
-OZ>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
-OZ>   LOCALS: [False]
-OZ>   STACK: ['new java/lang/AssertionError()']
-OZ> STEP 6:
-OZ>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-OZ>   LOCALS: [False]
-OZ>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
-OZ> STEP 7:
-OZ>   PC: 7 {'offset': 17, 'opr': 'throw'}
-OZ>   LOCALS: [False]
-OZ>   STACK: ['new java/lang/AssertionError()']
-OZ> STEP 8:
-OZ>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-OZ>   LOCALS: [False]
-OZ>   STACK: ['new java/lang/AssertionError()']
-OZ> STEP 9:
-OZ>   PC: 9 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-OZ>   LOCALS: [False]
-OZ>   STACK: [1, 'new java/lang/AssertionError()']
-OZ> STEP 10:
-OZ>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-OZ>   LOCALS: [False]
-OZ>   STACK: [0, 1, 'new java/lang/AssertionError()']
-OZ> DONE divide by zero
-OZ>   LOCALS: [False]
-OZ>   STACK: [0, 'new java/lang/AssertionError()']
-OZ> done
-I5> starting: python solutions/interpret_week3.py 'jpamb.cases.Simple.multiError:(Z)I' '(true)'
-I5> read decompiled classfile decompiled/jpamb/cases/Simple.json
-I5> STEP 0:
-I5>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
-I5>   LOCALS: [True]
-I5>   STACK: []
-I5> STEP 1:
-I5>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
-I5>   LOCALS: [True]
-I5>   STACK: [False]
-I5> STEP 2:
-I5>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
-I5>   LOCALS: [True]
-I5>   STACK: []
-I5> STEP 3:
-I5>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
-I5>   LOCALS: [True]
-I5>   STACK: [True]
-I5> STEP 4:
-I5>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-I5>   LOCALS: [True]
-I5>   STACK: []
-I5> STEP 5:
-I5>   PC: 9 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-I5>   LOCALS: [True]
-I5>   STACK: [1]
-I5> STEP 6:
-I5>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-I5>   LOCALS: [True]
-I5>   STACK: [0, 1]
-I5> DONE divide by zero
-I5>   LOCALS: [True]
-I5>   STACK: [0]
-I5> done
-zQ> starting: python solutions/interpret_week3.py 'jpamb.cases.Tricky.collatz:(I)V' '(24)'
-zQ> read decompiled classfile decompiled/jpamb/cases/Tricky.json
-zQ> STEP 0:
-zQ>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: []
-zQ> STEP 1:
-zQ>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-zQ>   LOCALS: [24]
-zQ>   STACK: [24]
-zQ> STEP 2:
-zQ>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
-zQ>   LOCALS: [24]
-zQ>   STACK: [1, 24]
-zQ> STEP 3:
-zQ>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: []
-zQ> STEP 4:
-zQ>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-zQ>   LOCALS: [24]
-zQ>   STACK: [24]
-zQ> STEP 5:
-zQ>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: [2, 24]
-zQ> STEP 6:
-zQ>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
-zQ>   LOCALS: [24]
-zQ>   STACK: [0]
-zQ> STEP 7:
-zQ>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: []
-zQ> STEP 8:
-zQ>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-zQ>   LOCALS: [24]
-zQ>   STACK: [24]
-zQ> STEP 9:
-zQ>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: [2, 24]
-zQ> STEP 10:
-zQ>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
-zQ>   LOCALS: [24]
-zQ>   STACK: [12.0]
-zQ> STEP 11:
-zQ>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: []
-zQ> STEP 12:
-zQ>   PC: 12 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'int'}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: []
-zQ> STEP 13:
-zQ>   PC: 13 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: [12.0]
-zQ> STEP 14:
-zQ>   PC: 14 {'offset': 20, 'operant': 'mul', 'opr': 'binary', 'type': 'int'}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: [3, 12.0]
-zQ> STEP 15:
-zQ>   PC: 15 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: [36.0]
-zQ> STEP 16:
-zQ>   PC: 16 {'offset': 22, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: [1, 36.0]
-zQ> STEP 17:
-zQ>   PC: 17 {'index': 0, 'offset': 23, 'opr': 'store', 'type': 'int'}
-zQ>   LOCALS: [12.0, 24]
-zQ>   STACK: [37.0]
-zQ> STEP 18:
-zQ>   PC: 18 {'offset': 24, 'opr': 'goto', 'target': 0}
-zQ>   LOCALS: [37.0, 12.0, 24]
-zQ>   STACK: []
-zQ> STEP 19:
-zQ>   PC: 19 {'offset': 27, 'opr': 'return', 'type': None}
-zQ>   LOCALS: [37.0, 12.0, 24]
-zQ>   STACK: []
-zQ> DONE ok
-zQ>   LOCALS: [37.0, 12.0, 24]
-zQ>   STACK: []
-zQ> done
+21> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayContent:()V' '()'
+21> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+21> STEP 0:
+21>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
+21>   LOCALS: []
+21>   STACK: []
+21> STEP 1:
+21>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [5]
+21> STEP 2:
+21>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+21>   LOCALS: []
+21>   STACK: [[None, None, None, None, None], 5]
+21> STEP 3:
+21>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+21>   LOCALS: []
+21>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
+21> STEP 4:
+21>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+21>   LOCALS: []
+21>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
+21> STEP 5:
+21>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [1, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
+21> STEP 6:
+21>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+21>   LOCALS: []
+21>   STACK: [[1, None, None, None, None], 5]
+21> STEP 7:
+21>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+21>   LOCALS: []
+21>   STACK: [[1, None, None, None, None], [1, None, None, None, None], 5]
+21> STEP 8:
+21>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+21>   LOCALS: []
+21>   STACK: [1, [1, None, None, None, None], [1, None, None, None, None], 5]
+21> STEP 9:
+21>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [2, 1, [1, None, None, None, None], [1, None, None, None, None], 5]
+21> STEP 10:
+21>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
+21>   LOCALS: []
+21>   STACK: [[1, 2, None, None, None], 5]
+21> STEP 11:
+21>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+21>   LOCALS: []
+21>   STACK: [[1, 2, None, None, None], [1, 2, None, None, None], 5]
+21> STEP 12:
+21>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 100}}
+21>   LOCALS: []
+21>   STACK: [2, [1, 2, None, None, None], [1, 2, None, None, None], 5]
+21> STEP 13:
+21>   PC: 13 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [100, 2, [1, 2, None, None, None], [1, 2, None, None, None], 5]
+21> STEP 14:
+21>   PC: 14 {'offset': 16, 'opr': 'dup', 'words': 1}
+21>   LOCALS: []
+21>   STACK: [[1, 2, 100, None, None], 5]
+21> STEP 15:
+21>   PC: 15 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+21>   LOCALS: []
+21>   STACK: [[1, 2, 100, None, None], [1, 2, 100, None, None], 5]
+21> STEP 16:
+21>   PC: 16 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': -13}}
+21>   LOCALS: []
+21>   STACK: [3, [1, 2, 100, None, None], [1, 2, 100, None, None], 5]
+21> STEP 17:
+21>   PC: 17 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [-13, 3, [1, 2, 100, None, None], [1, 2, 100, None, None], 5]
+21> STEP 18:
+21>   PC: 18 {'offset': 21, 'opr': 'dup', 'words': 1}
+21>   LOCALS: []
+21>   STACK: [[1, 2, 100, -13, None], 5]
+21> STEP 19:
+21>   PC: 19 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
+21>   LOCALS: []
+21>   STACK: [[1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
+21> STEP 20:
+21>   PC: 20 {'offset': 23, 'opr': 'push', 'value': {'type': 'integer', 'value': 23}}
+21>   LOCALS: []
+21>   STACK: [4, [1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
+21> STEP 21:
+21>   PC: 21 {'offset': 25, 'opr': 'array_store', 'type': 'int'}
+21>   LOCALS: []
+21>   STACK: [23, 4, [1, 2, 100, -13, None], [1, 2, 100, -13, None], 5]
+21> STEP 22:
+21>   PC: 22 {'index': 0, 'offset': 26, 'opr': 'store', 'type': 'ref'}
+21>   LOCALS: []
+21>   STACK: [[1, 2, 100, -13, 23], 5]
+21> STEP 23:
+21>   PC: 23 {'offset': 27, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+21>   LOCALS: [[1, 2, 100, -13, 23]]
+21>   STACK: [5]
+21> STEP 24:
+21>   PC: 24 {'index': 1, 'offset': 28, 'opr': 'store', 'type': 'int'}
+21>   LOCALS: [[1, 2, 100, -13, 23]]
+21>   STACK: [0, 5]
+21> STEP 25:
+21>   PC: 25 {'index': 1, 'offset': 29, 'opr': 'load', 'type': 'int'}
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [5]
+21> STEP 26:
+21>   PC: 26 {'index': 0, 'offset': 30, 'opr': 'load', 'type': 'ref'}
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [0, 5]
+21> STEP 27:
+21>   PC: 27 {'offset': 31, 'opr': 'arraylength'}
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [[1, 2, 100, -13, 23], 0, 5]
+21> STEP 28:
+21>   PC: 28 {'condition': 'ge', 'offset': 32, 'opr': 'if', 'target': 39}
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [5, [1, 2, 100, -13, 23], 0, 5]
+21> STEP 29:
+21>   PC: 39 {'offset': 59, 'opr': 'return', 'type': None}
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [0, 5]
+21> DONE ok
+21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   STACK: [0, 5]
+21> done
+U3> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayInBounds:()V' '()'
+U3> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+U3> STEP 0:
+U3>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+U3>   LOCALS: []
+U3>   STACK: []
+U3> STEP 1:
+U3>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+U3>   LOCALS: []
+U3>   STACK: [2]
+U3> STEP 2:
+U3>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+U3>   LOCALS: []
+U3>   STACK: [[None, None], 2]
+U3> STEP 3:
+U3>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+U3>   LOCALS: []
+U3>   STACK: [[None, None], [None, None], 2]
+U3> STEP 4:
+U3>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+U3>   LOCALS: []
+U3>   STACK: [0, [None, None], [None, None], 2]
+U3> STEP 5:
+U3>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+U3>   LOCALS: []
+U3>   STACK: [0, 0, [None, None], [None, None], 2]
+U3> STEP 6:
+U3>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+U3>   LOCALS: []
+U3>   STACK: [[0, None], 2]
+U3> STEP 7:
+U3>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+U3>   LOCALS: []
+U3>   STACK: [[0, None], [0, None], 2]
+U3> STEP 8:
+U3>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+U3>   LOCALS: []
+U3>   STACK: [1, [0, None], [0, None], 2]
+U3> STEP 9:
+U3>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+U3>   LOCALS: []
+U3>   STACK: [0, 1, [0, None], [0, None], 2]
+U3> STEP 10:
+U3>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
+U3>   LOCALS: []
+U3>   STACK: [[0, 0], 2]
+U3> STEP 11:
+U3>   PC: 11 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'ref'}
+U3>   LOCALS: [[0, 0]]
+U3>   STACK: [2]
+U3> STEP 12:
+U3>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+U3>   LOCALS: [[0, 0]]
+U3>   STACK: [[0, 0], 2]
+U3> STEP 13:
+U3>   PC: 13 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+U3>   LOCALS: [[0, 0]]
+U3>   STACK: [1, [0, 0], 2]
+U3> STEP 14:
+U3>   PC: 14 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
+U3>   LOCALS: [[0, 0]]
+U3>   STACK: [1, 1, [0, 0], 2]
+U3> STEP 15:
+U3>   PC: 15 {'offset': 16, 'opr': 'return', 'type': None}
+U3>   LOCALS: [[0, 1]]
+U3>   STACK: [2]
+U3> DONE ok
+U3>   LOCALS: [[0, 1]]
+U3>   STACK: [2]
+U3> done
+vn> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNull:()V' '()'
+vn> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+vn> STEP 0:
+vn>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
+vn>   LOCALS: []
+vn>   STACK: []
+vn> STEP 1:
+vn>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'ref'}
+vn>   LOCALS: []
+vn>   STACK: [None]
+vn> STEP 2:
+vn>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'ref'}
+vn>   LOCALS: [None]
+vn>   STACK: []
+vn> STEP 3:
+vn>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+vn>   LOCALS: [None]
+vn>   STACK: [None]
+vn> STEP 4:
+vn>   PC: 4 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+vn>   LOCALS: [None]
+vn>   STACK: [1, None]
+vn> STEP 5:
+vn>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+vn>   LOCALS: [None]
+vn>   STACK: [10, 1, None]
+vn> DONE null pointer
+vn>   LOCALS: [None]
+vn>   STACK: []
+vn> done
+kJ> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNullLength:()V' '()'
+kJ> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+kJ> STEP 0:
+kJ>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
+kJ>   LOCALS: []
+kJ>   STACK: []
+kJ> STEP 1:
+kJ>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'ref'}
+kJ>   LOCALS: []
+kJ>   STACK: [None]
+kJ> STEP 2:
+kJ>   PC: 2 {'field': {'class': 'jpamb/cases/Arrays', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 2, 'opr': 'get', 'static': True}
+kJ>   LOCALS: [None]
+kJ>   STACK: []
+kJ> STEP 3:
+kJ>   PC: 3 {'condition': 'ne', 'offset': 5, 'opr': 'ifz', 'target': 11}
+kJ>   LOCALS: [None]
+kJ>   STACK: [False]
+kJ> STEP 4:
+kJ>   PC: 4 {'index': 0, 'offset': 8, 'opr': 'load', 'type': 'ref'}
+kJ>   LOCALS: [None]
+kJ>   STACK: []
+kJ> STEP 5:
+kJ>   PC: 5 {'offset': 9, 'opr': 'arraylength'}
+kJ>   LOCALS: [None]
+kJ>   STACK: [None]
+kJ> DONE null pointer
+kJ>   LOCALS: [None]
+kJ>   STACK: [None]
+kJ> done
+Ly> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayLength:()V' '()'
+Ly> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+Ly> STEP 0:
+Ly>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+Ly>   LOCALS: []
+Ly>   STACK: []
+Ly> STEP 1:
+Ly>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+Ly>   LOCALS: []
+Ly>   STACK: [2]
+Ly> STEP 2:
+Ly>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+Ly>   LOCALS: []
+Ly>   STACK: [[None, None], 2]
+Ly> STEP 3:
+Ly>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Ly>   LOCALS: []
+Ly>   STACK: [[None, None], [None, None], 2]
+Ly> STEP 4:
+Ly>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Ly>   LOCALS: []
+Ly>   STACK: [0, [None, None], [None, None], 2]
+Ly> STEP 5:
+Ly>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+Ly>   LOCALS: []
+Ly>   STACK: [0, 0, [None, None], [None, None], 2]
+Ly> STEP 6:
+Ly>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+Ly>   LOCALS: []
+Ly>   STACK: [[0, None], 2]
+Ly> STEP 7:
+Ly>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+Ly>   LOCALS: []
+Ly>   STACK: [[0, None], [0, None], 2]
+Ly> STEP 8:
+Ly>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Ly>   LOCALS: []
+Ly>   STACK: [1, [0, None], [0, None], 2]
+Ly> STEP 9:
+Ly>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+Ly>   LOCALS: []
+Ly>   STACK: [0, 1, [0, None], [0, None], 2]
+Ly> STEP 10:
+Ly>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
+Ly>   LOCALS: []
+Ly>   STACK: [[0, 0], 2]
+Ly> STEP 11:
+Ly>   PC: 11 {'field': {'class': 'jpamb/cases/Arrays', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 12, 'opr': 'get', 'static': True}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [2]
+Ly> STEP 12:
+Ly>   PC: 12 {'condition': 'ne', 'offset': 15, 'opr': 'ifz', 'target': 21}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [False, 2]
+Ly> STEP 13:
+Ly>   PC: 13 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'ref'}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [2]
+Ly> STEP 14:
+Ly>   PC: 14 {'offset': 19, 'opr': 'arraylength'}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [[0, 0], 2]
+Ly> STEP 15:
+Ly>   PC: 15 {'offset': 20, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [2, [0, 0], 2]
+Ly> STEP 16:
+Ly>   PC: 16 {'condition': 'eq', 'offset': 21, 'opr': 'if', 'target': 21}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [2, 2, [0, 0], 2]
+Ly> STEP 17:
+Ly>   PC: 21 {'offset': 32, 'opr': 'return', 'type': None}
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [[0, 0], 2]
+Ly> DONE ok
+Ly>   LOCALS: [[0, 0]]
+Ly>   STACK: [[0, 0], 2]
+Ly> done
+A4> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayNotEmpty:([I)V' '([I:1])'
+A4> Traceback (most recent call last):
+A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 403, in <module>
+A4>     methodid = MethodId.parse(sys.argv[1])
+A4>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+A4>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+A4>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+A4>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+A4>             ~~~~~~~~~~~^^^
+A4> KeyError: '['

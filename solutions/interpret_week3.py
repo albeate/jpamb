@@ -204,17 +204,19 @@ class SimpleInterpreter:
         
     def execute_bytecode(self, bytecode):
         for instruction in bytecode:
-            next = bytecode[self.pc]
+            # print("execute_bytecode_instruction :=", instruction)
+            # print("execute_bytecode_self.pc :=", self.pc)
+            next = instruction
             if fn := getattr(instruction, "step_" + next["opr"], None):
                 fn(next)
 
     def step_invoke(self, bc):
         cls = bc["method"]["ref"]["name"]
         if cls == 'java/lang/AssertionError':
-            self.stack.pop(0)
-            # self.stack.insert(0,False)
-            self.stack.insert(0,"assertion error")
-            
+            self.done = "assertion error"
+            # self.stack.pop(0)       
+            # # self.stack.insert(0,False)
+            # self.stack.insert(0,"assertion error")
         else:
             name = bc["method"]["name"]
             args = bc["method"]["args"]
@@ -233,10 +235,10 @@ class SimpleInterpreter:
                 # print("invoke_argv := ", args)
                 # print("invoke_args_type := ", args_type)
                 # print("invoke_method_name := ", method_name)
-                bytecode = MethodId.parse(method_name).load()
-                # print("invoke_bytecode:= ", bytecode)
-                execute_bytecode(bytecode) # arbejder på det
-                if bytecode is not None:
+                bytecode = MethodId.parse(method_name).load()["code"]["bytecode"]
+                print("invoke_bytecode:= ", bytecode)
+                sub_method = self.execute_bytecode(bytecode) # arbejder på det
+                if sub_method is not None:
                     self.stack.pop()
         self.pc += 1
     
@@ -262,42 +264,12 @@ class SimpleInterpreter:
             -- throws an exception
             -- \{athrow\} ["objectref"] -> ["objectref"]
         """
-        if len(self.stack) > 0 and self.stack[0] == "assertion error":
-            self.done = self.stack.pop(0)
+        try:
+            self.done = self.stack.pop()
+        except:
+            print("there isn't a value in stack") #todo
         self.pc += 1
         
-    # def step_invoke(self, bc): # not sure if on stack
-    #     """
-    #     alt her, kunne laves pænere. Men tør ikke at røre noget pt
-    #     """
-    #     cls = bc["method"]["ref"]["name"]
-    #
-    #     try:
-    #         l.debug(f"local: {self.locals[0]}")
-    #         argType = bc["method"]["args"][0]
-    #         args = self.locals[0]
-    #         l.debug(f"args: {args}")
-    #     except:
-    #         argType = ""
-    #     match argType: # burde bare kopier det der allerede er lavet af forelæser
-    #       case "int":
-    #         typ = 'I'
-    #       case "boolean":
-    #         typ = 'Z'
-    #       case "":
-    #         typ = ''
-    #     mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
-    #
-    #     # kunne laves pænere...
-    #     if typ == '':
-    #         if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
-    #             if len(self.stack) > 0:
-    #                 self.stack.pop()
-    #     else:
-    #         if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
-    #             if len(self.stack) > 0:
-    #                 self.stack.pop()
-    #     self.pc += 1
         
     def step_newarray(self, bc):
         """
@@ -317,10 +289,10 @@ class SimpleInterpreter:
             
     def step_array_store(self, bc):
         """
-        + * opr : "array_store"
-              * type : <JArrayType>
-              -- load a $value of $type from an $arrayref array at index $index
-              -- \{aastore\} ["arrayref","index"] -> ["value"]
+        + * opr : "array_load"
+          * type : <JArrayType>
+          -- store a $value of $type in a $arrayref array at index $index
+          -- \{aaload\} ["arrayref","index","value"] -> []
         """
         value = self.stack.pop(0)
         index = self.stack.pop(0)
@@ -329,6 +301,23 @@ class SimpleInterpreter:
             self.done = "null pointer"
         elif 0 <= index < len(arrayef):
             arrayef[index] = value
+        elif index > len(arrayef):
+            self.done = "out of bounds"
+        self.pc += 1
+        
+    def step_array_load(self, bc):
+        """
+        + * opr : "array_store"
+              * type : <JArrayType>
+              -- load a $value of $type from an $arrayref array at index $index
+              -- \{aastore\} ["arrayref","index"] -> ["value"]
+        """
+        index = self.stack.pop(0)
+        arrayef = self.stack.pop(0)
+        if arrayef is None:
+            self.done = "null pointer"
+        elif 0 <= index < len(arrayef):
+            self.stack.insert(0,arrayef[index])
         elif index > len(arrayef):
             self.done = "out of bounds"
         self.pc += 1
