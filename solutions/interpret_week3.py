@@ -308,7 +308,7 @@ class SimpleInterpreter:
             arrtype = bc["type"]
             size = [self.stack[0] for _ in range(dim)]
             arrnew = self.create_array(arrtype,size)
-            self.heap[bc["type"]] = arrnew 
+            self.stack.insert(0, arrnew)
         self.pc += 1
             
     def step_array_store(self, bc):
@@ -336,7 +336,9 @@ class SimpleInterpreter:
             -- finds the length of an array
             -- \{arraylength\} ["array"] -> ["length"]
         """
-        if any(isinstance(s,list) for s in self.stack):
+        if self.stack[0] is None:
+            self.done = "null pointer"
+        elif any(isinstance(s,list) for s in self.stack):
             uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
             self.stack.insert(0,len(uddata))
         else:
