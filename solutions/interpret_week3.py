@@ -328,13 +328,19 @@ class SimpleInterpreter:
             -- finds the length of an array
             -- \{arraylength\} ["array"] -> ["length"]
         """
-        if self.stack[0] is None:
+        arrayref = self.stack.pop(0)
+
+        # If the array reference is None, simulate a null pointer exception
+        if arrayref is None:
             self.done = "null pointer"
-        elif any(isinstance(s,list) for s in self.stack):
-            uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
-            self.stack.insert(0,len(uddata))
-        else:
-             self.stack.insert(0,1)
+            return
+
+        # Check if the reference is a valid list (array)
+        if isinstance(arrayref, list):
+            # Push the length of the array onto the stack
+            self.stack.insert(0, len(arrayref))
+
+        # Move to the next instruction
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
@@ -395,6 +401,57 @@ class SimpleInterpreter:
             x = sizes[0]
             xs = sizes[1:]
             return [self.create_array(arrtype, xs) for _ in range(x)]
+
+    def step_cast(self, bc):
+        """
+        Handles type casting from one type to another.
+        The target type is specified in bc["type"], and the top stack value is cast to this type.
+        """
+        # Pop the top value from the stack
+        value = self.stack.pop(0)
+        
+        # Get the target type from the bytecode
+        target_type = bc["to"]
+        
+        # Perform the cast based on the target type
+        if target_type == "short":
+            cast_value = self.int_to_short(value)
+        elif target_type == "byte":
+            cast_value = self.int_to_byte(value)
+        elif target_type == "char":
+            cast_value = self.int_to_char(value)
+
+        # Push the cast result back onto the stack
+        self.stack.insert(0, cast_value)
+        
+        # Increment the program counter
+        self.pc += 1
+
+    def int_to_short(self, value):
+        """
+        Helper function to simulate casting int to short (16-bit signed).
+        """
+        value &= 0xFFFF  # Mask to 16 bits
+        if value > 32767:
+            value -= 0x10000  # Adjust for negative short range
+        return value
+
+    def int_to_byte(self, value):
+        """
+        Simulate cast from int to byte (8-bit signed).
+        """
+        value &= 0xFF  # Mask to 8 bits
+        if value > 127:
+            value -= 0x100  # Adjust for negative byte range
+        return value
+
+    def int_to_char(self, value):
+        """
+        Simulate cast from int to char (16-bit unsigned).
+        """
+        value &= 0xFFFF  # Mask to 16 bits, always positive
+        return value
+
             
     # END :: HELPER METHODS/FUNCTIONS
 
