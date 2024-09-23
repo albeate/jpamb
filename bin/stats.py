@@ -11,7 +11,7 @@ import pandas as pd
 from pathlib import Path
 
 
-def analyse(experiment):
+def analyse(experiment, logger):
     for tool, ctx in experiment["tools"].items():
         per_method = defaultdict(dict)
 
@@ -98,6 +98,13 @@ def stats(files, report, verbose):
 
     results = []
 
+    def handle_result(result):
+        try:
+            results.append(analyse(result, logger))
+        except KeyError as e:
+            logger.debug(sorted(result))
+            logger.warning(e)
+
     for file in files:
         logger.info(f"Analysing {file!r}")
 
@@ -115,15 +122,15 @@ def stats(files, report, verbose):
                         txt = content.decode("utf-8-sig")
                     except UnicodeDecodeError:
                         txt = content.decode("utf-16")
-                    results.append(analyse(json.loads(txt)))
+                    handle_result(json.loads(txt))
             continue
 
         try:
             with open(file, encoding="utf-8-sig") as fp:
-                results.append(analyse(json.load(fp)))
+                handle_result(json.load(fp))
         except UnicodeDecodeError:
             with open(file, encoding="utf-16") as fp:
-                results.append(analyse(json.load(fp)))
+                handle_result(json.load(fp))
 
     logger.success(f"Analysed {len(files)} file")
 
@@ -144,15 +151,19 @@ def stats(files, report, verbose):
             hover_data=["group", "version", "tool", "technologies"],
         )
 
-        fig.update_layout(
-            template="seaborn", yaxis=dict(range=[min(min(df.score) * 1.10, 0), 160])
-        )
+        import csv
+
+        with open("stats/distribution.csv") as fp:
+            reader = list(csv.DictReader(fp))
+            points = (len(reader) - 1) * (len(reader[0]) - 1)
+
+        fig.update_layout(template="seaborn", yaxis=dict(range=[-20, points]))
         fig.update_traces(marker_size=10)
 
         fig.write_html(report)
         logger.success(f"Written report to {report!r}")
 
-    print(df.set_index(["group", "tool"]))
+    print(df.set_index(["group", "tool"])[["kind", "score", "relative"]])
 
 
 if __name__ == "__main__":
