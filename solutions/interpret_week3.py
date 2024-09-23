@@ -203,7 +203,9 @@ class SimpleInterpreter:
         
     def execute_bytecode(self, bytecode):
         for instruction in bytecode:
-            next = bytecode[self.pc]
+            # print("execute_bytecode_instruction :=", instruction)
+            # print("execute_bytecode_self.pc :=", self.pc)
+            next = instruction
             if fn := getattr(instruction, "step_" + next["opr"], None):
                 fn(next)
 
@@ -232,9 +234,9 @@ class SimpleInterpreter:
                 # print("invoke_args_type := ", args_type)
                 # print("invoke_method_name := ", method_name)
                 bytecode = MethodId.parse(method_name).load()
-                # print("invoke_bytecode:= ", bytecode)
-                execute_bytecode(bytecode) # arbejder på det
-                if bytecode is not None:
+                print("invoke_bytecode:= ", bytecode["code"]["bytecode"])
+                sub_method = self.execute_bytecode(bytecode["code"]["bytecode"]) # arbejder på det
+                if sub_method is not None:
                     self.stack.pop()
         self.pc += 1
     
@@ -309,7 +311,11 @@ class SimpleInterpreter:
             arrtype = bc["type"]
             size = [self.stack[0] for _ in range(dim)]
             arrnew = self.create_array(arrtype,size)
+<<<<<<< HEAD
             self.stack.insert(0, arrnew)
+=======
+            self.stack.insert(0,arrnew)
+>>>>>>> e8a4c5b (invoke virker måske mere nu)
         self.pc += 1
             
     def step_array_store(self, bc):
