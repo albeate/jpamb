@@ -152,9 +152,7 @@ class SimpleInterpreter:
         target : <number>
         {goto*} [] -> []
         """
-        if bc["opr"] == "goto":
-            self.bytecode[bc["target"]]
-        self.pc += 1
+        self.pc = bc["target"]
         
     def step_ifz(self, bc): # Missing formal rules
         condition = bc["condition"]
@@ -168,10 +166,13 @@ class SimpleInterpreter:
         right = self.stack.pop(0)
         left = self.stack.pop(0)
         result = self.if_match_result(condition, left, right, "if")
-        self.pc = bc["target"] if result else self.pc + 1
+        self.pc = bc["target"] if not result else self.pc + 1
 
     def step_dup(self, bc): # Missing formal rules:
-        self.stack.insert(0, self.stack[0])
+        if len(self.stack) > 0 and self.stack[0] == "new java/lang/AssertionError()":
+           pass
+        else: 
+            self.stack.insert(0, self.stack[0])
         self.pc += 1
 
     # Missing formal rules
@@ -213,6 +214,7 @@ class SimpleInterpreter:
             self.stack.pop(0)
             # self.stack.insert(0,False)
             self.stack.insert(0,"assertion error")
+            
         else:
             name = bc["method"]["name"]
             args = bc["method"]["args"]
@@ -260,7 +262,8 @@ class SimpleInterpreter:
             -- throws an exception
             -- \{athrow\} ["objectref"] -> ["objectref"]
         """
-        
+        if len(self.stack) > 0 and self.stack[0] == "assertion error":
+            self.done = self.stack.pop(0)
         self.pc += 1
         
     # def step_invoke(self, bc): # not sure if on stack
@@ -372,7 +375,8 @@ class SimpleInterpreter:
         index = bc["index"]
         value_to_be_incremented = self.stack.pop(index)
         value_to_be_incremented += amount
-        self.stack.insert(0, value_to_be_incremented)
+        self.stack.insert(index, value_to_be_incremented)
+        self.pc += 1
 
     # START :: HELPER METHODS/FUNCTIONS
     def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
