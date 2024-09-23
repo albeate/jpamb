@@ -97,7 +97,7 @@ PS> .venv\Scripts\activate
 # now install stuff
 $> python -m pip install -r requirements.txt -r requirements-treesitter.txt
 # And the utils
-$> python -e .
+$> python -m pip install -e .
 ```
 
 Furthermore, to do good time reporting it uses a C compiler to compile the program `timer/sieve.c` and 
