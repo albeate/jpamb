@@ -91,38 +91,38 @@
 21> STEP 22:
 21>   PC: 22 {'index': 0, 'offset': 26, 'opr': 'store', 'type': 'ref'}
 21>   LOCALS: []
-21>   STACK: [[1, 2, 100, -13, 23], 5]
+21>   STACK: [[1, 2, 100, -13, None], 5]
 21> STEP 23:
 21>   PC: 23 {'offset': 27, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
-21>   LOCALS: [[1, 2, 100, -13, 23]]
+21>   LOCALS: [[1, 2, 100, -13, None]]
 21>   STACK: [5]
 21> STEP 24:
 21>   PC: 24 {'index': 1, 'offset': 28, 'opr': 'store', 'type': 'int'}
-21>   LOCALS: [[1, 2, 100, -13, 23]]
+21>   LOCALS: [[1, 2, 100, -13, None]]
 21>   STACK: [0, 5]
 21> STEP 25:
 21>   PC: 25 {'index': 1, 'offset': 29, 'opr': 'load', 'type': 'int'}
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
 21>   STACK: [5]
 21> STEP 26:
 21>   PC: 26 {'index': 0, 'offset': 30, 'opr': 'load', 'type': 'ref'}
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
 21>   STACK: [0, 5]
 21> STEP 27:
 21>   PC: 27 {'offset': 31, 'opr': 'arraylength'}
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
-21>   STACK: [[1, 2, 100, -13, 23], 0, 5]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
+21>   STACK: [[1, 2, 100, -13, None], 0, 5]
 21> STEP 28:
 21>   PC: 28 {'condition': 'ge', 'offset': 32, 'opr': 'if', 'target': 39}
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
-21>   STACK: [5, [1, 2, 100, -13, 23], 0, 5]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
+21>   STACK: [1, [1, 2, 100, -13, None], 0]
 21> STEP 29:
 21>   PC: 39 {'offset': 59, 'opr': 'return', 'type': None}
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
-21>   STACK: [0, 5]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
+21>   STACK: [0]
 21> DONE ok
-21>   LOCALS: [[1, 2, 100, -13, 23], 0]
-21>   STACK: [0, 5]
+21>   LOCALS: [[1, 2, 100, -13, None], 0]
+21>   STACK: [0]
 21> done
 U3> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayInBounds:()V' '()'
 U3> read decompiled classfile decompiled/jpamb/cases/Arrays.json
@@ -169,29 +169,29 @@ U3>   STACK: [0, 1, [0, None], [0, None], 2]
 U3> STEP 10:
 U3>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
 U3>   LOCALS: []
-U3>   STACK: [[0, 0], 2]
+U3>   STACK: [[0, None], 2]
 U3> STEP 11:
 U3>   PC: 11 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'ref'}
-U3>   LOCALS: [[0, 0]]
+U3>   LOCALS: [[0, None]]
 U3>   STACK: [2]
 U3> STEP 12:
 U3>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-U3>   LOCALS: [[0, 0]]
-U3>   STACK: [[0, 0], 2]
+U3>   LOCALS: [[0, None]]
+U3>   STACK: [[0, None], 2]
 U3> STEP 13:
 U3>   PC: 13 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
-U3>   LOCALS: [[0, 0]]
-U3>   STACK: [1, [0, 0], 2]
+U3>   LOCALS: [[0, None]]
+U3>   STACK: [1, [0, None], 2]
 U3> STEP 14:
 U3>   PC: 14 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
-U3>   LOCALS: [[0, 0]]
-U3>   STACK: [1, 1, [0, 0], 2]
+U3>   LOCALS: [[0, None]]
+U3>   STACK: [1, 1, [0, None], 2]
 U3> STEP 15:
 U3>   PC: 15 {'offset': 16, 'opr': 'return', 'type': None}
-U3>   LOCALS: [[0, 1]]
+U3>   LOCALS: [[0, None]]
 U3>   STACK: [2]
 U3> DONE ok
-U3>   LOCALS: [[0, 1]]
+U3>   LOCALS: [[0, None]]
 U3>   STACK: [2]
 U3> done
 vn> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayIsNull:()V' '()'
@@ -252,7 +252,7 @@ kJ>   LOCALS: [None]
 kJ>   STACK: [None]
 kJ> DONE null pointer
 kJ>   LOCALS: [None]
-kJ>   STACK: [None]
+kJ>   STACK: []
 kJ> done
 Ly> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayLength:()V' '()'
 Ly> read decompiled classfile decompiled/jpamb/cases/Arrays.json
@@ -299,42 +299,50 @@ Ly>   STACK: [0, 1, [0, None], [0, None], 2]
 Ly> STEP 10:
 Ly>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
 Ly>   LOCALS: []
-Ly>   STACK: [[0, 0], 2]
+Ly>   STACK: [[0, None], 2]
 Ly> STEP 11:
 Ly>   PC: 11 {'field': {'class': 'jpamb/cases/Arrays', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 12, 'opr': 'get', 'static': True}
-Ly>   LOCALS: [[0, 0]]
+Ly>   LOCALS: [[0, None]]
 Ly>   STACK: [2]
 Ly> STEP 12:
 Ly>   PC: 12 {'condition': 'ne', 'offset': 15, 'opr': 'ifz', 'target': 21}
-Ly>   LOCALS: [[0, 0]]
+Ly>   LOCALS: [[0, None]]
 Ly>   STACK: [False, 2]
 Ly> STEP 13:
 Ly>   PC: 13 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'ref'}
-Ly>   LOCALS: [[0, 0]]
+Ly>   LOCALS: [[0, None]]
 Ly>   STACK: [2]
 Ly> STEP 14:
 Ly>   PC: 14 {'offset': 19, 'opr': 'arraylength'}
-Ly>   LOCALS: [[0, 0]]
-Ly>   STACK: [[0, 0], 2]
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: [[0, None], 2]
 Ly> STEP 15:
 Ly>   PC: 15 {'offset': 20, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
-Ly>   LOCALS: [[0, 0]]
-Ly>   STACK: [2, [0, 0], 2]
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: [1, [0, None]]
 Ly> STEP 16:
 Ly>   PC: 16 {'condition': 'eq', 'offset': 21, 'opr': 'if', 'target': 21}
-Ly>   LOCALS: [[0, 0]]
-Ly>   STACK: [2, 2, [0, 0], 2]
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: [2, 1, [0, None]]
 Ly> STEP 17:
-Ly>   PC: 21 {'offset': 32, 'opr': 'return', 'type': None}
-Ly>   LOCALS: [[0, 0]]
-Ly>   STACK: [[0, 0], 2]
-Ly> DONE ok
-Ly>   LOCALS: [[0, 0]]
-Ly>   STACK: [[0, 0], 2]
+Ly>   PC: 17 {'class': 'java/lang/AssertionError', 'offset': 24, 'opr': 'new'}
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: [[0, None]]
+Ly> STEP 18:
+Ly>   PC: 18 {'offset': 27, 'opr': 'dup', 'words': 1}
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: ['new java/lang/AssertionError()', [0, None]]
+Ly> STEP 19:
+Ly>   PC: 19 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 28, 'opr': 'invoke'}
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()', [0, None]]
+Ly> DONE assertion error
+Ly>   LOCALS: [[0, None]]
+Ly>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()', [0, None]]
 Ly> done
 A4> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayNotEmpty:([I)V' '([I:1])'
 A4> Traceback (most recent call last):
-A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 403, in <module>
+A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
 A4>     methodid = MethodId.parse(sys.argv[1])
 A4>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
@@ -344,3 +352,4646 @@ A4>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanaly
 A4>     params=[TYPE_LOOKUP[p] for p in i["params"]],
 A4>             ~~~~~~~~~~~^^^
 A4> KeyError: '['
+MM> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayNotEmpty:([I)V' '([I:])'
+MM> Traceback (most recent call last):
+MM>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+MM>     methodid = MethodId.parse(sys.argv[1])
+MM>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MM>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+MM>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+MM>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MM>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+MM>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+MM>             ~~~~~~~~~~~^^^
+MM> KeyError: '['
+0K> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arrayOutOfBounds:()V' '()'
+0K> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+0K> STEP 0:
+0K>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+0K>   LOCALS: []
+0K>   STACK: []
+0K> STEP 1:
+0K>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+0K>   LOCALS: []
+0K>   STACK: [2]
+0K> STEP 2:
+0K>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+0K>   LOCALS: []
+0K>   STACK: [[None, None], 2]
+0K> STEP 3:
+0K>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+0K>   LOCALS: []
+0K>   STACK: [[None, None], [None, None], 2]
+0K> STEP 4:
+0K>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+0K>   LOCALS: []
+0K>   STACK: [0, [None, None], [None, None], 2]
+0K> STEP 5:
+0K>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+0K>   LOCALS: []
+0K>   STACK: [0, 0, [None, None], [None, None], 2]
+0K> STEP 6:
+0K>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+0K>   LOCALS: []
+0K>   STACK: [[0, None], 2]
+0K> STEP 7:
+0K>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+0K>   LOCALS: []
+0K>   STACK: [[0, None], [0, None], 2]
+0K> STEP 8:
+0K>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+0K>   LOCALS: []
+0K>   STACK: [1, [0, None], [0, None], 2]
+0K> STEP 9:
+0K>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+0K>   LOCALS: []
+0K>   STACK: [0, 1, [0, None], [0, None], 2]
+0K> STEP 10:
+0K>   PC: 10 {'index': 0, 'offset': 11, 'opr': 'store', 'type': 'ref'}
+0K>   LOCALS: []
+0K>   STACK: [[0, None], 2]
+0K> STEP 11:
+0K>   PC: 11 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'ref'}
+0K>   LOCALS: [[0, None]]
+0K>   STACK: [2]
+0K> STEP 12:
+0K>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+0K>   LOCALS: [[0, None]]
+0K>   STACK: [[0, None], 2]
+0K> STEP 13:
+0K>   PC: 13 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+0K>   LOCALS: [[0, None]]
+0K>   STACK: [3, [0, None], 2]
+0K> STEP 14:
+0K>   PC: 14 {'offset': 15, 'opr': 'array_store', 'type': 'int'}
+0K>   LOCALS: [[0, None]]
+0K>   STACK: [0, 3, [0, None], 2]
+0K> DONE out of bounds
+0K>   LOCALS: [[0, None]]
+0K>   STACK: [2]
+0K> done
+uy> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySometimesNull:(I)V' '(0)'
+uy> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+uy> STEP 0:
+uy>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
+uy>   LOCALS: [0]
+uy>   STACK: []
+uy> STEP 1:
+uy>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'store', 'type': 'ref'}
+uy>   LOCALS: [0]
+uy>   STACK: [None]
+uy> STEP 2:
+uy>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+uy>   LOCALS: [0, None]
+uy>   STACK: []
+uy> STEP 3:
+uy>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+uy>   LOCALS: [0, None]
+uy>   STACK: [0]
+uy> STEP 4:
+uy>   PC: 4 {'condition': 'ge', 'offset': 5, 'opr': 'if', 'target': 12}
+uy>   LOCALS: [0, None]
+uy>   STACK: [10, 0]
+uy> STEP 5:
+uy>   PC: 5 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+uy>   LOCALS: [0, None]
+uy>   STACK: []
+uy> STEP 6:
+uy>   PC: 6 {'dim': 1, 'offset': 9, 'opr': 'newarray', 'type': 'int'}
+uy>   LOCALS: [0, None]
+uy>   STACK: [1]
+uy> STEP 7:
+uy>   PC: 7 {'offset': 11, 'opr': 'dup', 'words': 1}
+uy>   LOCALS: [0, None]
+uy>   STACK: [[None], 1]
+uy> STEP 8:
+uy>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+uy>   LOCALS: [0, None]
+uy>   STACK: [[None], [None], 1]
+uy> STEP 9:
+uy>   PC: 9 {'index': 0, 'offset': 13, 'opr': 'load', 'type': 'int'}
+uy>   LOCALS: [0, None]
+uy>   STACK: [0, [None], [None], 1]
+uy> STEP 10:
+uy>   PC: 10 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
+uy>   LOCALS: [0, None]
+uy>   STACK: [0, 0, [None], [None], 1]
+uy> STEP 11:
+uy>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'store', 'type': 'ref'}
+uy>   LOCALS: [0, None]
+uy>   STACK: [[None], 1]
+uy> STEP 12:
+uy>   PC: 12 {'index': 1, 'offset': 16, 'opr': 'load', 'type': 'ref'}
+uy>   LOCALS: [0, [None], None]
+uy>   STACK: [1]
+uy> STEP 13:
+uy>   PC: 13 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+uy>   LOCALS: [0, [None], None]
+uy>   STACK: [[None], 1]
+uy> STEP 14:
+uy>   PC: 14 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+uy>   LOCALS: [0, [None], None]
+uy>   STACK: [1, [None], 1]
+uy> STEP 15:
+uy>   PC: 15 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
+uy>   LOCALS: [0, [None], None]
+uy>   STACK: [10, 1, [None], 1]
+uy> DONE out of bounds
+uy>   LOCALS: [0, [None], None]
+uy>   STACK: [1]
+uy> done
+ba> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySometimesNull:(I)V' '(11)'
+ba> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+ba> STEP 0:
+ba>   PC: 0 {'offset': 0, 'opr': 'push', 'value': None}
+ba>   LOCALS: [11]
+ba>   STACK: []
+ba> STEP 1:
+ba>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'store', 'type': 'ref'}
+ba>   LOCALS: [11]
+ba>   STACK: [None]
+ba> STEP 2:
+ba>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+ba>   LOCALS: [11, None]
+ba>   STACK: []
+ba> STEP 3:
+ba>   PC: 3 {'offset': 3, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+ba>   LOCALS: [11, None]
+ba>   STACK: [11]
+ba> STEP 4:
+ba>   PC: 4 {'condition': 'ge', 'offset': 5, 'opr': 'if', 'target': 12}
+ba>   LOCALS: [11, None]
+ba>   STACK: [10, 11]
+ba> STEP 5:
+ba>   PC: 12 {'index': 1, 'offset': 16, 'opr': 'load', 'type': 'ref'}
+ba>   LOCALS: [11, None]
+ba>   STACK: []
+ba> STEP 6:
+ba>   PC: 13 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+ba>   LOCALS: [11, None]
+ba>   STACK: [None]
+ba> STEP 7:
+ba>   PC: 14 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+ba>   LOCALS: [11, None]
+ba>   STACK: [1, None]
+ba> STEP 8:
+ba>   PC: 15 {'offset': 20, 'opr': 'array_store', 'type': 'int'}
+ba>   LOCALS: [11, None]
+ba>   STACK: [10, 1, None]
+ba> DONE null pointer
+ba>   LOCALS: [11, None]
+ba>   STACK: []
+ba> done
+BD> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySpellsHello:([C)V' '([C:'"'"'h'"'"', '"'"'e'"'"', '"'"'l'"'"', '"'"'l'"'"', '"'"'o'"'"'])'
+BD> Traceback (most recent call last):
+BD>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+BD>     methodid = MethodId.parse(sys.argv[1])
+BD>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BD>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+BD>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+BD>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BD>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+BD>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+BD>             ~~~~~~~~~~~^^^
+BD> KeyError: '['
+Qw> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySpellsHello:([C)V' '([C:'"'"'x'"'"'])'
+Qw> Traceback (most recent call last):
+Qw>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+Qw>     methodid = MethodId.parse(sys.argv[1])
+Qw>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Qw>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+Qw>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+Qw>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Qw>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+Qw>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+Qw>             ~~~~~~~~~~~^^^
+Qw> KeyError: '['
+ap> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySpellsHello:([C)V' '([C:])'
+ap> Traceback (most recent call last):
+ap>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+ap>     methodid = MethodId.parse(sys.argv[1])
+ap>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ap>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+ap>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+ap>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ap>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+ap>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+ap>             ~~~~~~~~~~~^^^
+ap> KeyError: '['
+Wy> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySumIsLarge:([I)V' '([I:50, 100, 200])'
+Wy> Traceback (most recent call last):
+Wy>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+Wy>     methodid = MethodId.parse(sys.argv[1])
+Wy>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Wy>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+Wy>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+Wy>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Wy>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+Wy>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+Wy>             ~~~~~~~~~~~^^^
+Wy> KeyError: '['
+rx> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.arraySumIsLarge:([I)V' '([I:])'
+rx> Traceback (most recent call last):
+rx>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 397, in <module>
+rx>     methodid = MethodId.parse(sys.argv[1])
+rx>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rx>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in parse
+rx>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+rx>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rx>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 43, in <listcomp>
+rx>     params=[TYPE_LOOKUP[p] for p in i["params"]],
+rx>             ~~~~~~~~~~~^^^
+rx> KeyError: '['
+1j> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.binarySearch:(I)V' '(3)'
+1j> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+1j> STEP 0:
+1j>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
+1j>   LOCALS: [3]
+1j>   STACK: []
+1j> STEP 1:
+1j>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [5]
+1j> STEP 2:
+1j>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+1j>   LOCALS: [3]
+1j>   STACK: [[None, None, None, None, None], 5]
+1j> STEP 3:
+1j>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+1j>   LOCALS: [3]
+1j>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
+1j> STEP 4:
+1j>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+1j>   LOCALS: [3]
+1j>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
+1j> STEP 5:
+1j>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [2, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
+1j> STEP 6:
+1j>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, None, None, None, None], 5]
+1j> STEP 7:
+1j>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, None, None, None, None], [2, None, None, None, None], 5]
+1j> STEP 8:
+1j>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+1j>   LOCALS: [3]
+1j>   STACK: [1, [2, None, None, None, None], [2, None, None, None, None], 5]
+1j> STEP 9:
+1j>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [3, 1, [2, None, None, None, None], [2, None, None, None, None], 5]
+1j> STEP 10:
+1j>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, None, None, None], 5]
+1j> STEP 11:
+1j>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, None, None, None], [2, 3, None, None, None], 5]
+1j> STEP 12:
+1j>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
+1j>   LOCALS: [3]
+1j>   STACK: [2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
+1j> STEP 13:
+1j>   PC: 13 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [4, 2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
+1j> STEP 14:
+1j>   PC: 14 {'offset': 15, 'opr': 'dup', 'words': 1}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, 4, None, None], 5]
+1j> STEP 15:
+1j>   PC: 15 {'offset': 16, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+1j> STEP 16:
+1j>   PC: 16 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+1j>   LOCALS: [3]
+1j>   STACK: [3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+1j> STEP 17:
+1j>   PC: 17 {'offset': 19, 'opr': 'array_store', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [10, 3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+1j> STEP 18:
+1j>   PC: 18 {'offset': 20, 'opr': 'dup', 'words': 1}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, 4, 10, None], 5]
+1j> STEP 19:
+1j>   PC: 19 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+1j> STEP 20:
+1j>   PC: 20 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 40}}
+1j>   LOCALS: [3]
+1j>   STACK: [4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+1j> STEP 21:
+1j>   PC: 21 {'offset': 24, 'opr': 'array_store', 'type': 'int'}
+1j>   LOCALS: [3]
+1j>   STACK: [40, 4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+1j> STEP 22:
+1j>   PC: 22 {'index': 1, 'offset': 25, 'opr': 'store', 'type': 'ref'}
+1j>   LOCALS: [3]
+1j>   STACK: [[2, 3, 4, 10, None], 5]
+1j> STEP 23:
+1j>   PC: 23 {'offset': 26, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+1j>   LOCALS: [3, [2, 3, 4, 10, None]]
+1j>   STACK: [5]
+1j> STEP 24:
+1j>   PC: 24 {'index': 2, 'offset': 27, 'opr': 'store', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None]]
+1j>   STACK: [0, 5]
+1j> STEP 25:
+1j>   PC: 25 {'index': 1, 'offset': 28, 'opr': 'load', 'type': 'ref'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0]
+1j>   STACK: [5]
+1j> STEP 26:
+1j>   PC: 26 {'offset': 29, 'opr': 'arraylength'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0]
+1j>   STACK: [[2, 3, 4, 10, None], 5]
+1j> STEP 27:
+1j>   PC: 27 {'offset': 30, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0]
+1j>   STACK: [1, [2, 3, 4, 10, None]]
+1j> STEP 28:
+1j>   PC: 28 {'offset': 31, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0]
+1j>   STACK: [1, 1, [2, 3, 4, 10, None]]
+1j> STEP 29:
+1j>   PC: 29 {'index': 3, 'offset': 32, 'opr': 'store', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0]
+1j>   STACK: [0, [2, 3, 4, 10, None]]
+1j> STEP 30:
+1j>   PC: 30 {'index': 2, 'offset': 33, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [[2, 3, 4, 10, None]]
+1j> STEP 31:
+1j>   PC: 31 {'index': 3, 'offset': 34, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, [2, 3, 4, 10, None]]
+1j> STEP 32:
+1j>   PC: 32 {'condition': 'gt', 'offset': 35, 'opr': 'if', 'target': 62}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, 0, [2, 3, 4, 10, None]]
+1j> STEP 33:
+1j>   PC: 33 {'index': 2, 'offset': 38, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [[2, 3, 4, 10, None]]
+1j> STEP 34:
+1j>   PC: 34 {'index': 3, 'offset': 39, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, [2, 3, 4, 10, None]]
+1j> STEP 35:
+1j>   PC: 35 {'index': 2, 'offset': 40, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, 0, [2, 3, 4, 10, None]]
+1j> STEP 36:
+1j>   PC: 36 {'offset': 41, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, 0, 0, [2, 3, 4, 10, None]]
+1j> STEP 37:
+1j>   PC: 37 {'offset': 42, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0, 0, [2, 3, 4, 10, None]]
+1j> STEP 38:
+1j>   PC: 38 {'offset': 43, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [2, 0, 0, [2, 3, 4, 10, None]]
+1j> STEP 39:
+1j>   PC: 39 {'offset': 44, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0.0, 0, [2, 3, 4, 10, None]]
+1j> STEP 40:
+1j>   PC: 40 {'index': 4, 'offset': 45, 'opr': 'store', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0]
+1j>   STACK: [0.0, [2, 3, 4, 10, None]]
+1j> STEP 41:
+1j>   PC: 41 {'index': 1, 'offset': 47, 'opr': 'load', 'type': 'ref'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0, 0.0]
+1j>   STACK: [[2, 3, 4, 10, None]]
+1j> STEP 42:
+1j>   PC: 42 {'index': 4, 'offset': 48, 'opr': 'load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0, 0.0]
+1j>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None]]
+1j> STEP 43:
+1j>   PC: 43 {'offset': 50, 'opr': 'array_load', 'type': 'int'}
+1j>   LOCALS: [3, [2, 3, 4, 10, None], 0, 0, 0.0]
+1j>   STACK: [0.0, [2, 3, 4, 10, None], [2, 3, 4, 10, None]]
+1j> Traceback (most recent call last):
+1j>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 407, in <module>
+1j>     print(methodid.create_interpreter(inputs).interpet())
+1j>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1j>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 101, in interpet
+1j>     fn(next)
+1j>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 312, in step_array_load
+1j>     self.stack.insert(0,arrayef[index])
+1j>                         ~~~~~~~^^^^^^^
+1j> TypeError: list indices must be integers or slices, not float
+6o> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Arrays.binarySearch:(I)V' '(6)'
+6o> read decompiled classfile decompiled/jpamb/cases/Arrays.json
+6o> STEP 0:
+6o>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 5}}
+6o>   LOCALS: [6]
+6o>   STACK: []
+6o> STEP 1:
+6o>   PC: 1 {'dim': 1, 'offset': 1, 'opr': 'newarray', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [5]
+6o> STEP 2:
+6o>   PC: 2 {'offset': 3, 'opr': 'dup', 'words': 1}
+6o>   LOCALS: [6]
+6o>   STACK: [[None, None, None, None, None], 5]
+6o> STEP 3:
+6o>   PC: 3 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+6o>   LOCALS: [6]
+6o>   STACK: [[None, None, None, None, None], [None, None, None, None, None], 5]
+6o> STEP 4:
+6o>   PC: 4 {'offset': 5, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6o>   LOCALS: [6]
+6o>   STACK: [0, [None, None, None, None, None], [None, None, None, None, None], 5]
+6o> STEP 5:
+6o>   PC: 5 {'offset': 6, 'opr': 'array_store', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [2, 0, [None, None, None, None, None], [None, None, None, None, None], 5]
+6o> STEP 6:
+6o>   PC: 6 {'offset': 7, 'opr': 'dup', 'words': 1}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, None, None, None, None], 5]
+6o> STEP 7:
+6o>   PC: 7 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, None, None, None, None], [2, None, None, None, None], 5]
+6o> STEP 8:
+6o>   PC: 8 {'offset': 9, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+6o>   LOCALS: [6]
+6o>   STACK: [1, [2, None, None, None, None], [2, None, None, None, None], 5]
+6o> STEP 9:
+6o>   PC: 9 {'offset': 10, 'opr': 'array_store', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [3, 1, [2, None, None, None, None], [2, None, None, None, None], 5]
+6o> STEP 10:
+6o>   PC: 10 {'offset': 11, 'opr': 'dup', 'words': 1}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, None, None, None], 5]
+6o> STEP 11:
+6o>   PC: 11 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, None, None, None], [2, 3, None, None, None], 5]
+6o> STEP 12:
+6o>   PC: 12 {'offset': 13, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
+6o>   LOCALS: [6]
+6o>   STACK: [2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
+6o> STEP 13:
+6o>   PC: 13 {'offset': 14, 'opr': 'array_store', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [4, 2, [2, 3, None, None, None], [2, 3, None, None, None], 5]
+6o> STEP 14:
+6o>   PC: 14 {'offset': 15, 'opr': 'dup', 'words': 1}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, 4, None, None], 5]
+6o> STEP 15:
+6o>   PC: 15 {'offset': 16, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+6o> STEP 16:
+6o>   PC: 16 {'offset': 17, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+6o>   LOCALS: [6]
+6o>   STACK: [3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+6o> STEP 17:
+6o>   PC: 17 {'offset': 19, 'opr': 'array_store', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [10, 3, [2, 3, 4, None, None], [2, 3, 4, None, None], 5]
+6o> STEP 18:
+6o>   PC: 18 {'offset': 20, 'opr': 'dup', 'words': 1}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, 4, 10, None], 5]
+6o> STEP 19:
+6o>   PC: 19 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 4}}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+6o> STEP 20:
+6o>   PC: 20 {'offset': 22, 'opr': 'push', 'value': {'type': 'integer', 'value': 40}}
+6o>   LOCALS: [6]
+6o>   STACK: [4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+6o> STEP 21:
+6o>   PC: 21 {'offset': 24, 'opr': 'array_store', 'type': 'int'}
+6o>   LOCALS: [6]
+6o>   STACK: [40, 4, [2, 3, 4, 10, None], [2, 3, 4, 10, None], 5]
+6o> STEP 22:
+6o>   PC: 22 {'index': 1, 'offset': 25, 'opr': 'store', 'type': 'ref'}
+6o>   LOCALS: [6]
+6o>   STACK: [[2, 3, 4, 10, None], 5]
+6o> STEP 23:
+6o>   PC: 23 {'offset': 26, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+6o>   LOCALS: [6, [2, 3, 4, 10, None]]
+6o>   STACK: [5]
+6o> STEP 24:
+6o>   PC: 24 {'index': 2, 'offset': 27, 'opr': 'store', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None]]
+6o>   STACK: [0, 5]
+6o> STEP 25:
+6o>   PC: 25 {'index': 1, 'offset': 28, 'opr': 'load', 'type': 'ref'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0]
+6o>   STACK: [5]
+6o> STEP 26:
+6o>   PC: 26 {'offset': 29, 'opr': 'arraylength'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0]
+6o>   STACK: [[2, 3, 4, 10, None], 5]
+6o> STEP 27:
+6o>   PC: 27 {'offset': 30, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0]
+6o>   STACK: [1, [2, 3, 4, 10, None]]
+6o> STEP 28:
+6o>   PC: 28 {'offset': 31, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0]
+6o>   STACK: [1, 1, [2, 3, 4, 10, None]]
+6o> STEP 29:
+6o>   PC: 29 {'index': 3, 'offset': 32, 'opr': 'store', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0]
+6o>   STACK: [0, [2, 3, 4, 10, None]]
+6o> STEP 30:
+6o>   PC: 30 {'index': 2, 'offset': 33, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [[2, 3, 4, 10, None]]
+6o> STEP 31:
+6o>   PC: 31 {'index': 3, 'offset': 34, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, [2, 3, 4, 10, None]]
+6o> STEP 32:
+6o>   PC: 32 {'condition': 'gt', 'offset': 35, 'opr': 'if', 'target': 62}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, 0, [2, 3, 4, 10, None]]
+6o> STEP 33:
+6o>   PC: 33 {'index': 2, 'offset': 38, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [[2, 3, 4, 10, None]]
+6o> STEP 34:
+6o>   PC: 34 {'index': 3, 'offset': 39, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, [2, 3, 4, 10, None]]
+6o> STEP 35:
+6o>   PC: 35 {'index': 2, 'offset': 40, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, 0, [2, 3, 4, 10, None]]
+6o> STEP 36:
+6o>   PC: 36 {'offset': 41, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, 0, 0, [2, 3, 4, 10, None]]
+6o> STEP 37:
+6o>   PC: 37 {'offset': 42, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0, 0, [2, 3, 4, 10, None]]
+6o> STEP 38:
+6o>   PC: 38 {'offset': 43, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [2, 0, 0, [2, 3, 4, 10, None]]
+6o> STEP 39:
+6o>   PC: 39 {'offset': 44, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0.0, 0, [2, 3, 4, 10, None]]
+6o> STEP 40:
+6o>   PC: 40 {'index': 4, 'offset': 45, 'opr': 'store', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0]
+6o>   STACK: [0.0, [2, 3, 4, 10, None]]
+6o> STEP 41:
+6o>   PC: 41 {'index': 1, 'offset': 47, 'opr': 'load', 'type': 'ref'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0, 0.0]
+6o>   STACK: [[2, 3, 4, 10, None]]
+6o> STEP 42:
+6o>   PC: 42 {'index': 4, 'offset': 48, 'opr': 'load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0, 0.0]
+6o>   STACK: [[2, 3, 4, 10, None], [2, 3, 4, 10, None]]
+6o> STEP 43:
+6o>   PC: 43 {'offset': 50, 'opr': 'array_load', 'type': 'int'}
+6o>   LOCALS: [6, [2, 3, 4, 10, None], 0, 0, 0.0]
+6o>   STACK: [0.0, [2, 3, 4, 10, None], [2, 3, 4, 10, None]]
+6o> Traceback (most recent call last):
+6o>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 407, in <module>
+6o>     print(methodid.create_interpreter(inputs).interpet())
+6o>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6o>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 101, in interpet
+6o>     fn(next)
+6o>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 312, in step_array_load
+6o>     self.stack.insert(0,arrayef[index])
+6o>                         ~~~~~~~^^^^^^^
+6o> TypeError: list indices must be integers or slices, not float
+r8> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.allPrimesArePositive:(I)V' '(-1)'
+r8> read decompiled classfile decompiled/jpamb/cases/Calls.json
+r8> STEP 0:
+r8>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+r8>   LOCALS: [-1]
+r8>   STACK: []
+r8> STEP 1:
+r8>   PC: 1 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'generatePrimeArray', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': {'kind': 'array', 'type': 'int'}}, 'offset': 1, 'opr': 'invoke'}
+r8>   LOCALS: [-1]
+r8>   STACK: [-1]
+r8> STEP 2:
+r8>   PC: 2 {'index': 1, 'offset': 4, 'opr': 'store', 'type': 'ref'}
+r8>   LOCALS: [-1]
+r8>   STACK: [-1]
+r8> STEP 3:
+r8>   PC: 3 {'index': 1, 'offset': 5, 'opr': 'load', 'type': 'ref'}
+r8>   LOCALS: [-1, -1]
+r8>   STACK: []
+r8> STEP 4:
+r8>   PC: 4 {'offset': 6, 'opr': 'arraylength'}
+r8>   LOCALS: [-1, -1]
+r8>   STACK: [-1]
+r8> STEP 5:
+r8>   PC: 5 {'index': 2, 'offset': 7, 'opr': 'store', 'type': 'int'}
+r8>   LOCALS: [-1, -1]
+r8>   STACK: [1]
+r8> STEP 6:
+r8>   PC: 6 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+r8>   LOCALS: [-1, -1, 1]
+r8>   STACK: []
+r8> STEP 7:
+r8>   PC: 7 {'index': 3, 'offset': 9, 'opr': 'store', 'type': 'int'}
+r8>   LOCALS: [-1, -1, 1]
+r8>   STACK: [0]
+r8> STEP 8:
+r8>   PC: 8 {'index': 3, 'offset': 10, 'opr': 'load', 'type': 'int'}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: []
+r8> STEP 9:
+r8>   PC: 9 {'index': 2, 'offset': 11, 'opr': 'load', 'type': 'int'}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: [0]
+r8> STEP 10:
+r8>   PC: 10 {'condition': 'ge', 'offset': 12, 'opr': 'if', 'target': 25}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: [1, 0]
+r8> STEP 11:
+r8>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'load', 'type': 'ref'}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: []
+r8> STEP 12:
+r8>   PC: 12 {'index': 3, 'offset': 16, 'opr': 'load', 'type': 'int'}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: [-1]
+r8> STEP 13:
+r8>   PC: 13 {'offset': 17, 'opr': 'array_load', 'type': 'int'}
+r8>   LOCALS: [-1, -1, 1, 0]
+r8>   STACK: [0, -1]
+r8> Traceback (most recent call last):
+r8>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 407, in <module>
+r8>     print(methodid.create_interpreter(inputs).interpet())
+r8>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+r8>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 101, in interpet
+r8>     fn(next)
+r8>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 309, in step_array_load
+r8>     elif index + 1 > len(arrayef):
+r8>                      ^^^^^^^^^^^^
+r8> TypeError: object of type 'int' has no len()
+xa> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.allPrimesArePositive:(I)V' '(0)'
+xa> read decompiled classfile decompiled/jpamb/cases/Calls.json
+xa> STEP 0:
+xa>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+xa>   LOCALS: [0]
+xa>   STACK: []
+xa> STEP 1:
+xa>   PC: 1 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'generatePrimeArray', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': {'kind': 'array', 'type': 'int'}}, 'offset': 1, 'opr': 'invoke'}
+xa>   LOCALS: [0]
+xa>   STACK: [0]
+xa> STEP 2:
+xa>   PC: 2 {'index': 1, 'offset': 4, 'opr': 'store', 'type': 'ref'}
+xa>   LOCALS: [0]
+xa>   STACK: [0]
+xa> STEP 3:
+xa>   PC: 3 {'index': 1, 'offset': 5, 'opr': 'load', 'type': 'ref'}
+xa>   LOCALS: [0, 0]
+xa>   STACK: []
+xa> STEP 4:
+xa>   PC: 4 {'offset': 6, 'opr': 'arraylength'}
+xa>   LOCALS: [0, 0]
+xa>   STACK: [0]
+xa> STEP 5:
+xa>   PC: 5 {'index': 2, 'offset': 7, 'opr': 'store', 'type': 'int'}
+xa>   LOCALS: [0, 0]
+xa>   STACK: [1]
+xa> STEP 6:
+xa>   PC: 6 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+xa>   LOCALS: [0, 0, 1]
+xa>   STACK: []
+xa> STEP 7:
+xa>   PC: 7 {'index': 3, 'offset': 9, 'opr': 'store', 'type': 'int'}
+xa>   LOCALS: [0, 0, 1]
+xa>   STACK: [0]
+xa> STEP 8:
+xa>   PC: 8 {'index': 3, 'offset': 10, 'opr': 'load', 'type': 'int'}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: []
+xa> STEP 9:
+xa>   PC: 9 {'index': 2, 'offset': 11, 'opr': 'load', 'type': 'int'}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: [0]
+xa> STEP 10:
+xa>   PC: 10 {'condition': 'ge', 'offset': 12, 'opr': 'if', 'target': 25}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: [1, 0]
+xa> STEP 11:
+xa>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'load', 'type': 'ref'}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: []
+xa> STEP 12:
+xa>   PC: 12 {'index': 3, 'offset': 16, 'opr': 'load', 'type': 'int'}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: [0]
+xa> STEP 13:
+xa>   PC: 13 {'offset': 17, 'opr': 'array_load', 'type': 'int'}
+xa>   LOCALS: [0, 0, 1, 0]
+xa>   STACK: [0, 0]
+xa> Traceback (most recent call last):
+xa>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 407, in <module>
+xa>     print(methodid.create_interpreter(inputs).interpet())
+xa>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xa>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 101, in interpet
+xa>     fn(next)
+xa>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 309, in step_array_load
+xa>     elif index + 1 > len(arrayef):
+xa>                      ^^^^^^^^^^^^
+xa> TypeError: object of type 'int' has no len()
+mS> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.allPrimesArePositive:(I)V' '(100)'
+mS> read decompiled classfile decompiled/jpamb/cases/Calls.json
+mS> STEP 0:
+mS>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+mS>   LOCALS: [100]
+mS>   STACK: []
+mS> STEP 1:
+mS>   PC: 1 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'generatePrimeArray', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': {'kind': 'array', 'type': 'int'}}, 'offset': 1, 'opr': 'invoke'}
+mS>   LOCALS: [100]
+mS>   STACK: [100]
+mS> STEP 2:
+mS>   PC: 2 {'index': 1, 'offset': 4, 'opr': 'store', 'type': 'ref'}
+mS>   LOCALS: [100]
+mS>   STACK: [100]
+mS> STEP 3:
+mS>   PC: 3 {'index': 1, 'offset': 5, 'opr': 'load', 'type': 'ref'}
+mS>   LOCALS: [100, 100]
+mS>   STACK: []
+mS> STEP 4:
+mS>   PC: 4 {'offset': 6, 'opr': 'arraylength'}
+mS>   LOCALS: [100, 100]
+mS>   STACK: [100]
+mS> STEP 5:
+mS>   PC: 5 {'index': 2, 'offset': 7, 'opr': 'store', 'type': 'int'}
+mS>   LOCALS: [100, 100]
+mS>   STACK: [1]
+mS> STEP 6:
+mS>   PC: 6 {'offset': 8, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+mS>   LOCALS: [100, 100, 1]
+mS>   STACK: []
+mS> STEP 7:
+mS>   PC: 7 {'index': 3, 'offset': 9, 'opr': 'store', 'type': 'int'}
+mS>   LOCALS: [100, 100, 1]
+mS>   STACK: [0]
+mS> STEP 8:
+mS>   PC: 8 {'index': 3, 'offset': 10, 'opr': 'load', 'type': 'int'}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: []
+mS> STEP 9:
+mS>   PC: 9 {'index': 2, 'offset': 11, 'opr': 'load', 'type': 'int'}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: [0]
+mS> STEP 10:
+mS>   PC: 10 {'condition': 'ge', 'offset': 12, 'opr': 'if', 'target': 25}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: [1, 0]
+mS> STEP 11:
+mS>   PC: 11 {'index': 1, 'offset': 15, 'opr': 'load', 'type': 'ref'}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: []
+mS> STEP 12:
+mS>   PC: 12 {'index': 3, 'offset': 16, 'opr': 'load', 'type': 'int'}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: [100]
+mS> STEP 13:
+mS>   PC: 13 {'offset': 17, 'opr': 'array_load', 'type': 'int'}
+mS>   LOCALS: [100, 100, 1, 0]
+mS>   STACK: [0, 100]
+mS> Traceback (most recent call last):
+mS>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 407, in <module>
+mS>     print(methodid.create_interpreter(inputs).interpet())
+mS>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mS>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 101, in interpet
+mS>     fn(next)
+mS>   File "/Users/beatz/Documents/uddannelse/informationsteknologi/programanalyse/jpamb/solutions/interpret_week3.py", line 309, in step_array_load
+mS>     elif index + 1 > len(arrayef):
+mS>                      ^^^^^^^^^^^^
+mS> TypeError: object of type 'int' has no len()
+Ls> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFalse:()V' '()'
+Ls> read decompiled classfile decompiled/jpamb/cases/Calls.json
+Ls> STEP 0:
+Ls>   PC: 0 {'access': 'static', 'method': {'args': [], 'is_interface': False, 'name': 'assertFalse', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 0, 'opr': 'invoke'}
+Ls>   LOCALS: []
+Ls>   STACK: []
+Ls> read decompiled classfile decompiled/jpamb/cases/Calls.json
+Ls> STEP 1:
+Ls>   PC: 1 {'offset': 3, 'opr': 'return', 'type': None}
+Ls>   LOCALS: []
+Ls>   STACK: []
+Ls> DONE ok
+Ls>   LOCALS: []
+Ls>   STACK: []
+Ls> done
+7P> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFib:(I)V' '(0)'
+7P> read decompiled classfile decompiled/jpamb/cases/Calls.json
+7P> STEP 0:
+7P>   PC: 0 {'field': {'class': 'jpamb/cases/Calls', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+7P>   LOCALS: [0]
+7P>   STACK: []
+7P> STEP 1:
+7P>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 10}
+7P>   LOCALS: [0]
+7P>   STACK: [False]
+7P> STEP 2:
+7P>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+7P>   LOCALS: [0]
+7P>   STACK: []
+7P> STEP 3:
+7P>   PC: 3 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'fib', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': 'int'}, 'offset': 7, 'opr': 'invoke'}
+7P>   LOCALS: [0]
+7P>   STACK: [0]
+7P> STEP 4:
+7P>   PC: 4 {'offset': 10, 'opr': 'push', 'value': {'type': 'integer', 'value': 21}}
+7P>   LOCALS: [0]
+7P>   STACK: [0]
+7P> STEP 5:
+7P>   PC: 5 {'condition': 'eq', 'offset': 12, 'opr': 'if', 'target': 10}
+7P>   LOCALS: [0]
+7P>   STACK: [21, 0]
+7P> STEP 6:
+7P>   PC: 6 {'class': 'java/lang/AssertionError', 'offset': 15, 'opr': 'new'}
+7P>   LOCALS: [0]
+7P>   STACK: []
+7P> STEP 7:
+7P>   PC: 7 {'offset': 18, 'opr': 'dup', 'words': 1}
+7P>   LOCALS: [0]
+7P>   STACK: ['new java/lang/AssertionError()']
+7P> STEP 8:
+7P>   PC: 8 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 19, 'opr': 'invoke'}
+7P>   LOCALS: [0]
+7P>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+7P> DONE assertion error
+7P>   LOCALS: [0]
+7P>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+7P> done
+41> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertFib:(I)V' '(8)'
+41> read decompiled classfile decompiled/jpamb/cases/Calls.json
+41> STEP 0:
+41>   PC: 0 {'field': {'class': 'jpamb/cases/Calls', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+41>   LOCALS: [8]
+41>   STACK: []
+41> STEP 1:
+41>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 10}
+41>   LOCALS: [8]
+41>   STACK: [False]
+41> STEP 2:
+41>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+41>   LOCALS: [8]
+41>   STACK: []
+41> STEP 3:
+41>   PC: 3 {'access': 'static', 'method': {'args': ['int'], 'is_interface': False, 'name': 'fib', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': 'int'}, 'offset': 7, 'opr': 'invoke'}
+41>   LOCALS: [8]
+41>   STACK: [8]
+41> STEP 4:
+41>   PC: 4 {'offset': 10, 'opr': 'push', 'value': {'type': 'integer', 'value': 21}}
+41>   LOCALS: [8]
+41>   STACK: [8]
+41> STEP 5:
+41>   PC: 5 {'condition': 'eq', 'offset': 12, 'opr': 'if', 'target': 10}
+41>   LOCALS: [8]
+41>   STACK: [21, 8]
+41> STEP 6:
+41>   PC: 6 {'class': 'java/lang/AssertionError', 'offset': 15, 'opr': 'new'}
+41>   LOCALS: [8]
+41>   STACK: []
+41> STEP 7:
+41>   PC: 7 {'offset': 18, 'opr': 'dup', 'words': 1}
+41>   LOCALS: [8]
+41>   STACK: ['new java/lang/AssertionError()']
+41> STEP 8:
+41>   PC: 8 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 19, 'opr': 'invoke'}
+41>   LOCALS: [8]
+41>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+41> DONE assertion error
+41>   LOCALS: [8]
+41>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+41> done
+6A> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIf:(Z)V' '(false)'
+6A> read decompiled classfile decompiled/jpamb/cases/Calls.json
+6A> STEP 0:
+6A>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6A>   LOCALS: [False]
+6A>   STACK: []
+6A> STEP 1:
+6A>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
+6A>   LOCALS: [False]
+6A>   STACK: [False]
+6A> STEP 2:
+6A>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
+6A>   LOCALS: [False]
+6A>   STACK: [False]
+6A> DONE ok
+6A>   LOCALS: [False]
+6A>   STACK: [False]
+6A> done
+T9> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIf:(Z)V' '(true)'
+T9> read decompiled classfile decompiled/jpamb/cases/Calls.json
+T9> STEP 0:
+T9>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+T9>   LOCALS: [True]
+T9>   STACK: []
+T9> STEP 1:
+T9>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
+T9>   LOCALS: [True]
+T9>   STACK: [True]
+T9> STEP 2:
+T9>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
+T9>   LOCALS: [True]
+T9>   STACK: [True]
+T9> DONE ok
+T9>   LOCALS: [True]
+T9>   STACK: [True]
+T9> done
+0A> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertIfWithTrue:()V' '()'
+0A> read decompiled classfile decompiled/jpamb/cases/Calls.json
+0A> STEP 0:
+0A>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+0A>   LOCALS: []
+0A>   STACK: []
+0A> STEP 1:
+0A>   PC: 1 {'access': 'static', 'method': {'args': ['boolean'], 'is_interface': False, 'name': 'assertIf', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 1, 'opr': 'invoke'}
+0A>   LOCALS: []
+0A>   STACK: [1]
+0A> STEP 2:
+0A>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
+0A>   LOCALS: []
+0A>   STACK: [1]
+0A> DONE ok
+0A>   LOCALS: []
+0A>   STACK: [1]
+0A> done
+nx> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Calls.callsAssertTrue:()V' '()'
+nx> read decompiled classfile decompiled/jpamb/cases/Calls.json
+nx> STEP 0:
+nx>   PC: 0 {'access': 'static', 'method': {'args': [], 'is_interface': False, 'name': 'assertTrue', 'ref': {'kind': 'class', 'name': 'jpamb/cases/Calls'}, 'returns': None}, 'offset': 0, 'opr': 'invoke'}
+nx>   LOCALS: []
+nx>   STACK: []
+nx> read decompiled classfile decompiled/jpamb/cases/Calls.json
+nx> STEP 1:
+nx>   PC: 1 {'offset': 3, 'opr': 'return', 'type': None}
+nx>   LOCALS: []
+nx>   STACK: []
+nx> DONE ok
+nx>   LOCALS: []
+nx>   STACK: []
+nx> done
+PH> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Loops.forever:()V' '()'
+PH> read decompiled classfile decompiled/jpamb/cases/Loops.json
+PH> STEP 0:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 1:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 2:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 3:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 4:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 5:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 6:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 7:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 8:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 9:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 10:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 11:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 12:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 13:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 14:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 15:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 16:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 17:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 18:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 19:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 20:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 21:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 22:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 23:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 24:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 25:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 26:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 27:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 28:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 29:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 30:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 31:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 32:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 33:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 34:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 35:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 36:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 37:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 38:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 39:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 40:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 41:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 42:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 43:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 44:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 45:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 46:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 47:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 48:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 49:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 50:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 51:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 52:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 53:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 54:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 55:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 56:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 57:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 58:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 59:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 60:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 61:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 62:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 63:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 64:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 65:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 66:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 67:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 68:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 69:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 70:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 71:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 72:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 73:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 74:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 75:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 76:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 77:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 78:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 79:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 80:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 81:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 82:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 83:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 84:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 85:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 86:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 87:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 88:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 89:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 90:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 91:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 92:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 93:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 94:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 95:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 96:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 97:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 98:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 99:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 100:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 101:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 102:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 103:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 104:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 105:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 106:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 107:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 108:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 109:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 110:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 111:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 112:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 113:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 114:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 115:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 116:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 117:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 118:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 119:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 120:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 121:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 122:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 123:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 124:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 125:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 126:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 127:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 128:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 129:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 130:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 131:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 132:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 133:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 134:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 135:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 136:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 137:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 138:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 139:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 140:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 141:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 142:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 143:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 144:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 145:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 146:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 147:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 148:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 149:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 150:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 151:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 152:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 153:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 154:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 155:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 156:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 157:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 158:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 159:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 160:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 161:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 162:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 163:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 164:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 165:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 166:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 167:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 168:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 169:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 170:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 171:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 172:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 173:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 174:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 175:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 176:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 177:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 178:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 179:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 180:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 181:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 182:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 183:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 184:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 185:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 186:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 187:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 188:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 189:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 190:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 191:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 192:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 193:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 194:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 195:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 196:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 197:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 198:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> STEP 199:
+PH>   PC: 0 {'offset': 0, 'opr': 'goto', 'target': 0}
+PH>   LOCALS: []
+PH>   STACK: []
+PH> DONE out of time
+PH>   LOCALS: []
+PH>   STACK: []
+PH> done
+TP> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Loops.neverAsserts:()V' '()'
+TP> read decompiled classfile decompiled/jpamb/cases/Loops.json
+TP> STEP 0:
+TP>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+TP>   LOCALS: []
+TP>   STACK: []
+TP> STEP 1:
+TP>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
+TP>   LOCALS: []
+TP>   STACK: [1]
+TP> STEP 2:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 3:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 4:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 5:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 6:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 7:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 8:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 9:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 10:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 11:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 12:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 13:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 14:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 15:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 16:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 17:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 18:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 19:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 20:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 21:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 22:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 23:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 24:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 25:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 26:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 27:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 28:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 29:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 30:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 31:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 32:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 33:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 34:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 35:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 36:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 37:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 38:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 39:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 40:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 41:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 42:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 43:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 44:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 45:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 46:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 47:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 48:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 49:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 50:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 51:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 52:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 53:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 54:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 55:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 56:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 57:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 58:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 59:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 60:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 61:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 62:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 63:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 64:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 65:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 66:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 67:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 68:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 69:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 70:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 71:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 72:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 73:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 74:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 75:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 76:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 77:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 78:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 79:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 80:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 81:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 82:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 83:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 84:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 85:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 86:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 87:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 88:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 89:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 90:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 91:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 92:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 93:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 94:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 95:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 96:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 97:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 98:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 99:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 100:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 101:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 102:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 103:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 104:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 105:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 106:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 107:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 108:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 109:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 110:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 111:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 112:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 113:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 114:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 115:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 116:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 117:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 118:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 119:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 120:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 121:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 122:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 123:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 124:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 125:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 126:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 127:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 128:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 129:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 130:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 131:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 132:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 133:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 134:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 135:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 136:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 137:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 138:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 139:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 140:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 141:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 142:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 143:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 144:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 145:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 146:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 147:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 148:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 149:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 150:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 151:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 152:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 153:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 154:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 155:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 156:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 157:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 158:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 159:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 160:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 161:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 162:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 163:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 164:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 165:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 166:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 167:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 168:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 169:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 170:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 171:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 172:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 173:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 174:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 175:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 176:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 177:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 178:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 179:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 180:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 181:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 182:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 183:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 184:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 185:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 186:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 187:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 188:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 189:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 190:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 191:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 192:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 193:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 194:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 195:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 196:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 197:
+TP>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> STEP 198:
+TP>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+TP>   LOCALS: [1]
+TP>   STACK: [1]
+TP> STEP 199:
+TP>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> DONE out of time
+TP>   LOCALS: [1]
+TP>   STACK: []
+TP> done
+R2> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Loops.neverDivides:()I' '()'
+R2> read decompiled classfile decompiled/jpamb/cases/Loops.json
+R2> STEP 0:
+R2>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+R2>   LOCALS: []
+R2>   STACK: []
+R2> STEP 1:
+R2>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
+R2>   LOCALS: []
+R2>   STACK: [1]
+R2> STEP 2:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 3:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 4:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 5:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 6:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 7:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 8:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 9:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 10:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 11:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 12:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 13:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 14:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 15:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 16:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 17:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 18:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 19:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 20:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 21:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 22:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 23:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 24:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 25:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 26:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 27:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 28:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 29:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 30:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 31:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 32:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 33:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 34:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 35:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 36:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 37:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 38:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 39:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 40:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 41:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 42:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 43:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 44:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 45:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 46:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 47:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 48:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 49:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 50:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 51:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 52:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 53:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 54:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 55:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 56:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 57:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 58:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 59:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 60:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 61:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 62:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 63:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 64:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 65:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 66:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 67:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 68:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 69:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 70:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 71:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 72:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 73:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 74:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 75:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 76:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 77:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 78:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 79:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 80:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 81:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 82:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 83:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 84:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 85:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 86:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 87:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 88:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 89:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 90:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 91:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 92:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 93:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 94:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 95:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 96:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 97:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 98:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 99:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 100:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 101:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 102:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 103:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 104:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 105:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 106:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 107:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 108:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 109:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 110:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 111:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 112:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 113:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 114:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 115:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 116:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 117:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 118:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 119:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 120:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 121:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 122:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 123:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 124:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 125:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 126:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 127:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 128:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 129:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 130:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 131:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 132:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 133:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 134:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 135:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 136:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 137:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 138:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 139:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 140:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 141:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 142:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 143:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 144:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 145:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 146:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 147:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 148:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 149:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 150:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 151:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 152:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 153:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 154:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 155:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 156:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 157:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 158:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 159:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 160:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 161:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 162:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 163:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 164:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 165:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 166:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 167:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 168:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 169:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 170:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 171:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 172:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 173:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 174:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 175:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 176:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 177:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 178:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 179:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 180:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 181:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 182:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 183:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 184:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 185:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 186:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 187:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 188:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 189:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 190:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 191:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 192:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 193:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 194:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 195:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 196:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 197:
+R2>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> STEP 198:
+R2>   PC: 3 {'condition': 'le', 'offset': 3, 'opr': 'ifz', 'target': 5}
+R2>   LOCALS: [1]
+R2>   STACK: [1]
+R2> STEP 199:
+R2>   PC: 4 {'offset': 6, 'opr': 'goto', 'target': 2}
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> DONE out of time
+R2>   LOCALS: [1]
+R2>   STACK: []
+R2> done
+wX> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Loops.terminates:()V' '()'
+wX> read decompiled classfile decompiled/jpamb/cases/Loops.json
+wX> STEP 0:
+wX>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+wX>   LOCALS: []
+wX>   STACK: []
+wX> STEP 1:
+wX>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'store', 'type': 'int'}
+wX>   LOCALS: []
+wX>   STACK: [0]
+wX> STEP 2:
+wX>   PC: 2 {'index': 0, 'offset': 2, 'opr': 'load', 'type': 'int'}
+wX>   LOCALS: [0]
+wX>   STACK: []
+wX> STEP 3:
+wX>   PC: 3 {'index': 0, 'offset': 3, 'opr': 'load', 'type': 'int'}
+wX>   LOCALS: [0]
+wX>   STACK: [0]
+wX> STEP 4:
+wX>   PC: 4 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+wX>   LOCALS: [0]
+wX>   STACK: [0, 0]
+wX> STEP 5:
+wX>   PC: 5 {'offset': 5, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
+wX>   LOCALS: [0]
+wX>   STACK: [1, 0, 0]
+wX> STEP 6:
+wX>   PC: 6 {'from': 'int', 'offset': 6, 'opr': 'cast', 'to': 'short'}
+wX>   LOCALS: [0]
+wX>   STACK: [1, 0]
+wX> done
+1w> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertBoolean:(Z)V' '(false)'
+1w> read decompiled classfile decompiled/jpamb/cases/Simple.json
+1w> STEP 0:
+1w>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+1w>   LOCALS: [False]
+1w>   STACK: []
+1w> STEP 1:
+1w>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+1w>   LOCALS: [False]
+1w>   STACK: [False]
+1w> STEP 2:
+1w>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+1w>   LOCALS: [False]
+1w>   STACK: []
+1w> STEP 3:
+1w>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+1w>   LOCALS: [False]
+1w>   STACK: [False]
+1w> STEP 4:
+1w>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
+1w>   LOCALS: [False]
+1w>   STACK: []
+1w> STEP 5:
+1w>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
+1w>   LOCALS: [False]
+1w>   STACK: ['new java/lang/AssertionError()']
+1w> STEP 6:
+1w>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+1w>   LOCALS: [False]
+1w>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+1w> DONE assertion error
+1w>   LOCALS: [False]
+1w>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+1w> done
+QC> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertBoolean:(Z)V' '(true)'
+QC> read decompiled classfile decompiled/jpamb/cases/Simple.json
+QC> STEP 0:
+QC>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+QC>   LOCALS: [True]
+QC>   STACK: []
+QC> STEP 1:
+QC>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+QC>   LOCALS: [True]
+QC>   STACK: [False]
+QC> STEP 2:
+QC>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+QC>   LOCALS: [True]
+QC>   STACK: []
+QC> STEP 3:
+QC>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+QC>   LOCALS: [True]
+QC>   STACK: [True]
+QC> STEP 4:
+QC>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
+QC>   LOCALS: [True]
+QC>   STACK: []
+QC> DONE ok
+QC>   LOCALS: [True]
+QC>   STACK: []
+QC> done
+mt> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertFalse:()V' '()'
+mt> read decompiled classfile decompiled/jpamb/cases/Simple.json
+mt> STEP 0:
+mt>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+mt>   LOCALS: []
+mt>   STACK: []
+mt> STEP 1:
+mt>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 6}
+mt>   LOCALS: []
+mt>   STACK: [False]
+mt> STEP 2:
+mt>   PC: 2 {'class': 'java/lang/AssertionError', 'offset': 6, 'opr': 'new'}
+mt>   LOCALS: []
+mt>   STACK: []
+mt> STEP 3:
+mt>   PC: 3 {'offset': 9, 'opr': 'dup', 'words': 1}
+mt>   LOCALS: []
+mt>   STACK: ['new java/lang/AssertionError()']
+mt> STEP 4:
+mt>   PC: 4 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 10, 'opr': 'invoke'}
+mt>   LOCALS: []
+mt>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+mt> DONE assertion error
+mt>   LOCALS: []
+mt>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+mt> done
+Nb> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertInteger:(I)V' '(0)'
+Nb> read decompiled classfile decompiled/jpamb/cases/Simple.json
+Nb> STEP 0:
+Nb>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+Nb>   LOCALS: [0]
+Nb>   STACK: []
+Nb> STEP 1:
+Nb>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+Nb>   LOCALS: [0]
+Nb>   STACK: [False]
+Nb> STEP 2:
+Nb>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+Nb>   LOCALS: [0]
+Nb>   STACK: []
+Nb> STEP 3:
+Nb>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+Nb>   LOCALS: [0]
+Nb>   STACK: [0]
+Nb> STEP 4:
+Nb>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
+Nb>   LOCALS: [0]
+Nb>   STACK: []
+Nb> STEP 5:
+Nb>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
+Nb>   LOCALS: [0]
+Nb>   STACK: ['new java/lang/AssertionError()']
+Nb> STEP 6:
+Nb>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+Nb>   LOCALS: [0]
+Nb>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+Nb> DONE assertion error
+Nb>   LOCALS: [0]
+Nb>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+Nb> done
+b3> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertInteger:(I)V' '(1)'
+b3> read decompiled classfile decompiled/jpamb/cases/Simple.json
+b3> STEP 0:
+b3>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+b3>   LOCALS: [1]
+b3>   STACK: []
+b3> STEP 1:
+b3>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+b3>   LOCALS: [1]
+b3>   STACK: [False]
+b3> STEP 2:
+b3>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+b3>   LOCALS: [1]
+b3>   STACK: []
+b3> STEP 3:
+b3>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+b3>   LOCALS: [1]
+b3>   STACK: [1]
+b3> STEP 4:
+b3>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
+b3>   LOCALS: [1]
+b3>   STACK: []
+b3> DONE ok
+b3>   LOCALS: [1]
+b3>   STACK: []
+b3> done
+JM> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertPositive:(I)V' '(-1)'
+JM> read decompiled classfile decompiled/jpamb/cases/Simple.json
+JM> STEP 0:
+JM>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+JM>   LOCALS: [-1]
+JM>   STACK: []
+JM> STEP 1:
+JM>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+JM>   LOCALS: [-1]
+JM>   STACK: [False]
+JM> STEP 2:
+JM>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+JM>   LOCALS: [-1]
+JM>   STACK: []
+JM> STEP 3:
+JM>   PC: 3 {'condition': 'gt', 'offset': 7, 'opr': 'ifz', 'target': 8}
+JM>   LOCALS: [-1]
+JM>   STACK: [-1]
+JM> STEP 4:
+JM>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
+JM>   LOCALS: [-1]
+JM>   STACK: []
+JM> STEP 5:
+JM>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
+JM>   LOCALS: [-1]
+JM>   STACK: ['new java/lang/AssertionError()']
+JM> STEP 6:
+JM>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+JM>   LOCALS: [-1]
+JM>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+JM> DONE assertion error
+JM>   LOCALS: [-1]
+JM>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+JM> done
+2K> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.assertPositive:(I)V' '(1)'
+2K> read decompiled classfile decompiled/jpamb/cases/Simple.json
+2K> STEP 0:
+2K>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+2K>   LOCALS: [1]
+2K>   STACK: []
+2K> STEP 1:
+2K>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+2K>   LOCALS: [1]
+2K>   STACK: [False]
+2K> STEP 2:
+2K>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+2K>   LOCALS: [1]
+2K>   STACK: []
+2K> STEP 3:
+2K>   PC: 3 {'condition': 'gt', 'offset': 7, 'opr': 'ifz', 'target': 8}
+2K>   LOCALS: [1]
+2K>   STACK: [1]
+2K> STEP 4:
+2K>   PC: 8 {'offset': 18, 'opr': 'return', 'type': None}
+2K>   LOCALS: [1]
+2K>   STACK: []
+2K> DONE ok
+2K>   LOCALS: [1]
+2K>   STACK: []
+2K> done
+F4> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeAssert:(I)V' '(-1)'
+F4> read decompiled classfile decompiled/jpamb/cases/Simple.json
+F4> STEP 0:
+F4>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+F4>   LOCALS: [-1]
+F4>   STACK: []
+F4> STEP 1:
+F4>   PC: 1 {'condition': 'ne', 'offset': 1, 'opr': 'ifz', 'target': 3}
+F4>   LOCALS: [-1]
+F4>   STACK: [-1]
+F4> STEP 2:
+F4>   PC: 3 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 5, 'opr': 'get', 'static': True}
+F4>   LOCALS: [-1]
+F4>   STACK: []
+F4> STEP 3:
+F4>   PC: 4 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 13}
+F4>   LOCALS: [-1]
+F4>   STACK: [False]
+F4> STEP 4:
+F4>   PC: 5 {'offset': 11, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+F4>   LOCALS: [-1]
+F4>   STACK: []
+F4> STEP 5:
+F4>   PC: 6 {'index': 0, 'offset': 12, 'opr': 'load', 'type': 'int'}
+F4>   LOCALS: [-1]
+F4>   STACK: [1]
+F4> STEP 6:
+F4>   PC: 7 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+F4>   LOCALS: [-1]
+F4>   STACK: [-1, 1]
+F4> STEP 7:
+F4>   PC: 8 {'condition': 'gt', 'offset': 14, 'opr': 'ifz', 'target': 13}
+F4>   LOCALS: [-1]
+F4>   STACK: [-1.0]
+F4> STEP 8:
+F4>   PC: 9 {'class': 'java/lang/AssertionError', 'offset': 17, 'opr': 'new'}
+F4>   LOCALS: [-1]
+F4>   STACK: []
+F4> STEP 9:
+F4>   PC: 10 {'offset': 20, 'opr': 'dup', 'words': 1}
+F4>   LOCALS: [-1]
+F4>   STACK: ['new java/lang/AssertionError()']
+F4> STEP 10:
+F4>   PC: 11 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 21, 'opr': 'invoke'}
+F4>   LOCALS: [-1]
+F4>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+F4> DONE assertion error
+F4>   LOCALS: [-1]
+F4>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+F4> done
+AE> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeAssert:(I)V' '(0)'
+AE> read decompiled classfile decompiled/jpamb/cases/Simple.json
+AE> STEP 0:
+AE>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+AE>   LOCALS: [0]
+AE>   STACK: []
+AE> STEP 1:
+AE>   PC: 1 {'condition': 'ne', 'offset': 1, 'opr': 'ifz', 'target': 3}
+AE>   LOCALS: [0]
+AE>   STACK: [0]
+AE> STEP 2:
+AE>   PC: 2 {'offset': 4, 'opr': 'return', 'type': None}
+AE>   LOCALS: [0]
+AE>   STACK: []
+AE> DONE ok
+AE>   LOCALS: [0]
+AE>   STACK: []
+AE> done
+yn> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN:(I)I' '(0)'
+yn> read decompiled classfile decompiled/jpamb/cases/Simple.json
+yn> STEP 0:
+yn>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+yn>   LOCALS: [0]
+yn>   STACK: []
+yn> STEP 1:
+yn>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+yn>   LOCALS: [0]
+yn>   STACK: [False]
+yn> STEP 2:
+yn>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+yn>   LOCALS: [0]
+yn>   STACK: []
+yn> STEP 3:
+yn>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+yn>   LOCALS: [0]
+yn>   STACK: [0]
+yn> STEP 4:
+yn>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
+yn>   LOCALS: [0]
+yn>   STACK: []
+yn> STEP 5:
+yn>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
+yn>   LOCALS: [0]
+yn>   STACK: ['new java/lang/AssertionError()']
+yn> STEP 6:
+yn>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+yn>   LOCALS: [0]
+yn>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+yn> DONE assertion error
+yn>   LOCALS: [0]
+yn>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+yn> done
+U/> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN:(I)I' '(1)'
+U/> read decompiled classfile decompiled/jpamb/cases/Simple.json
+U/> STEP 0:
+U/>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+U/>   LOCALS: [1]
+U/>   STACK: []
+U/> STEP 1:
+U/>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+U/>   LOCALS: [1]
+U/>   STACK: [False]
+U/> STEP 2:
+U/>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+U/>   LOCALS: [1]
+U/>   STACK: []
+U/> STEP 3:
+U/>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+U/>   LOCALS: [1]
+U/>   STACK: [1]
+U/> STEP 4:
+U/>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+U/>   LOCALS: [1]
+U/>   STACK: []
+U/> STEP 5:
+U/>   PC: 9 {'index': 0, 'offset': 19, 'opr': 'load', 'type': 'int'}
+U/>   LOCALS: [1]
+U/>   STACK: [1]
+U/> STEP 6:
+U/>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+U/>   LOCALS: [1]
+U/>   STACK: [1, 1]
+U/> STEP 7:
+U/>   PC: 11 {'offset': 21, 'opr': 'return', 'type': 'int'}
+U/>   LOCALS: [1]
+U/>   STACK: [1.0]
+U/> DONE ok
+U/>   LOCALS: [1]
+U/>   STACK: []
+U/> done
+5J> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN2:(I)I' '(0)'
+5J> read decompiled classfile decompiled/jpamb/cases/Simple.json
+5J> STEP 0:
+5J>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+5J>   LOCALS: [0]
+5J>   STACK: []
+5J> STEP 1:
+5J>   PC: 1 {'condition': 'eq', 'offset': 1, 'opr': 'ifz', 'target': 6}
+5J>   LOCALS: [0]
+5J>   STACK: [0]
+5J> STEP 2:
+5J>   PC: 6 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 8, 'opr': 'get', 'static': True}
+5J>   LOCALS: [0]
+5J>   STACK: []
+5J> STEP 3:
+5J>   PC: 7 {'condition': 'ne', 'offset': 11, 'opr': 'ifz', 'target': 15}
+5J>   LOCALS: [0]
+5J>   STACK: [False]
+5J> STEP 4:
+5J>   PC: 8 {'offset': 14, 'opr': 'push', 'value': {'type': 'integer', 'value': 10}}
+5J>   LOCALS: [0]
+5J>   STACK: []
+5J> STEP 5:
+5J>   PC: 9 {'index': 0, 'offset': 16, 'opr': 'load', 'type': 'int'}
+5J>   LOCALS: [0]
+5J>   STACK: [10]
+5J> STEP 6:
+5J>   PC: 10 {'condition': 'gt', 'offset': 17, 'opr': 'if', 'target': 15}
+5J>   LOCALS: [0]
+5J>   STACK: [0, 10]
+5J> STEP 7:
+5J>   PC: 15 {'offset': 28, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+5J>   LOCALS: [0]
+5J>   STACK: []
+5J> STEP 8:
+5J>   PC: 16 {'offset': 29, 'opr': 'return', 'type': 'int'}
+5J>   LOCALS: [0]
+5J>   STACK: [0]
+5J> DONE ok
+5J>   LOCALS: [0]
+5J>   STACK: []
+5J> done
+Zw> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.checkBeforeDivideByN2:(I)I' '(1)'
+Zw> read decompiled classfile decompiled/jpamb/cases/Simple.json
+Zw> STEP 0:
+Zw>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+Zw>   LOCALS: [1]
+Zw>   STACK: []
+Zw> STEP 1:
+Zw>   PC: 1 {'condition': 'eq', 'offset': 1, 'opr': 'ifz', 'target': 6}
+Zw>   LOCALS: [1]
+Zw>   STACK: [1]
+Zw> STEP 2:
+Zw>   PC: 2 {'offset': 4, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+Zw>   LOCALS: [1]
+Zw>   STACK: []
+Zw> STEP 3:
+Zw>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+Zw>   LOCALS: [1]
+Zw>   STACK: [1]
+Zw> STEP 4:
+Zw>   PC: 4 {'offset': 6, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+Zw>   LOCALS: [1]
+Zw>   STACK: [1, 1]
+Zw> STEP 5:
+Zw>   PC: 5 {'offset': 7, 'opr': 'return', 'type': 'int'}
+Zw>   LOCALS: [1]
+Zw>   STACK: [1.0]
+Zw> DONE ok
+Zw>   LOCALS: [1]
+Zw>   STACK: []
+Zw> done
+bY> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(0)'
+bY> read decompiled classfile decompiled/jpamb/cases/Simple.json
+bY> STEP 0:
+bY>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+bY>   LOCALS: [0]
+bY>   STACK: []
+bY> STEP 1:
+bY>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
+bY>   LOCALS: [0]
+bY>   STACK: [1]
+bY> STEP 2:
+bY>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+bY>   LOCALS: [0]
+bY>   STACK: [0, 1]
+bY> DONE divide by zero
+bY>   LOCALS: [0]
+bY>   STACK: [0]
+bY> done
+z2> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(1)'
+z2> read decompiled classfile decompiled/jpamb/cases/Simple.json
+z2> STEP 0:
+z2>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+z2>   LOCALS: [1]
+z2>   STACK: []
+z2> STEP 1:
+z2>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
+z2>   LOCALS: [1]
+z2>   STACK: [1]
+z2> STEP 2:
+z2>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+z2>   LOCALS: [1]
+z2>   STACK: [1, 1]
+z2> STEP 3:
+z2>   PC: 3 {'offset': 3, 'opr': 'return', 'type': 'int'}
+z2>   LOCALS: [1]
+z2>   STACK: [1.0]
+z2> DONE ok
+z2>   LOCALS: [1]
+z2>   STACK: []
+z2> done
+S+> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideByNMinus10054203:(I)I' '(0)'
+S+> read decompiled classfile decompiled/jpamb/cases/Simple.json
+S+> STEP 0:
+S+>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+S+>   LOCALS: [0]
+S+>   STACK: []
+S+> STEP 1:
+S+>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
+S+>   LOCALS: [0]
+S+>   STACK: [1]
+S+> STEP 2:
+S+>   PC: 2 {'offset': 2, 'opr': 'push', 'value': {'type': 'integer', 'value': 10054203}}
+S+>   LOCALS: [0]
+S+>   STACK: [0, 1]
+S+> STEP 3:
+S+>   PC: 3 {'offset': 4, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+S+>   LOCALS: [0]
+S+>   STACK: [10054203, 0, 1]
+S+> STEP 4:
+S+>   PC: 4 {'offset': 5, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+S+>   LOCALS: [0]
+S+>   STACK: [-10054203, 1]
+S+> STEP 5:
+S+>   PC: 5 {'offset': 6, 'opr': 'return', 'type': 'int'}
+S+>   LOCALS: [0]
+S+>   STACK: [-9.946089212640724e-08]
+S+> DONE ok
+S+>   LOCALS: [0]
+S+>   STACK: []
+S+> done
+cx> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideByNMinus10054203:(I)I' '(10054203)'
+cx> read decompiled classfile decompiled/jpamb/cases/Simple.json
+cx> STEP 0:
+cx>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+cx>   LOCALS: [10054203]
+cx>   STACK: []
+cx> STEP 1:
+cx>   PC: 1 {'index': 0, 'offset': 1, 'opr': 'load', 'type': 'int'}
+cx>   LOCALS: [10054203]
+cx>   STACK: [1]
+cx> STEP 2:
+cx>   PC: 2 {'offset': 2, 'opr': 'push', 'value': {'type': 'integer', 'value': 10054203}}
+cx>   LOCALS: [10054203]
+cx>   STACK: [10054203, 1]
+cx> STEP 3:
+cx>   PC: 3 {'offset': 4, 'operant': 'sub', 'opr': 'binary', 'type': 'int'}
+cx>   LOCALS: [10054203]
+cx>   STACK: [10054203, 10054203, 1]
+cx> STEP 4:
+cx>   PC: 4 {'offset': 5, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+cx>   LOCALS: [10054203]
+cx>   STACK: [0, 1]
+cx> DONE divide by zero
+cx>   LOCALS: [10054203]
+cx>   STACK: [0]
+cx> done
+cM> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideByZero:()I' '()'
+cM> read decompiled classfile decompiled/jpamb/cases/Simple.json
+cM> STEP 0:
+cM>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+cM>   LOCALS: []
+cM>   STACK: []
+cM> STEP 1:
+cM>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+cM>   LOCALS: []
+cM>   STACK: [1]
+cM> STEP 2:
+cM>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+cM>   LOCALS: []
+cM>   STACK: [0, 1]
+cM> DONE divide by zero
+cM>   LOCALS: []
+cM>   STACK: [0]
+cM> done
+bV> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideZeroByZero:(II)I' '(0, 0)'
+bV> read decompiled classfile decompiled/jpamb/cases/Simple.json
+bV> STEP 0:
+bV>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+bV>   LOCALS: [0, 0]
+bV>   STACK: []
+bV> STEP 1:
+bV>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'load', 'type': 'int'}
+bV>   LOCALS: [0, 0]
+bV>   STACK: [0]
+bV> STEP 2:
+bV>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+bV>   LOCALS: [0, 0]
+bV>   STACK: [0, 0]
+bV> DONE divide by zero
+bV>   LOCALS: [0, 0]
+bV>   STACK: [0]
+bV> done
+tk> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.divideZeroByZero:(II)I' '(0, 1)'
+tk> read decompiled classfile decompiled/jpamb/cases/Simple.json
+tk> STEP 0:
+tk>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+tk>   LOCALS: [0, 1]
+tk>   STACK: []
+tk> STEP 1:
+tk>   PC: 1 {'index': 1, 'offset': 1, 'opr': 'load', 'type': 'int'}
+tk>   LOCALS: [0, 1]
+tk>   STACK: [0]
+tk> STEP 2:
+tk>   PC: 2 {'offset': 2, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+tk>   LOCALS: [0, 1]
+tk>   STACK: [1, 0]
+tk> STEP 3:
+tk>   PC: 3 {'offset': 3, 'opr': 'return', 'type': 'int'}
+tk>   LOCALS: [0, 1]
+tk>   STACK: [0.0]
+tk> DONE ok
+tk>   LOCALS: [0, 1]
+tk>   STACK: []
+tk> done
+Tv> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.earlyReturn:()I' '()'
+Tv> read decompiled classfile decompiled/jpamb/cases/Simple.json
+Tv> STEP 0:
+Tv>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Tv>   LOCALS: []
+Tv>   STACK: []
+Tv> STEP 1:
+Tv>   PC: 1 {'offset': 1, 'opr': 'return', 'type': 'int'}
+Tv>   LOCALS: []
+Tv>   STACK: [0]
+Tv> DONE ok
+Tv>   LOCALS: []
+Tv>   STACK: []
+Tv> done
+0w> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.justReturn:()I' '()'
+0w> read decompiled classfile decompiled/jpamb/cases/Simple.json
+0w> STEP 0:
+0w>   PC: 0 {'offset': 0, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+0w>   LOCALS: []
+0w>   STACK: []
+0w> STEP 1:
+0w>   PC: 1 {'offset': 1, 'opr': 'return', 'type': 'int'}
+0w>   LOCALS: []
+0w>   STACK: [0]
+0w> DONE ok
+0w>   LOCALS: []
+0w>   STACK: []
+0w> done
+b8> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.justReturnNothing:()V' '()'
+b8> read decompiled classfile decompiled/jpamb/cases/Simple.json
+b8> STEP 0:
+b8>   PC: 0 {'offset': 0, 'opr': 'return', 'type': None}
+b8>   LOCALS: []
+b8>   STACK: []
+b8> DONE ok
+b8>   LOCALS: []
+b8>   STACK: []
+b8> done
+uT> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.multiError:(Z)I' '(false)'
+uT> read decompiled classfile decompiled/jpamb/cases/Simple.json
+uT> STEP 0:
+uT>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+uT>   LOCALS: [False]
+uT>   STACK: []
+uT> STEP 1:
+uT>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+uT>   LOCALS: [False]
+uT>   STACK: [False]
+uT> STEP 2:
+uT>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+uT>   LOCALS: [False]
+uT>   STACK: []
+uT> STEP 3:
+uT>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+uT>   LOCALS: [False]
+uT>   STACK: [False]
+uT> STEP 4:
+uT>   PC: 4 {'class': 'java/lang/AssertionError', 'offset': 10, 'opr': 'new'}
+uT>   LOCALS: [False]
+uT>   STACK: []
+uT> STEP 5:
+uT>   PC: 5 {'offset': 13, 'opr': 'dup', 'words': 1}
+uT>   LOCALS: [False]
+uT>   STACK: ['new java/lang/AssertionError()']
+uT> STEP 6:
+uT>   PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+uT>   LOCALS: [False]
+uT>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+uT> DONE assertion error
+uT>   LOCALS: [False]
+uT>   STACK: ['new java/lang/AssertionError()', 'new java/lang/AssertionError()']
+uT> done
+Ig> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Simple.multiError:(Z)I' '(true)'
+Ig> read decompiled classfile decompiled/jpamb/cases/Simple.json
+Ig> STEP 0:
+Ig>   PC: 0 {'field': {'class': 'jpamb/cases/Simple', 'name': '$assertionsDisabled', 'type': 'boolean'}, 'offset': 0, 'opr': 'get', 'static': True}
+Ig>   LOCALS: [True]
+Ig>   STACK: []
+Ig> STEP 1:
+Ig>   PC: 1 {'condition': 'ne', 'offset': 3, 'opr': 'ifz', 'target': 8}
+Ig>   LOCALS: [True]
+Ig>   STACK: [False]
+Ig> STEP 2:
+Ig>   PC: 2 {'index': 0, 'offset': 6, 'opr': 'load', 'type': 'int'}
+Ig>   LOCALS: [True]
+Ig>   STACK: []
+Ig> STEP 3:
+Ig>   PC: 3 {'condition': 'ne', 'offset': 7, 'opr': 'ifz', 'target': 8}
+Ig>   LOCALS: [True]
+Ig>   STACK: [True]
+Ig> STEP 4:
+Ig>   PC: 8 {'offset': 18, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+Ig>   LOCALS: [True]
+Ig>   STACK: []
+Ig> STEP 5:
+Ig>   PC: 9 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 0}}
+Ig>   LOCALS: [True]
+Ig>   STACK: [1]
+Ig> STEP 6:
+Ig>   PC: 10 {'offset': 20, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+Ig>   LOCALS: [True]
+Ig>   STACK: [0, 1]
+Ig> DONE divide by zero
+Ig>   LOCALS: [True]
+Ig>   STACK: [0]
+Ig> done
+6G> starting: python3 solutions/interpret_week3.py 'jpamb.cases.Tricky.collatz:(I)V' '(24)'
+6G> read decompiled classfile decompiled/jpamb/cases/Tricky.json
+6G> STEP 0:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: []
+6G> STEP 1:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [24]
+6G>   STACK: [24]
+6G> STEP 2:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [24]
+6G>   STACK: [1, 24]
+6G> STEP 3:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: []
+6G> STEP 4:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [24]
+6G>   STACK: [24]
+6G> STEP 5:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: [2, 24]
+6G> STEP 6:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [24]
+6G>   STACK: [0]
+6G> STEP 7:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: []
+6G> STEP 8:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [24]
+6G>   STACK: [24]
+6G> STEP 9:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: [2, 24]
+6G> STEP 10:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [24]
+6G>   STACK: [12.0]
+6G> STEP 11:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: []
+6G> STEP 12:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: []
+6G> STEP 13:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [12.0]
+6G> STEP 14:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [1, 12.0]
+6G> STEP 15:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: []
+6G> STEP 16:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [12.0]
+6G> STEP 17:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [2, 12.0]
+6G> STEP 18:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 19:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: []
+6G> STEP 20:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [12.0]
+6G> STEP 21:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [2, 12.0]
+6G> STEP 22:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [12.0, 24]
+6G>   STACK: [6.0]
+6G> STEP 23:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 24:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 25:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [6.0]
+6G> STEP 26:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [1, 6.0]
+6G> STEP 27:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 28:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [6.0]
+6G> STEP 29:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [2, 6.0]
+6G> STEP 30:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 31:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 32:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [6.0]
+6G> STEP 33:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [2, 6.0]
+6G> STEP 34:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [6.0, 12.0, 24]
+6G>   STACK: [3.0]
+6G> STEP 35:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 36:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 37:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [3.0]
+6G> STEP 38:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 3.0]
+6G> STEP 39:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 40:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [3.0]
+6G> STEP 41:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 3.0]
+6G> STEP 42:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [1.0]
+6G> STEP 43:
+6G>   PC: 12 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 44:
+6G>   PC: 13 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [3.0]
+6G> STEP 45:
+6G>   PC: 14 {'offset': 20, 'operant': 'mul', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [3, 3.0]
+6G> STEP 46:
+6G>   PC: 15 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [9.0]
+6G> STEP 47:
+6G>   PC: 16 {'offset': 22, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 9.0]
+6G> STEP 48:
+6G>   PC: 17 {'index': 0, 'offset': 23, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [3.0, 6.0, 12.0, 24]
+6G>   STACK: [10.0]
+6G> STEP 49:
+6G>   PC: 18 {'offset': 24, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 50:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 51:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [10.0]
+6G> STEP 52:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 10.0]
+6G> STEP 53:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 54:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [10.0]
+6G> STEP 55:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 10.0]
+6G> STEP 56:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 57:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 58:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [10.0]
+6G> STEP 59:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 10.0]
+6G> STEP 60:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [5.0]
+6G> STEP 61:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 62:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 63:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [5.0]
+6G> STEP 64:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 5.0]
+6G> STEP 65:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 66:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [5.0]
+6G> STEP 67:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 5.0]
+6G> STEP 68:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1.0]
+6G> STEP 69:
+6G>   PC: 12 {'index': 0, 'offset': 18, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 70:
+6G>   PC: 13 {'offset': 19, 'opr': 'push', 'value': {'type': 'integer', 'value': 3}}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [5.0]
+6G> STEP 71:
+6G>   PC: 14 {'offset': 20, 'operant': 'mul', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [3, 5.0]
+6G> STEP 72:
+6G>   PC: 15 {'offset': 21, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [15.0]
+6G> STEP 73:
+6G>   PC: 16 {'offset': 22, 'operant': 'add', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 15.0]
+6G> STEP 74:
+6G>   PC: 17 {'index': 0, 'offset': 23, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [16.0]
+6G> STEP 75:
+6G>   PC: 18 {'offset': 24, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 76:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 77:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [16.0]
+6G> STEP 78:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 16.0]
+6G> STEP 79:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 80:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [16.0]
+6G> STEP 81:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 16.0]
+6G> STEP 82:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 83:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 84:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [16.0]
+6G> STEP 85:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 16.0]
+6G> STEP 86:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [8.0]
+6G> STEP 87:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 88:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 89:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [8.0]
+6G> STEP 90:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 8.0]
+6G> STEP 91:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 92:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [8.0]
+6G> STEP 93:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 8.0]
+6G> STEP 94:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 95:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 96:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [8.0]
+6G> STEP 97:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 8.0]
+6G> STEP 98:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [4.0]
+6G> STEP 99:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 100:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 101:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [4.0]
+6G> STEP 102:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 4.0]
+6G> STEP 103:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 104:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [4.0]
+6G> STEP 105:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 4.0]
+6G> STEP 106:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 107:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 108:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [4.0]
+6G> STEP 109:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 4.0]
+6G> STEP 110:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2.0]
+6G> STEP 111:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 112:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 113:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2.0]
+6G> STEP 114:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 2.0]
+6G> STEP 115:
+6G>   PC: 3 {'index': 0, 'offset': 5, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 116:
+6G>   PC: 4 {'offset': 6, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2.0]
+6G> STEP 117:
+6G>   PC: 5 {'offset': 7, 'operant': 'rem', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 2.0]
+6G> STEP 118:
+6G>   PC: 6 {'condition': 'ne', 'offset': 8, 'opr': 'ifz', 'target': 12}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [0.0]
+6G> STEP 119:
+6G>   PC: 7 {'index': 0, 'offset': 11, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 120:
+6G>   PC: 8 {'offset': 12, 'opr': 'push', 'value': {'type': 'integer', 'value': 2}}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2.0]
+6G> STEP 121:
+6G>   PC: 9 {'offset': 13, 'operant': 'div', 'opr': 'binary', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [2, 2.0]
+6G> STEP 122:
+6G>   PC: 10 {'index': 0, 'offset': 14, 'opr': 'store', 'type': 'int'}
+6G>   LOCALS: [2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1.0]
+6G> STEP 123:
+6G>   PC: 11 {'offset': 15, 'opr': 'goto', 'target': 0}
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 124:
+6G>   PC: 0 {'index': 0, 'offset': 0, 'opr': 'load', 'type': 'int'}
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> STEP 125:
+6G>   PC: 1 {'offset': 1, 'opr': 'push', 'value': {'type': 'integer', 'value': 1}}
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1.0]
+6G> STEP 126:
+6G>   PC: 2 {'condition': 'eq', 'offset': 2, 'opr': 'if', 'target': 19}
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: [1, 1.0]
+6G> STEP 127:
+6G>   PC: 19 {'offset': 27, 'opr': 'return', 'type': None}
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> DONE ok
+6G>   LOCALS: [1.0, 2.0, 4.0, 8.0, 16.0, 5.0, 10.0, 3.0, 6.0, 12.0, 24]
+6G>   STACK: []
+6G> done
