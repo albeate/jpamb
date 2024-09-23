@@ -211,43 +211,45 @@ class SimpleInterpreter:
         
         self.pc += 1
         
-    # def execute_bytecode(self, bytecode):
-    #     for instruction in bytecode:
-    #         next = bytecode[self.pc]
-    #         if fn := getattr(instruction, "step_" + next["opr"], None):
-    #             fn(next)
-    #
-    # def step_invoke(self, bc):
-    #     name = bc["method"]["name"]
-    #     cls = bc["method"]["ref"]["name"]
-    #     args = bc["method"]["args"]
-    #     # self.locals = {i: arg for i, arg in enumerate(args)}
-    #     if 'int' in args:
-    #         args_type = 'I'
-    #     elif  'boolean' in args:
-    #         args_type = 'Z'
-    #     else:
-    #         args_type = ''
-    #     return_type = "V" # stadig fastkodet
-    #     method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
-    #
-    #     print("invoke_self.locals  := ", self.locals)
-    #     print("invoke_class := ", cls)
-    #     print("invoke_name := ", name)
-    #     print("invoke_argv := ", args)
-    #     print("invoke_args_type := ", args_type)
-    #     print("invoke_method_name := ", method_name)
-    #
-    #     # bbs: pænt fastkodet, hvis du spørger mig -.-
-    #     if name == "java/lang/AssertionError":
-    #         self.stack.insert(0,"assertion error")
-    #     else:
-    #         bytecode = MethodId.parse(method_name).load()
-    #         print("invoke_bytecode:= ", bytecode)
-    #         execute_bytecode(bytecode) # arbejder på det
-    #         if bytecode is not None:
-    #             self.stack.pop()
-    #     self.pc += 1
+    def execute_bytecode(self, bytecode):
+        for instruction in bytecode:
+            next = bytecode[self.pc]
+            if fn := getattr(instruction, "step_" + next["opr"], None):
+                fn(next)
+
+    def step_invoke(self, bc):
+        # PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
+        if bc["method"]["ref"]["name"] == 'java/lang/AssertionError':
+            self.stack.pop(0)
+        else:
+            name = bc["method"]["name"]
+            cls = bc["method"]["ref"]["name"]
+            args = bc["method"]["args"]
+            # self.locals = {i: arg for i, arg in enumerate(args)}
+            if 'int' in args:
+                args_type = 'I'
+            elif  'boolean' in args:
+                args_type = 'Z'
+            else:
+                args_type = ''
+                return_type = "V" # stadig fastkodet
+                method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
+                
+                print("invoke_self.locals  := ", self.locals)
+                print("invoke_class := ", cls)
+                print("invoke_name := ", name)
+                print("invoke_argv := ", args)
+                print("invoke_args_type := ", args_type)
+                print("invoke_method_name := ", method_name)
+                
+                # bbs: pænt fastkodet, hvis du spørger mig -.-
+            
+                bytecode = MethodId.parse(method_name).load()
+                print("invoke_bytecode:= ", bytecode)
+                execute_bytecode(bytecode) # arbejder på det
+                if bytecode is not None:
+                    self.stack.pop()
+        self.pc += 1
     
     def step_new(self, bc):
         """
@@ -266,38 +268,38 @@ class SimpleInterpreter:
         # self.heap[bc["opr"]] = new_object
         self.pc += 1
         
-    def step_invoke(self, bc): # not sure if on stack
-        """
-        alt her, kunne laves pænere. Men tør ikke at røre noget pt
-        """
-        cls = bc["method"]["ref"]["name"]
-
-        try:
-            l.debug(f"local: {self.locals[0]}")
-            argType = bc["method"]["args"][0]
-            args = self.locals[0]
-            l.debug(f"args: {args}")
-        except:
-            argType = ""
-        match argType: # burde bare kopier det der allerede er lavet af forelæser
-          case "int":
-            typ = 'I'
-          case "boolean":
-            typ = 'Z'
-          case "":
-            typ = ''
-        mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
-
-        # kunne laves pænere...
-        if typ == '':
-            if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
-                if len(self.stack) > 0:
-                    self.stack.pop()
-        else:
-            if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
-                if len(self.stack) > 0:
-                    self.stack.pop()
-        self.pc += 1
+    # def step_invoke(self, bc): # not sure if on stack
+    #     """
+    #     alt her, kunne laves pænere. Men tør ikke at røre noget pt
+    #     """
+    #     cls = bc["method"]["ref"]["name"]
+    #
+    #     try:
+    #         l.debug(f"local: {self.locals[0]}")
+    #         argType = bc["method"]["args"][0]
+    #         args = self.locals[0]
+    #         l.debug(f"args: {args}")
+    #     except:
+    #         argType = ""
+    #     match argType: # burde bare kopier det der allerede er lavet af forelæser
+    #       case "int":
+    #         typ = 'I'
+    #       case "boolean":
+    #         typ = 'Z'
+    #       case "":
+    #         typ = ''
+    #     mthId = cls.replace('/','.')+'.'+name+':('+typ+')V' # the V is hardcoded
+    #
+    #     # kunne laves pænere...
+    #     if typ == '':
+    #         if MethodId.parse(mthId).create_interpreter('').interpet() is not None:
+    #             if len(self.stack) > 0:
+    #                 self.stack.pop()
+    #     else:
+    #         if MethodId.parse(mthId).create_interpreter([args]).interpet() is not None:
+    #             if len(self.stack) > 0:
+    #                 self.stack.pop()
+    #     self.pc += 1
         
     def step_newarray(self, bc):
         """
@@ -427,7 +429,6 @@ class SimpleInterpreter:
             x = sizes[0]
             xs = sizes[1:]
             return [self.create_array(arrtype, xs) for _ in range(x)]
-    
 
 
 
