@@ -71,7 +71,6 @@ class MethodId:
             bytecode=method["code"]["bytecode"],
             locals=inputs,
             stack=[],
-            heap={},
             callstack = [],
             pc=0,
         )
@@ -86,7 +85,6 @@ class SimpleInterpreter:
     bytecode: list
     locals: list
     stack: list
-    heap: dict
     callstack: list # bruges den overhoved? .-.
     pc: int
     done: Optional[str] = None
@@ -162,18 +160,14 @@ class SimpleInterpreter:
         condition = bc["condition"]
         right = 0
         left = self.stack.pop(0)
-
         result = self.if_match_result(condition, left, right, "ifz")
-
         self.pc = bc["target"] if result else self.pc + 1
 
     def step_if(self, bc): # Missing formal rules
         condition = bc["condition"]
         right = self.stack.pop(0)
         left = self.stack.pop(0)
-
         result = self.if_match_result(condition, left, right, "if")
-
         self.pc = bc["target"] if result else self.pc + 1
 
     def step_dup(self, bc): # Missing formal rules:
@@ -189,9 +183,6 @@ class SimpleInterpreter:
           -- load a local variable $index of $type
           -- {*} [] -> ["value"]
         """
-        # print("hejhest: ",self.locals[bc["index"]])
-        # print(bc["index"] in self.locals)
-        # if bc["index"] in self.locals:
         try:
             self.stack.insert(0,self.locals[bc["index"]])
         except:
@@ -208,7 +199,6 @@ class SimpleInterpreter:
         """
         variable_to_store = self.stack.pop(0)
         self.locals.insert(bc["index"], variable_to_store)
-        
         self.pc += 1
         
     def execute_bytecode(self, bytecode):
@@ -218,34 +208,30 @@ class SimpleInterpreter:
                 fn(next)
 
     def step_invoke(self, bc):
-        # PC: 6 {'access': 'special', 'method': {'args': [], 'is_interface': False, 'name': '<init>', 'ref': {'kind': 'class', 'name': 'java/lang/AssertionError'}, 'returns': None}, 'offset': 14, 'opr': 'invoke'}
-        if bc["method"]["ref"]["name"] == 'java/lang/AssertionError':
+        cls = bc["method"]["ref"]["name"]
+        if cls == 'java/lang/AssertionError':
             self.stack.pop(0)
         else:
             name = bc["method"]["name"]
-            cls = bc["method"]["ref"]["name"]
             args = bc["method"]["args"]
             # self.locals = {i: arg for i, arg in enumerate(args)}
-            if 'int' in args:
+            if 'int' in args: # mangler at få lavet den dynamisk mht antallet ad inddata
                 args_type = 'I'
             elif  'boolean' in args:
                 args_type = 'Z'
             else:
                 args_type = ''
-                return_type = "V" # stadig fastkodet
+                return_type = "V" # mangler stadig at få den lavet dynamisk. Kig på original koden 
                 method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
                 
-                print("invoke_self.locals  := ", self.locals)
-                print("invoke_class := ", cls)
-                print("invoke_name := ", name)
-                print("invoke_argv := ", args)
-                print("invoke_args_type := ", args_type)
-                print("invoke_method_name := ", method_name)
-                
-                # bbs: pænt fastkodet, hvis du spørger mig -.-
-            
+                # print("invoke_self.locals  := ", self.locals)
+                # print("invoke_class := ", cls)
+                # print("invoke_name := ", name)
+                # print("invoke_argv := ", args)
+                # print("invoke_args_type := ", args_type)
+                # print("invoke_method_name := ", method_name)
                 bytecode = MethodId.parse(method_name).load()
-                print("invoke_bytecode:= ", bytecode)
+                # print("invoke_bytecode:= ", bytecode)
                 execute_bytecode(bytecode) # arbejder på det
                 if bytecode is not None:
                     self.stack.pop()
@@ -260,12 +246,20 @@ class SimpleInterpreter:
         """
         # "class": "java/lang/AssertionError"
         class_name = bc["class"]
-        # ref = bc["method"]["ref"]
 
         # Simulate the creation of a new object (here, an AssertionError object)
         new_object = f"new {class_name}()"
         self.stack.insert(0, new_object)
-        # self.heap[bc["opr"]] = new_object
+        self.pc += 1
+    
+    def step_throw(self, bc):
+        """
+        + * opr : "throw"
+          * <empty>
+            -- throws an exception
+            -- \{athrow\} ["objectref"] -> ["objectref"]
+        """
+        
         self.pc += 1
         
     # def step_invoke(self, bc): # not sure if on stack
@@ -312,10 +306,8 @@ class SimpleInterpreter:
         if bc["opr"] == "newarray":
             dim = bc["dim"]
             arrtype = bc["type"]
-            # size = [self.stack.pop() for _ in range(dim)]
             size = [self.stack[0] for _ in range(dim)]
             arrnew = self.create_array(arrtype,size)
-            # self.stack.insert(0,arrnew)
             self.heap[bc["type"]] = arrnew 
         self.pc += 1
             
@@ -329,18 +321,12 @@ class SimpleInterpreter:
         value = self.stack.pop(0)
         index = self.stack.pop(0)
         arrayef = self.stack.pop(0)
-        # if bc["type"] in self.heap:
-        #     arrayef = self.heap[bc["type"]]
-        # else:
-        #     arrayef = self.stack.pop(0)
-
         if arrayef is None:
             self.done = "null pointer"
         elif 0 <= index < len(arrayef):
             arrayef[index] = value
         elif index > len(arrayef):
             self.done = "out of bounds"
-
         self.pc += 1
         
     def step_arraylength(self, bc):
@@ -355,19 +341,11 @@ class SimpleInterpreter:
             self.stack.insert(0,len(uddata))
         else:
              self.stack.insert(0,1)
-        # if bc["type"] in self.heap:
-        #     if isinstance(self.heap[bc["type"]],list):
-        #         self.stack.insert(0,len(self.heap[bc["type"]]))
-        #     else:
-        #         self.stack.insert(0,1)
-        # else:
-        #     self.stack.insert(0,None)
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
         right = self.stack.pop(0)
         left = self.stack.pop(0)
-
         result = 0
         match bc["operant"]:
             case "add":
@@ -383,27 +361,22 @@ class SimpleInterpreter:
                     self.done = "divide by zero"
             case "rem":
                 result = left % right
-        
         self.stack.insert(0, result)
-
         self.pc += 1
 
     def step_incr(self, bc): # Missing formal rules 
         amount = bc["amount"]
         index = bc["index"]
-
         value_to_be_incremented = self.stack.pop(index)
         value_to_be_incremented += amount
-
         self.stack.insert(0, value_to_be_incremented)
 
-    # HELPER METHODS/FUNCTIONS
+    # START :: HELPER METHODS/FUNCTIONS
     def if_match_result(self, condition: str, value1, value2, operant: str) -> bool:
         if isinstance(value1, list):
             value1 = len(value1)
         if isinstance(value2, list):
             value2 = len(value2)
-
         match condition:
             case "ne":
                 result = value1 != value2
@@ -419,7 +392,6 @@ class SimpleInterpreter:
                 result = value1 >= value2
             case _:
                 raise ValueError(f"Condition '{condition}' is not implemented for step_'{operant}'")
-            
         return result
         
     def create_array(self, arrtype, sizes):
@@ -429,7 +401,8 @@ class SimpleInterpreter:
             x = sizes[0]
             xs = sizes[1:]
             return [self.create_array(arrtype, xs) for _ in range(x)]
-
+            
+    # END :: HELPER METHODS/FUNCTIONS
 
 
 if __name__ == "__main__":
