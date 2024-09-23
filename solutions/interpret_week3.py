@@ -89,7 +89,7 @@ class SimpleInterpreter:
     pc: int
     done: Optional[str] = None
 
-    def interpet(self, limit=60):
+    def interpet(self, limit=200):
         for i in range(limit):
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
@@ -166,7 +166,7 @@ class SimpleInterpreter:
         right = self.stack.pop(0)
         left = self.stack.pop(0)
         result = self.if_match_result(condition, left, right, "if")
-        self.pc = bc["target"] if not result else self.pc + 1
+        self.pc = bc["target"] if result else self.pc + 1
 
     def step_dup(self, bc): # Missing formal rules:
         if len(self.stack) > 0 and self.stack[0] == "new java/lang/AssertionError()":
@@ -213,7 +213,7 @@ class SimpleInterpreter:
     def step_invoke(self, bc):
         cls = bc["method"]["ref"]["name"]
         if cls == 'java/lang/AssertionError':
-            self.done = "assertion error"
+            self.stack.insert(0, "assertion error")
             # self.stack.pop(0)       
             # # self.stack.insert(0,False)
             # self.stack.insert(0,"assertion error")
@@ -265,9 +265,9 @@ class SimpleInterpreter:
             -- \{athrow\} ["objectref"] -> ["objectref"]
         """
         try:
-            self.done = self.stack.pop()
+            self.done = self.stack.pop(0)
         except:
-            print("there isn't a value in stack") #todo
+            l.debug("there isn't a value in stack") #todo
         self.pc += 1
         
         
@@ -297,12 +297,15 @@ class SimpleInterpreter:
         value = self.stack.pop(0)
         index = self.stack.pop(0)
         arrayef = self.stack.pop(0)
+        l.debug(f"value: {value}")
+        l.debug(f"index: {index}")
+        l.debug(f"arrayref: {arrayef}")
         if arrayef is None:
             self.done = "null pointer"
+        elif index + 1 > len(arrayef):
+            self.done = "out of bounds"
         elif 0 <= index < len(arrayef):
             arrayef[index] = value
-        elif index > len(arrayef):
-            self.done = "out of bounds"
         self.pc += 1
         
     def step_array_load(self, bc):
@@ -329,13 +332,14 @@ class SimpleInterpreter:
             -- finds the length of an array
             -- \{arraylength\} ["array"] -> ["length"]
         """
-        if self.stack[0] is None:
+
+        array = self.stack.pop(0)
+
+        if array is None:
             self.done = "null pointer"
-        elif any(isinstance(s,list) for s in self.stack):
-            uddata = list(filter(lambda x: isinstance(x,list), self.stack))[0]
-            self.stack.insert(0,len(uddata))
-        else:
-             self.stack.insert(0,1)
+        elif isinstance(array, list):
+            self.stack.insert(0, len(array))
+
         self.pc += 1
         
     def step_binary(self, bc): # Missing formal rules 
