@@ -134,7 +134,7 @@ class IntListValue:
 @dataclass(frozen=True)
 @string_compare
 class CharListValue:
-    value: tuple[int]
+    value: tuple[str]
 
     def __str__(self) -> str:
         val = ", ".join(str(a) for a in self.value)
