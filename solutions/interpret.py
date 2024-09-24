@@ -233,9 +233,6 @@ class SimpleInterpreter:
         index = self.get_typed_value_value(self.stack.pop(0))
         arrayef = self.stack.pop(0)
 
-        l.debug(index)
-        l.debug(arrayef)
-
         if arrayef is None:
             self.done = "null pointer"
         elif index >= len(arrayef):
