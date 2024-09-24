@@ -6,15 +6,15 @@ from dataclasses import dataclass
 import sys, logging
 from typing import Optional
 
-from jpamb_utils import InputParser, IntValue, CharValue, MethodId
+from jpamb_utils import InputParser, IntValue, CharValue, BoolValue, MethodId
 
 l = logging
 l.basicConfig(level=logging.DEBUG, format="%(message)s")
 
 # Some useful CLI copy pasta. Golden log can be useful to look at when trying to debug
-# Test all cases: python bin/test.py -o golden.log -- python solutions/interpret_week3.py
-# Test cases but filter by methods: python bin/test.py --filter-methods=divideByN\: -o golden.log -- python solutions/interpret_week3.py
-# Test one method: python solutions/interpret_week3.py 'jpamb.cases.Simple.divideByN:(I)I' '(2)'
+# Test all cases: python bin/test.py -o golden.log -- python solutions/interpret.py
+# Test cases but filter by methods: python bin/test.py --filter-methods=divideByN\: -o golden.log -- python solutions/interpret.py
+# Test one method: python solutions/interpret.py 'jpamb.cases.Simple.divideByN:(I)I' '(2)'
 
 @dataclass
 class SimpleInterpreter:
@@ -22,10 +22,15 @@ class SimpleInterpreter:
     locals: list
     stack: list
     pc: int = 0
+    state = []
     done: Optional[str] = None
 
     def interpet(self, limit=200):
+        running_state = []
+        state_cycles = []
+
         for i in range(limit):
+            current_pc = self.pc
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
             l.debug(f"  PC: {self.pc} {next}")
@@ -37,6 +42,16 @@ class SimpleInterpreter:
             else:
                 return f"can't handle {next['opr']!r}"
 
+            running_state.append([self.pc, next["opr"], self.locals, self.stack])
+            self.state.append([i, running_state])
+
+            if next["opr"] == "goto" and next["target"] != current_pc:
+                state_cycles.append(running_state)
+                running_state = []
+
+            if i == int(limit * 0.33) or i == int(limit * 0.66) or i == int(limit * 0.99):
+                self.detect_repeated_cycle_groups(state_cycles)
+
             if self.done:
                 break
         else:
@@ -45,8 +60,60 @@ class SimpleInterpreter:
         l.debug(f"DONE {self.done}")
         l.debug(f"  LOCALS: {self.locals}")
         l.debug(f"  STACK: {self.stack}")
+        l.debug(f"\nSTATE:\n{self.state}")
+        l.debug(f"\nSTATE CYCLES:\n{state_cycles}")
 
         return self.done
+    
+    def detect_repeated_cycles(self, cycles, loop_cycle_limit=5):
+        for i in range(len(cycles)): # len(cycles) to see all
+            for j in range(i + 1, len(cycles)):
+                if self.compare_cycles(cycles[i], cycles[j]):
+                    l.debug(f"Cycle {i} and cycle {j} are identical.")
+                else:
+                    l.debug(f"Cycle {i} and cycle {j} are not identical.")
+
+    def detect_repeated_cycle_groups(self, cycles, group_size=5):
+        total_cycles = len(cycles)
+
+        if total_cycles < group_size + 5:
+            l.debug(f"Not enough cycles to compare {group_size}-cycle groups.")
+            return
+
+        last_group = cycles[-group_size:]
+        
+        for i in range(total_cycles - group_size, group_size - 1, -group_size):
+            previous_group = cycles[i - group_size:i]
+            
+            if not self.compare_groups(last_group, previous_group):
+                l.debug(f"Last group of {group_size} cycles does not match previous group.")
+                return
+        
+        l.debug(f"The last {group_size} cycles are identical to the previous sets of {group_size} cycles.")
+        self.done = "*"
+
+    def compare_groups(self, group1, group2):
+        if len(group1) != len(group2):
+            return False
+
+        for cycle1, cycle2 in zip(group1, group2):
+            if not self.compare_cycles(cycle1, cycle2):
+                return False
+        return True
+
+    def compare_cycles(self, cycle1, cycle2):
+        if len(cycle1) != len(cycle2):
+            return False
+        for state1, state2 in zip(cycle1, cycle2):
+            if state1[0] != state2[0]:  # pc comparison
+                return False
+            if state1[1] != state2[1]:  # opr comparison
+                return False
+            if state1[2] != state2[2]:  # locals comparison
+                return False
+            if state1[3] != state2[3]:  # stack comparison
+                return False
+        return True
 
     #######################################################
     # OPERATOR METHODS
@@ -57,8 +124,7 @@ class SimpleInterpreter:
             type = val["type"]
             match type:
                 case "integer":
-                    # val = IntValue(val["value"])
-                    val = val["value"]
+                    val = IntValue(val["value"])
                 case _:
                     raise ValueError(f"type {type} is not implemented for step_push.")
 
@@ -75,7 +141,7 @@ class SimpleInterpreter:
         field_name = bc["field"]["name"]
         match field_name:
             case "$assertionsDisabled":
-                result = False # Hardcoded for now
+                result = BoolValue(False) # Hardcoded for now
             case _:
                 raise ValueError(f"step_get not implemented for {field_name}")
             
@@ -83,20 +149,23 @@ class SimpleInterpreter:
         self.pc += 1
 
     def step_goto(self, bc):
-        self.pc = bc["target"]
+        if self.pc == bc["target"]:
+            self.done = "*"
+        else:
+            self.pc = bc["target"]
 
     def step_ifz(self, bc): 
         condition = bc["condition"]
         right = 0
-        left = self.stack.pop(0)
+        left = self.get_typed_value_value(self.stack.pop(0))
 
         result = self.compute_if_operation(condition, left, right, "ifz")
         self.pc = bc["target"] if result else self.pc + 1
 
     def step_if(self, bc): 
         condition = bc["condition"]
-        right = self.stack.pop(0)
-        left = self.stack.pop(0)
+        right = self.get_typed_value_value(self.stack.pop(0))
+        left = self.get_typed_value_value(self.stack.pop(0))
 
         result = self.compute_if_operation(condition, left, right, "if")
         self.pc = bc["target"] if result else self.pc + 1
@@ -109,13 +178,18 @@ class SimpleInterpreter:
         self.pc += 1
 
     def step_load(self, bc):
-        variable_to_load = self.locals[bc["index"]]
+        index = bc["index"]
+        variable_to_load = self.locals[index]
         self.stack.insert(0, variable_to_load)
         self.pc += 1
 
     def step_store(self, bc):
+        index = bc["index"]
         variable_to_store = self.stack.pop(0)
-        self.locals.insert(bc["index"], variable_to_store)
+        if len(self.locals) > index:
+            self.locals[index] = variable_to_store
+        else:
+            self.locals.insert(index, variable_to_store)
         self.pc += 1
 
     def step_new(self, bc):
@@ -133,19 +207,16 @@ class SimpleInterpreter:
         dim = bc["dim"]
         arrtype = bc["type"]
         size = [self.stack[0] for _ in range(dim)]
-        arrnew = self.create_array(arrtype,size)
 
-        # TODO handle type in regards to the new types from kalhauge
+        arrnew = self.create_array_recursively(arrtype, size)
 
         self.stack.insert(0, arrnew)
         self.pc += 1
 
     def step_array_store(self, bc):
         value = self.stack.pop(0)
-        index = self.stack.pop(0)
+        index = self.get_typed_value_value(self.stack.pop(0))
         arrayef = self.stack.pop(0)
-
-        # TODO array store has a type, which must be converted to IntVar or CharVar etc.
 
         if arrayef is None:
             self.done = "null pointer"
@@ -159,10 +230,11 @@ class SimpleInterpreter:
         self.pc += 1
 
     def step_array_load(self, bc):
-        index = self.stack.pop(0)
+        index = self.get_typed_value_value(self.stack.pop(0))
         arrayef = self.stack.pop(0)
 
-        # TODO array load has a type, which must be handled in regards to IntVar or CharVar etc.
+        l.debug(index)
+        l.debug(arrayef)
 
         if arrayef is None:
             self.done = "null pointer"
@@ -181,16 +253,24 @@ class SimpleInterpreter:
         if array is None:
             self.done = "null pointer"
         else:
-            self.stack.insert(0, len(array))
+            self.stack.insert(0, IntValue(len(array)))
 
         self.pc += 1
 
     def step_binary(self, bc): 
-        right = self.stack.pop(0)
-        left = self.stack.pop(0)
+        right = self.get_typed_value_value(self.stack.pop(0))
+        left = self.get_typed_value_value(self.stack.pop(0))
         
-        result = self.compute_binary_operation(bc["operant"], right, left)
-        result = self.convert_values_to_typed_value(right, result)
+        type = bc["type"]
+        opr = bc["operant"]
+
+        result = None
+        match type:
+            case "int":
+                value = int(self.compute_binary_operation(opr, right, left, type))
+                result = IntValue(value)
+            case _:
+                raise ValueError(f"type {type} not implemented.")
 
         self.stack.insert(0, result)
         self.pc += 1
@@ -198,19 +278,25 @@ class SimpleInterpreter:
     def step_incr(self, bc): 
         amount = bc["amount"]
         index = bc["index"]
+        
+        value_type = self.locals.pop(index)
 
-        value = self.stack.pop(index) # Sometimes this is empty? why though, that is a mystery
-
-        new_value = self.convert_values_to_int_value(value)
+        new_value = self.get_typed_value_value(value_type)
         new_value += amount
 
-        incremented_value = self.convert_values_to_typed_value(new_value, value)
+        incremented_value = None
+        if isinstance(value_type, IntValue):
+            incremented_value = IntValue(new_value)
+        elif isinstance(value_type, CharValue):
+            incremented_value = CharValue(new_value)
+        else:
+            raise ValueError(f"typed value {value_type} is not implemented.")
 
-        self.stack.insert(index, incremented_value)
+        self.locals.insert(index, incremented_value)
         self.pc += 1
 
     def step_cast(self, bc):
-        value = self.stack.pop(0)
+        value = self.get_typed_value_value(self.stack.pop(0))
         
         target_type = bc["to"]
         
@@ -268,10 +354,7 @@ class SimpleInterpreter:
             if fn := getattr(instruction, "step_" + next["opr"], None):
                 fn(next)
     
-    def compute_binary_operation(self, opr: str, right, left):
-        right = self.convert_values_to_int_value(right)
-        left = self.convert_values_to_int_value(left)
-
+    def compute_binary_operation(self, opr: str, right, left, type: str):
         result = 0
         match opr:
             case "add":
@@ -291,9 +374,6 @@ class SimpleInterpreter:
         return result
     
     def compute_if_operation(self, condition: str, value1, value2, operant: str) -> bool:
-        value1 = self.convert_values_to_int_value(value1)
-        value2 = self.convert_values_to_int_value(value2)
-
         match condition:
             case "ne":
                 result = value1 != value2
@@ -312,54 +392,43 @@ class SimpleInterpreter:
         
         return result
     
-    def convert_values_to_int_value(self, typed_value):
-        if isinstance(typed_value, CharValue):
-            typed_value = typed_value.tolocal().value # remove value when properly handling types
-        elif isinstance(typed_value, int):
-            pass
-        elif isinstance(typed_value, IntValue):
-            typed_value = typed_value.value
+    def get_typed_value_value(self, value):
+        if isinstance(value, int):
+            return value
+        elif isinstance(value, CharValue):
+            return value.tolocal()
         else:
-            raise ValueError(f"typed_value {typed_value} is not implemented.")
+            return value.value
 
-        return typed_value
-
-    def convert_values_to_typed_value(self, original, modified):
-        result = None
-        if isinstance(original, IntValue):
-            result = IntValue(modified)
-        elif isinstance(original, CharValue):
-            result = CharValue(modified)
-        elif isinstance(original, int):
-            result = modified
-        else:
-            raise ValueError(f"typed value {original} is not implemented.")
-
-        return result
-
-    def create_array(self, arrtype, sizes):
+    def create_array_recursively(self, arrtype, sizes):
         if len(sizes) == 1:
-            return [None] * sizes[0]
+            match arrtype:
+                case "int":
+                    return [IntValue(None) for _ in range(sizes[0].value)]
+                case "char":
+                    return [CharValue(None) for _ in range(sizes[0].value)]
+                case _:
+                    raise ValueError(f"array type {arrtype} is not implemented.")
         else:
             x = sizes[0]
             xs = sizes[1:]
-            return [self.create_array(arrtype, xs) for _ in range(x)]
+            return [self.create_array_recursively(arrtype, xs) for _ in range(x)]
         
     def int_to_short(self, value):
         value &= 0xFFFF  
         if value > 32767:
             value -= 0x10000
-        return value
+        return IntValue(value) # Maybe there will be a ShortValue in the future? There is none atm
 
     def int_to_byte(self, value):
         value &= 0xFF 
         if value > 127:
             value -= 0x100 
-        return value
+        return IntValue(value) # Maybe there will be a ByteValue in the future? There is none atm
 
     def int_to_char(self, value):
         value &= 0xFFFF 
-        return value
+        return CharValue(value)
 
 #######################################################
 # ENTRYPOINT
@@ -369,5 +438,4 @@ if __name__ == "__main__":
     inputs = InputParser.parse(sys.argv[2])
     m = methodid.load()
     i = SimpleInterpreter(m["code"]["bytecode"], [i.tolocal() for i in inputs], [])
-    print(inputs)
     print(i.interpet())
