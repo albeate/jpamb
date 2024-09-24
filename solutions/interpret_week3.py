@@ -57,7 +57,8 @@ class MethodId:
                 m["name"] == self.method_name
                 and len(self.params) == len(m["params"])
                 and all(
-                    p == t["type"]["base"] for p, t in zip(self.params, m["params"])
+                     p == (t["type"]["type"]["base"] if t["type"].get("kind") == "array" else t["type"]["base"]) # Using .get() to check if kind exists
+                    for p, t in zip(self.params, m["params"])
                 )
             ):
                 return m
@@ -460,11 +461,23 @@ if __name__ == "__main__":
     methodid = MethodId.parse(sys.argv[1])
     inputs = []
     result = sys.argv[2][1:-1]
+    # if result != "":
+    #     for i in result.split(","):
+    #         if i == "true" or i == "false":
+    #             inputs.append(i == "true")
+    #         else:
+    #             inputs.append(int(i))
     if result != "":
         for i in result.split(","):
             if i == "true" or i == "false":
                 inputs.append(i == "true")
+            elif i.startswith("[I:"):
+                # Handle array input, e.g., "[I:1]" => [1]
+                # Extract the values inside the array
+                array_elements = i[3:-1].split()  # Extract the content inside "[I: ]"
+                inputs.append([int(elem) for elem in array_elements])  # Convert to list of integers
             else:
                 inputs.append(int(i))
+
     print("yoyo:",inputs)
     print(methodid.create_interpreter(inputs).interpet())
