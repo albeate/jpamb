@@ -35,7 +35,7 @@ class SimpleInterpreter:
 
         for i in range(limit):
             next = self.bytecode[self.pc]
-            l.debug(f"STEP {i}:")
+            l.debug(f"STEP {self.current_iteration}:")
             l.debug(f"  PC: {self.pc} {next}")
             l.debug(f"  LOCALS: {self.locals}")
             l.debug(f"  STACK: {self.stack}")
@@ -139,9 +139,11 @@ class SimpleInterpreter:
 
     def step_return(self, bc):
         if bc["type"] is not None:
-            self.stack.pop(0)
+            value = self.get_typed_value_value(self.stack.pop(0))
+            # TODO ?
 
         self.done = "ok"
+        self.pc += 1
 
     def step_get(self, bc): 
         field_name = bc["field"]["name"]
@@ -361,6 +363,7 @@ class SimpleInterpreter:
             i2.interpet(self.current_iteration)
             l.debug("## Leaving a method")
 
+            self.current_iteration = i2.current_iteration
             if i2.done and i2.done != "ok":
                 self.done = i2.done
 
