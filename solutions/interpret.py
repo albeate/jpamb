@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import sys, logging
 from typing import Optional
 
-from jpamb_utils import InputParser, IntValue, CharValue, BoolValue, MethodId
+from jpamb_utils import InputParser, IntValue, CharValue, BoolValue, JvmType, MethodId
 
 l = logging
 l.basicConfig(level=logging.DEBUG, format="%(message)s")
@@ -22,20 +22,26 @@ class SimpleInterpreter:
     locals: list
     stack: list
     pc: int = 0
+    current_iteration: int = 0
     state = []
     done: Optional[str] = None
 
-    def interpet(self, limit=200):
+    def interpet(self, current_iteration=0, max_iterations=5000):
         running_state = []
         state_cycles = []
 
+        limit = max_iterations - current_iteration
+        self.current_iteration = current_iteration
+
         for i in range(limit):
-            current_pc = self.pc
             next = self.bytecode[self.pc]
             l.debug(f"STEP {i}:")
             l.debug(f"  PC: {self.pc} {next}")
             l.debug(f"  LOCALS: {self.locals}")
             l.debug(f"  STACK: {self.stack}")
+
+            current_pc = self.pc
+            self.current_iteration += 1
 
             if fn := getattr(self, "step_" + next["opr"], None):
                 fn(next)
@@ -60,8 +66,8 @@ class SimpleInterpreter:
         l.debug(f"DONE {self.done}")
         l.debug(f"  LOCALS: {self.locals}")
         l.debug(f"  STACK: {self.stack}")
-        l.debug(f"\nSTATE:\n{self.state}")
-        l.debug(f"\nSTATE CYCLES:\n{state_cycles}")
+        # l.debug(f"\nSTATE:\n{self.state}")
+        # l.debug(f"\nSTATE CYCLES:\n{state_cycles}")
 
         return self.done
     
@@ -312,45 +318,57 @@ class SimpleInterpreter:
         cls = bc["method"]["ref"]["name"]
         if cls == 'java/lang/AssertionError':
             self.stack.insert(0, "assertion error")
-            # self.stack.pop(0)       
-            # # self.stack.insert(0,False)
-            # self.stack.insert(0,"assertion error")
         else:
             name = bc["method"]["name"]
             args = bc["method"]["args"]
-            # self.locals = {i: arg for i, arg in enumerate(args)}
-            if 'int' in args: # mangler at få lavet den dynamisk mht antallet ad inddata
-                args_type = 'I'
-            elif  'boolean' in args:
-                args_type = 'Z'
+            returns = bc["method"]["returns"]
+
+            INV_TYPE_LOOKUP: dict[JvmType, str] = {
+                "boolean": "Z",
+                "int": "I",
+                "char": "C",
+                "int[]": "[I",  # ]
+                "char[]": "[C",  # ]
+                "null": "V",
+                "None": "V"
+            }
+
+            arg_type = ""
+            if args:
+                arg_type = "".join(INV_TYPE_LOOKUP[arg] for arg in args if arg in INV_TYPE_LOOKUP)
+
+            return_type = ""
+            if returns:
+                if isinstance(returns, str):
+                    return_type = "".join(INV_TYPE_LOOKUP[returns])
+                else:
+                    returnss = returns["type"]
+                    if returns["kind"] == "array":
+                        returnss += "[]"
+                    
+                    return_type = "".join(INV_TYPE_LOOKUP[returnss])
             else:
-                args_type = ''
-                return_type = "V" # mangler stadig at få den lavet dynamisk. Kig på original koden 
-                method_name = cls.replace('/','.')+'.'+name+':('+args_type+')'+return_type
-                # print("invoke_self.locals  := ", self.locals)
-                # print("invoke_class := ", cls)
-                # print("invoke_name := ", name)
-                # print("invoke_argv := ", args)
-                # print("invoke_args_type := ", args_type)
-                # print("invoke_method_name := ", method_name)
-                bytecode = MethodId.parse(method_name).load()["code"]["bytecode"]
-                print("invoke_bytecode:= ", bytecode)
-                sub_method = self.execute_bytecode(bytecode) # arbejder på det
-                if sub_method is not None:
-                    self.stack.pop()
+                return_type = "".join(INV_TYPE_LOOKUP["None"])
+
+            method_locals = self.stack
+
+            method_name = cls.replace('/','.')+'.'+name+':('+arg_type+')'+return_type
+            bc2 = MethodId.parse(method_name).load()["code"]["bytecode"] 
+            # l.debug(bc2)
+
+            l.debug("## Entering a method")
+            i2 = SimpleInterpreter(bc2, method_locals, [], 0)
+            i2.interpet(self.current_iteration)
+            l.debug("## Leaving a method")
+
+            if i2.done and i2.done != "ok":
+                self.done = i2.done
+
         self.pc += 1
 
     #######################################################
     # HELPER METHODS
-    #######################################################
-    def execute_bytecode(self, bytecode):
-        for instruction in bytecode:
-            # print("execute_bytecode_instruction :=", instruction)
-            # print("execute_bytecode_self.pc :=", self.pc)
-            next = instruction
-            if fn := getattr(instruction, "step_" + next["opr"], None):
-                fn(next)
-    
+    #######################################################    
     def compute_binary_operation(self, opr: str, right, left, type: str):
         result = 0
         match opr:
@@ -398,12 +416,13 @@ class SimpleInterpreter:
             return value.value
 
     def create_array_recursively(self, arrtype, sizes):
+        value = self.get_typed_value_value(sizes[0])
         if len(sizes) == 1:
             match arrtype:
                 case "int":
-                    return [IntValue(None) for _ in range(sizes[0].value)]
+                    return [IntValue(None) for _ in range(value)]
                 case "char":
-                    return [CharValue(None) for _ in range(sizes[0].value)]
+                    return [CharValue(None) for _ in range(value)]
                 case _:
                     raise ValueError(f"array type {arrtype} is not implemented.")
         else:
