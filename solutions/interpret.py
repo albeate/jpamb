@@ -26,7 +26,7 @@ class SimpleInterpreter:
     state = []
     done: Optional[str] = None
 
-    def interpet(self, current_iteration=0, max_iterations=5000):
+    def interpet(self, current_iteration=0, max_iterations=500):
         running_state = []
         state_cycles = []
 
@@ -233,7 +233,7 @@ class SimpleInterpreter:
         elif 0 <= index < len(arrayef):
             arrayef[index] = value
         else:
-            ValueError(f"Could not store array {arrayef}")
+            raise ValueError(f"Could not store array {arrayef}")
 
         self.pc += 1
 
@@ -248,7 +248,7 @@ class SimpleInterpreter:
         elif 0 <= index < len(arrayef):
             self.stack.insert(0, arrayef[index])
         else:
-            ValueError(f"Could not load array {arrayef}")
+            raise ValueError(f"Could not load array {arrayef}")
             
         self.pc += 1
 
@@ -358,10 +358,10 @@ class SimpleInterpreter:
             bc2 = MethodId.parse(method_name).load()["code"]["bytecode"] 
             # l.debug(bc2)
 
-            l.debug("## Entering a method")
+            l.debug(f"## Entering the method: {method_name}")
             i2 = SimpleInterpreter(bc2, method_locals, [], 0)
             i2.interpet(self.current_iteration)
-            l.debug("## Leaving a method")
+            l.debug(f"## Leaving the method: {method_name}")
 
             self.current_iteration = i2.current_iteration
             if i2.done and i2.done != "ok":
