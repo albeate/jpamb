@@ -8,16 +8,6 @@ jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Loops interpret.yaml -o 
 jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Tricky interpret.yaml -o interpret.json
 jpamb >> python3 ./bin/evaluate.py -vv  interpret.yaml -o interpret.json
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-print("ok;_%")
-print("assertion error;_%")
-print("*;_%")
-print("divide by zero;_%")
-print("out of bounds;_%")
-print("null pointer;_%")
 
 'jpamb.cases.Simple.divideByN:(I)I'  '(2)' -> ok
 'jpamb.cases.Arrays.binarySearch:(I)V' '(6)' -> assertion error
@@ -29,11 +19,6 @@ print("null pointer;_%")
 methodid = ib.MethodId.parse('jpamb.cases.Simple.divideByN:(I)I')
 inputs = ib.InputParser.parse('(2)')
 
->>>>>>> 4b620d4 (en grov version af dynamisk analyse)
-=======
->>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
-=======
->>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
 inddata kan være af type heltal (I), bolsk (Z), intet (),
 to heltal (II), en liste af af heltal ([I) og en liste af bogstaver ([C).
 
@@ -90,11 +75,6 @@ match result:
   case "out of bounds":
     print("out of bounds;100%")
   case "null pointer":
-<<<<<<< HEAD
-=======
-    # print("assertion error;92%")
-=======
->>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
     print("assertion error;100%")
   case "ok":
     print("ok;100%")
@@ -105,13 +85,6 @@ match result:
   case "out of bounds":
     print("out of bounds;100%")
   case "null pointer":
-<<<<<<< HEAD
-    # print("null pointer;92%")
->>>>>>> 4b620d4 (en grov version af dynamisk analyse)
-=======
->>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
-=======
->>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
     print("null pointer;100%")
   case '':
      print("ok;80%")
