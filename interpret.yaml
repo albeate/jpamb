@@ -11,11 +11,10 @@ for_science: true
 tools:
   interpret:
     technologies:
-      - bytecode
-      - fuzz
+      - random
       - python
       - dynamic
-      - syntaxer
+      - syntactic
 
     executable:
     - intLib/dynamic.py

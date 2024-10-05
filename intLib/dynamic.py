@@ -6,7 +6,7 @@ jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Arrays interpret.yaml -o
 jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Calls interpret.yaml -o interpret.json
 jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Loops interpret.yaml -o interpret.json
 jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Tricky interpret.yaml -o interpret.json
-jpamb >> python3 ./bin/evaluate.py -vv  interpret.yaml -o interpret.json
+jpamb >> python3 ./bin/evaluate.py interpret.yaml -o interpret.json
 
 inddata kan være af type heltal (I), bolsk (Z), intet (),
 to heltal (II), en liste af af heltal ([I) og en liste af bogstaver ([C).
@@ -25,16 +25,15 @@ import sys, logging, re, tree_sitter
 from random import randrange, choices, sample
 from string import ascii_letters
 
-def tjekCases(cases):
-    caseFound = set(cases)
-    caseSet = {"assertion error", "ok", "*", "divide by zero","out of bounds","null pointer"}
+def tjekCases(caseFound):
+    caseSet = {"assertion error", "ok", "*", "divide by zero", "out of bounds", "null pointer"}
     res = caseSet - caseFound
     return res
 
 l = logging
 l.basicConfig(level=logging.DEBUG)
 
-cases = []
+cases = set()
 (name,) = sys.argv[1:]
 methodid = ib.MethodId.parse(name)
 pattern = r'^(.*)\.(.*):\(([^)]*)\)(\w)$'
@@ -46,14 +45,12 @@ if matches:
     l.debug(f"klasse: {class_}")
     l.debug(f"methodenavn: {method_name}")
     l.debug(f"--------------------")
-    
     path = "src/main/java/jpamb/cases/" + class_.replace(".", "/") + ".java"
     with open(path) as f:
         txt = f.read()
     JAVA_LANGUAGE = tree_sitter.Language(tsjava.language())
     parser = tree_sitter.Parser(JAVA_LANGUAGE)
     tree = parser.parse(bytes(txt, "utf8"))
-    
     # https://tree-sitter.github.io/tree-sitter/playground
     query = JAVA_LANGUAGE.query(
     f""" 
@@ -72,8 +69,9 @@ if matches:
       )
     """
     )
+    # udnytter det ikke 100%
     for nodes in query.captures(tree.root_node)["case-arg"]:
-        cases.append(nodes.text.decode().rsplit("->",1)[1].split("\")",1)[0].strip() )
+        cases.add(nodes.text.decode().rsplit("->",1)[1].split("\")",1)[0].strip() )
     f.close() 
     l.debug(f"cases: {cases}")
     for x in range(len(cases)):
@@ -101,10 +99,9 @@ if matches:
       if result != "out of time":
           print(result+";100%")
       for i in tjekCases(cases):
-          l.debug(f"ander cases: {i}")
+          l.debug(f"cases: {i}")
           print(i+";0%")
       l.debug(f"--------------------")
-    
 else:
     l.debug(f"< {name} > er ikke gyldig inddata." )
     sys.exit(0)
