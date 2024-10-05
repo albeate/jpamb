@@ -11,7 +11,12 @@ test_output
 timer/sieve
 timer/sieve.exe
 
-result.json
 progress.html
 .venv
 jpamb_utils.egg-info/
+
+*.log
+*.yaml
+*.json
+*.sh
+.DS_Store

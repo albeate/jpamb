@@ -17,6 +17,7 @@ l.basicConfig(level=logging.DEBUG, format="%(message)s")
 # Test one method: python solutions/interpret.py 'jpamb.cases.Simple.divideByN:(I)I' '(2)'
 #python3 bin/test.py -v --no-fail-fast -- python3 solutions/interpret.py 
 # python3 bin/test.py --filter-methods=allPrimesArePositive -o golden.log -- python3 solutions/interpret.py
+# python3 solutions/interpret.py 'jpamb.cases.Calls.allPrimesArePositive:(I)V' '(7)' 
 
 @dataclass
 class SimpleInterpreter:
@@ -142,8 +143,7 @@ class SimpleInterpreter:
     def step_return(self, bc):
         if bc["type"] is not None:
             value = self.get_typed_value_value(self.stack.pop(0))
-            # TODO ?
-
+            # TODO
         self.done = "ok"
         self.pc += 1
 
