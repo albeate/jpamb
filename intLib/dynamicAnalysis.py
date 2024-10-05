@@ -9,6 +9,7 @@ jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Tricky interpret.yaml -o
 jpamb >> python3 ./bin/evaluate.py -vv  interpret.yaml -o interpret.json
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 print("ok;_%")
 print("assertion error;_%")
@@ -28,6 +29,8 @@ methodid = ib.MethodId.parse('jpamb.cases.Simple.divideByN:(I)I')
 inputs = ib.InputParser.parse('(2)')
 
 >>>>>>> 4b620d4 (en grov version af dynamisk analyse)
+=======
+>>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
 inddata kan være af type heltal (I), bolsk (Z), intet (),
 to heltal (II), en liste af af heltal ([I) og en liste af bogstaver ([C).
 
@@ -70,6 +73,7 @@ l.debug(f"uddata: {result}")
 match result:
   case "assertion error":
 <<<<<<< HEAD
+<<<<<<< HEAD
     print("assertion error;100%")
   case "ok":
     print("ok;100%")
@@ -82,22 +86,23 @@ match result:
   case "null pointer":
 =======
     # print("assertion error;92%")
+=======
+>>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
     print("assertion error;100%")
   case "ok":
-    # print("ok;92%")
     print("ok;100%")
   case "*":
-    # print("*;92%")
     print("*;100%")
   case "divide by zero":
-    # print("divide by zero;92%")
     print("divide by zero;100%")
   case "out of bounds":
-    # print("out of bounds;92%")
     print("out of bounds;100%")
   case "null pointer":
+<<<<<<< HEAD
     # print("null pointer;92%")
 >>>>>>> 4b620d4 (en grov version af dynamisk analyse)
+=======
+>>>>>>> cc42e12 (dynamisk analyse + yaml. oppe på ca 66 point)
     print("null pointer;100%")
   case '':
      print("ok;80%")
