@@ -15,8 +15,6 @@ l.basicConfig(level=logging.DEBUG, format="%(message)s")
 # Test all cases: python bin/test.py -o golden.log -- python solutions/interpret.py
 # Test cases but filter by methods: python bin/test.py --filter-methods=divideByN\: -o golden.log -- python solutions/interpret.py
 # Test one method: python solutions/interpret.py 'jpamb.cases.Simple.divideByN:(I)I' '(2)'
-#python3 bin/test.py -v --no-fail-fast -- python3 solutions/interpret.py 
-# python3 bin/test.py --filter-methods=allPrimesArePositive -o golden.log -- python3 solutions/interpret.py
 
 @dataclass
 class SimpleInterpreter:
@@ -154,6 +152,7 @@ class SimpleInterpreter:
                 result = BoolValue(False) # Hardcoded for now
             case _:
                 raise ValueError(f"step_get not implemented for {field_name}")
+            
         self.stack.insert(0, result)
         self.pc += 1
 
@@ -203,6 +202,7 @@ class SimpleInterpreter:
 
     def step_new(self, bc):
         class_name = bc["class"]
+
         new_object = f"new {class_name}()"
         self.stack.insert(0, new_object)
         self.pc += 1
@@ -215,7 +215,9 @@ class SimpleInterpreter:
         dim = bc["dim"]
         arrtype = bc["type"]
         size = [self.stack[0] for _ in range(dim)]
+
         arrnew = self.create_array_recursively(arrtype, size)
+
         self.stack.insert(0, arrnew)
         self.pc += 1
 
@@ -223,6 +225,7 @@ class SimpleInterpreter:
         value = self.stack.pop(0)
         index = self.get_typed_value_value(self.stack.pop(0))
         arrayef = self.stack.pop(0)
+
         if arrayef is None:
             self.done = "null pointer"
         elif index >= len(arrayef):
@@ -231,6 +234,7 @@ class SimpleInterpreter:
             arrayef[index] = value
         else:
             ValueError(f"Could not store array {arrayef}")
+
         self.pc += 1
 
     def step_array_load(self, bc):
@@ -411,8 +415,6 @@ class SimpleInterpreter:
             return value
         elif isinstance(value, CharValue):
             return value.tolocal()
-        elif isinstance(value, list):
-            return list
         else:
             return value.value
 
