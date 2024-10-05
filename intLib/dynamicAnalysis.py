@@ -8,23 +8,6 @@ jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Loops interpret.yaml -o 
 jpamb >> python3 ./bin/evaluate.py -vv --filter-methods=Tricky interpret.yaml -o interpret.json
 jpamb >> python3 ./bin/evaluate.py -vv  interpret.yaml -o interpret.json
 
-print("ok;_%")
-print("assertion error;_%")
-print("*;_%")
-print("divide by zero;_%")
-print("out of bounds;_%")
-print("null pointer;_%")
-
-'jpamb.cases.Simple.divideByN:(I)I'  '(2)' -> ok
-'jpamb.cases.Arrays.binarySearch:(I)V' '(6)' -> assertion error
-'jpamb.cases.Arrays.arrayOutOfBounds:()V' '()' -> 'out of bounds'
-'jpamb.cases.Loops.neverAsserts:()V' '()' -> '*'
-'jpamb.cases.Arrays.arrayIsNull:()V' '()' -> 'null pointer'
-'jpamb.cases.Simple.divideByZero:()I' '(0)'  -> 'divide by zero'
-
-methodid = ib.MethodId.parse('jpamb.cases.Simple.divideByN:(I)I')
-inputs = ib.InputParser.parse('(2)')
-
 inddata kan være af type heltal (I), bolsk (Z), intet (),
 to heltal (II), en liste af af heltal ([I) og en liste af bogstaver ([C).
 
@@ -66,22 +49,16 @@ l.debug(f"inddata: {val}")
 l.debug(f"uddata: {result}")
 match result:
   case "assertion error":
-    # print("assertion error;92%")
     print("assertion error;100%")
   case "ok":
-    # print("ok;92%")
     print("ok;100%")
   case "*":
-    # print("*;92%")
     print("*;100%")
   case "divide by zero":
-    # print("divide by zero;92%")
     print("divide by zero;100%")
   case "out of bounds":
-    # print("out of bounds;92%")
     print("out of bounds;100%")
   case "null pointer":
-    # print("null pointer;92%")
     print("null pointer;100%")
   case '':
      print("ok;80%")

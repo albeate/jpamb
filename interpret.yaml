@@ -1,0 +1,38 @@
+# Choose a group name, remember it will be made public so choose 
+# a random string if you want to be anonymous
+# ./bin/evaluate.py interpret.yaml > interpret.json
+#solutions/./syntaxer_week2.py
+group_name: "I'm_le_tired"
+
+# Answer true if the data you provide can be used anonomized for science!
+for_science: true
+
+# Underneath here add the tools which you want to run
+tools:
+  interpret:
+    technologies:
+      - bytecode
+      - fuzz
+      - python
+      - dynamic
+      - syntaxer
+
+    executable:
+    # - intLib/dynamicAnalysis.py
+    - intLib/dynamic.py
+
+  # cheater:
+  #   technologies:
+  #     - statistical
+  #     - cheater
+  #     - python
+  #
+  #   executable:
+  #     - python
+  #     - solutions/cheater.py
+
+# Describe your machine here (for research purposes) 
+machine:
+  os: macosx
+  processor: "2,6 GHz 6-Core Intel Core i7"
+  memory: "32 GB 2667 MHz DDR4"
