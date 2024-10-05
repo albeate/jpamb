@@ -24,6 +24,13 @@ import sys, logging, re, tree_sitter
 from random import randrange, choices, sample
 from string import ascii_letters
 
+def tjekCases(cases):
+    c = ["assertion error", "ok", "*", "divide by zero","out of bounds","null pointer"]
+    for x in c:
+        if x != cases:
+            return print(x+";0%")
+    return None
+
 l = logging
 l.basicConfig(level=logging.DEBUG)
 
@@ -65,8 +72,8 @@ if matches:
     )
     for nodes in query.captures(tree.root_node)["case-arg"]:
         #cases = nodes.text.decode()
-        cases = nodes.text.decode().rsplit("->",1)[1].split("\")",1)[0].strip() # gør ish brug af den
-        l.debug(f"cases: {cases}")
+        case = nodes.text.decode().rsplit("->",1)[1].split("\")",1)[0].strip() # gør ish brug af den
+        l.debug(f"cases: {case}")
         if matches:
             param = matches.group(3)
             l.debug(f"parameter: {param}")
@@ -88,38 +95,41 @@ if matches:
         result = i.interpet()
         l.debug(f"inddata: {val}")
         l.debug(f"uddata: {result}")
-        match result:
-          case "assertion error":
-            print("assertion error;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case "ok":
-            print("ok;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case "*":
-            print("*;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case "divide by zero":
-            print("divide by zero;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case "out of bounds":
-            print("out of bounds;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case "null pointer":
-            print("null pointer;100%")
-            if cases != result:
-                print(cases + ";100%")
-          case '':
-             print("ok;80%")
-             if cases != result:
-                 print(cases + ";100%")
+        print(result+";100%")
+        # todo: så længe ej result eller en case så print(case+"0%") 
+        
+        # match result:
+        #   case "assertion error":
+        #     print("assertion error;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case "ok":
+        #     print("ok;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case "*":
+        #     print("*;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case "divide by zero":
+        #     print("divide by zero;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case "out of bounds":
+        #     print("out of bounds;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case "null pointer":
+        #     print("null pointer;100%")
+        #     if cases != result:
+        #         print(cases + ";100%")
+        #   case '':
+        #      print("ok;80%")
+        #      if cases != result:
+        #          print(cases + ";100%")
+        #          tjekCases(cases)
         l.debug(f"--------------------")
     f.close() 
 else:
     l.debug(f"< {name} > er ikke gyldig inddata." )
     sys.exit(0)
-
