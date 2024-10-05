@@ -18,8 +18,7 @@ tools:
       - syntaxer
 
     executable:
-    # - intLib/dynamicAnalysis.py
-    - intLib/dynamic.py
+    - intLib/dynamicV2.py
 
   # cheater:
   #   technologies:
