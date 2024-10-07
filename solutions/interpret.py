@@ -230,12 +230,7 @@ class SimpleInterpreter:
         elif 0 <= index < len(arrayef):
             arrayef[index] = value
         else:
-<<<<<<< HEAD
             ValueError(f"Could not store array {arrayef}")
-=======
-            raise ValueError(f"Could not store array {arrayef}")
-
->>>>>>> origin/develop
         self.pc += 1
 
     def step_array_load(self, bc):
