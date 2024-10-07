@@ -74,6 +74,7 @@ if matches:
         cases.add(nodes.text.decode().rsplit("->",1)[1].split("\")",1)[0].strip() )
     f.close() 
     l.debug(f"cases: {cases}")
+    result = []
     for x in range(len(cases)):
       if matches:
           param = matches.group(3)
@@ -93,15 +94,21 @@ if matches:
       inputs = ib.InputParser.parse(val)
       m = methodid.load()
       i = ib.SimpleInterpreter(m["code"]["bytecode"], [i.tolocal() for i in inputs], [])
-      result = i.interpet()
-      l.debug(f"inddata: {val}")
-      l.debug(f"uddata: {result}")
-      if result != "out of time":
-          print(result+";100%")
-      for i in tjekCases(cases):
-          l.debug(f"cases: {i}")
-          print(i+";0%")
-      l.debug(f"--------------------")
+      result.append(i.interpet())
+      
+    
+    l.debug(f"inddata: {val}")
+    l.debug(f"uddata: {result}")
+    
+    for case in result:
+        if case != "out of time":
+          print(case+";100%")
+
+    for i in tjekCases(cases):
+        l.debug(f"cases: {i}")
+        print(i+";0%")
+
+    l.debug(f"--------------------")
 else:
     l.debug(f"< {name} > er ikke gyldig inddata." )
     sys.exit(0)
